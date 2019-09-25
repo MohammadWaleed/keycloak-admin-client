@@ -1,8 +1,8 @@
 <?php
 
-namespace Keycloak\Admin\Client;
+namespace Keycloak\Admin;
 
-use Keycloak\Admin\Client\Middleware\RefreshToken;
+use Keycloak\Admin\Middleware\RefreshToken;
 use GuzzleHttp\Command\Guzzle\GuzzleClient;
 use GuzzleHttp\Command\Guzzle\Description;
 use GuzzleHttp\Client;
@@ -17,14 +17,12 @@ use GuzzleHttp\HandlerStack;
 class KeycloakClient extends GuzzleClient
 {
 
-    const VERSION = '0.0.1';
-
     /**
      * Factory to create new KeycloakClient instance.
      *
      * @param array $config
      *
-     * @returns \Keycloak\Admin\Client\KeycloakClient
+     * @returns \Keycloak\Admin\KeycloakClient
      */
     public static function factory($config = array())
     {

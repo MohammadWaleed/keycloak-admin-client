@@ -1,6 +1,6 @@
 <?php
 
-namespace Keycloak\Admin\Client\Middleware;
+namespace Keycloak\Admin\Middleware;
 
 use GuzzleHttp\Client;
 use Psr\Http\Message\RequestInterface;
