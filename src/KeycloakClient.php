@@ -32,7 +32,6 @@ class KeycloakClient extends GuzzleClient
             'realm'    => 'master',
             'version'  => '1.0',
             'baseUri' => null,
-            'client_id' => null,
         );
 
         // Create client configuration
@@ -62,6 +61,8 @@ class KeycloakClient extends GuzzleClient
 
     public function getCommand($name, array $params = [])
     {
+        $params['realm'] = $this->getRealm();
+
         return parent::getCommand($name, $params);
     }
 
@@ -103,26 +104,6 @@ class KeycloakClient extends GuzzleClient
     public function getRealm()
     {
         return $this->getConfig('realm');
-    }
-
-    /**
-     * Sets the set Client Id used by the Keycloak Client
-     *
-     * @param string $clientId
-     */
-    public function setClientId($clientId)
-    {
-        $this->setConfig('client_id', $clientId);
-    }
-
-    /**
-     * Gets the Client Id being used by the Keycloak Client
-     *
-     * @return string|null Value of the ClientId or NULL
-     */
-    public function getClientId()
-    {
-        return $this->getConfig('client_id');
     }
 
     /**
