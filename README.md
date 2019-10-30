@@ -339,10 +339,24 @@ $client->createUser([
 | Get realm-level roles that can be mapped | | ❌ |
 | Get effective realm-level role mappings This will recurse all composite roles to get the result. | | ❌ |
 
- ## [Roles]()
+ ## [Roles](https://www.keycloak.org/docs-api/7.0/rest-api/index.html#_roles_resource)
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
+| Create a new role for the realm or client (Client Specific) | | ❌ |
+| Get all roles for the realm or client (Client Specific) | | ❌ |
+| Get a role by name (Client Specific) | | ❌ |
+| Update a role by name (Client Specific) | | ❌ |
+| Delete a role by name (Client Specific) | | ❌ |
+| Add a composite to the role (Client Specific) | | ❌ |
+| Get composites of the role (Client Specific) | | ❌ |
+| Remove roles from the role’s composite (Client Specific) | | ❌ |
+| An app-level roles for the specified app for the role’s composite (Client Specific) | | ❌ |
+| Get realm-level roles of the role’s composite (Client Specific) | | ❌ |
+| Return List of Groups that have the specified role name (Client Specific) | | ❌ |
+| Return object stating whether role Authoirzation permissions have been initialized or not and a reference (Client Specific) | | ❌ |
+| Update object stating whether role Authoirzation permissions have been initialized or not and a reference (Client Specific) | | ❌ |
+| Return List of Users that have the specified role name (Client Specific) | getClientRoleUsers | ✔️ |
 | Create a new role for the realm or client | | ❌ |
 | Get all roles for the realm or client | | ❌ |
 | Get a role by name | | ❌ |
@@ -355,21 +369,7 @@ $client->createUser([
 | Get realm-level roles of the role’s composite | | ❌ |
 | Return List of Groups that have the specified role name | | ❌ |
 | Return object stating whether role Authoirzation permissions have been initialized or not and a reference | | ❌ |
-| Return object stating whether role Authoirzation permissions have been initialized or not and a reference | | ❌ |
-| Return List of Users that have the specified role name | | ❌ |
-| Create a new role for the realm or client | | ❌ |
-| Get all roles for the realm or client | | ❌ |
-| Get a role by name | | ❌ |
-| Update a role by name | | ❌ |
-| Delete a role by name | | ❌ |
-| Add a composite to the role | | ❌ |
-| Get composites of the role | | ❌ |
-| Remove roles from the role’s composite | | ❌ |
-| An app-level roles for the specified app for the role’s composite | | ❌ |
-| Get realm-level roles of the role’s composite | | ❌ |
-| Return List of Groups that have the specified role name | | ❌ |
-| Return object stating whether role Authoirzation permissions have been initialized or not and a reference | | ❌ |
-| Return object stating whether role Authoirzation permissions have been initialized or not and a reference | | ❌ |
+| Update object stating whether role Authoirzation permissions have been initialized or not and a reference | | ❌ |
 | Return List of Users that have the specified role name | | ❌ |
 
  ## [Roles (by ID)]()

@@ -127,5 +127,42 @@ return array(
                 )
             ),
         ),
+
+        //Roles
+
+        'getClientRoleUsers' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles/{role-name}/users',
+            'description' => 'Return List of Users that have the specified role name (Client Specific)',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'first' => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'required' => false
+                ),
+                'max' => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'required' => false
+                ),
+            ),
+        ),
     )
 );
