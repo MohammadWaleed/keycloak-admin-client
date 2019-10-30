@@ -3,6 +3,7 @@
 This is a php client to connect to keycloak admin rest apis with no headache.
 
 Features:
+
 1- Easy to use 
 
 2- No need to get token or generate it it's already handled by the client
@@ -180,7 +181,7 @@ $client->createUser([
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
 | Create a new client Client’s client_id must be unique! | | ❌ |
-| Get clients belonging to the realm Returns a list of clients belonging to the realm | | ❌ |
+| Get clients belonging to the realm Returns a list of clients belonging to the realm | getClients | ✔️ |
 | Get representation of the client | | ❌ |
 | Update the client | | ❌ |
 | Delete the client | | ❌ |
@@ -428,10 +429,10 @@ $client->createUser([
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| Create a new user Username must be unique. | | ❌ |
-| Get users Returns a list of users, filtered according to query parameters | | ❌ |
+| Create a new user Username must be unique. | createUser | ✔️ |
+| Get users Returns a list of users, filtered according to query parameters | getUsers | ✔️ |
 | GET /{realm}/users/count | | ❌ |
-| Get representation of the user | | ❌ |
+| Get representation of the user | getUser | ️️️✔️ |
 | Update the user | | ❌ |
 | Delete the user | | ❌ |
 | Get consents granted by the user | | ❌ |
