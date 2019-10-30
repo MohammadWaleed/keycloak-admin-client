@@ -1,4 +1,30 @@
-# keycloak-admin-php-client
+- [Introduction](#introduction)
+- [How to use](#how-to-use)
+- [Supported APIs](#supported-apis)
+	- [Attack Detection](#attack-detection)
+	- [Authentication Management](#authentication-management)
+	- [Client Attribute Certificate](#client-attribute-certificate)
+	- [Client Initial Access](#client-initial-access)
+	- [Client Registration Policy](#client-registration-policy)
+	- [Client Role Mappings](#client-role-mappings)
+	- [Client Scopes](#client-scopes)
+	- [Clients](#clients)
+	- [Component](#component)
+	- [Groups](#groups)
+	- [Identity Providers](#identity-providers)
+	- [Key](#key)
+	- [Protocol Mappers](#protocol-mappers)
+	- [Realms Admin](#realms-admin)
+	- [Role Mapper](#role-mapper)
+	- [Roles](#roles)
+	- [Roles (by ID)](#roles-by-id)
+	- [Scope Mappings](#scope-mappings)
+	- [User Storage Provider](#user-storage-provider)
+	- [Users](#users)
+	- [Root](#root)
+
+
+# Introduction
 
 This is a php client to connect to keycloak admin rest apis with no headache.
 
