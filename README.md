@@ -370,8 +370,8 @@ $client->createUser([
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
 | Create a new role for the realm or client (Client Specific) | | ❌ |
-| Get all roles for the realm or client (Client Specific) | | ❌ |
-| Get a role by name (Client Specific) | | ❌ |
+| Get all roles for the realm or client (Client Specific) | getClientRoles | ✔️ |
+| Get a role by name (Client Specific) | getClientRole | ✔️ |
 | Update a role by name (Client Specific) | | ❌ |
 | Delete a role by name (Client Specific) | | ❌ |
 | Add a composite to the role (Client Specific) | | ❌ |
