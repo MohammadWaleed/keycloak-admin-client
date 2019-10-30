@@ -1,8 +1,35 @@
-# keycloak-admin-php-client
+- [Introduction](#introduction)
+- [How to use](#how-to-use)
+- [Supported APIs](#supported-apis)
+	- [Attack Detection](#attack-detection)
+	- [Authentication Management](#authentication-management)
+	- [Client Attribute Certificate](#client-attribute-certificate)
+	- [Client Initial Access](#client-initial-access)
+	- [Client Registration Policy](#client-registration-policy)
+	- [Client Role Mappings](#client-role-mappings)
+	- [Client Scopes](#client-scopes)
+	- [Clients](#clients)
+	- [Component](#component)
+	- [Groups](#groups)
+	- [Identity Providers](#identity-providers)
+	- [Key](#key)
+	- [Protocol Mappers](#protocol-mappers)
+	- [Realms Admin](#realms-admin)
+	- [Role Mapper](#role-mapper)
+	- [Roles](#roles)
+	- [Roles (by ID)](#roles-by-id)
+	- [Scope Mappings](#scope-mappings)
+	- [User Storage Provider](#user-storage-provider)
+	- [Users](#users)
+	- [Root](#root)
+
+
+# Introduction
 
 This is a php client to connect to keycloak admin rest apis with no headache.
 
 Features:
+
 1- Easy to use 
 
 2- No need to get token or generate it it's already handled by the client
@@ -180,7 +207,7 @@ $client->createUser([
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
 | Create a new client Client’s client_id must be unique! | | ❌ |
-| Get clients belonging to the realm Returns a list of clients belonging to the realm | | ❌ |
+| Get clients belonging to the realm Returns a list of clients belonging to the realm | getClients | ✔️ |
 | Get representation of the client | | ❌ |
 | Update the client | | ❌ |
 | Delete the client | | ❌ |
@@ -338,10 +365,24 @@ $client->createUser([
 | Get realm-level roles that can be mapped | | ❌ |
 | Get effective realm-level role mappings This will recurse all composite roles to get the result. | | ❌ |
 
- ## [Roles]()
+ ## [Roles](https://www.keycloak.org/docs-api/7.0/rest-api/index.html#_roles_resource)
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
+| Create a new role for the realm or client (Client Specific) | | ❌ |
+| Get all roles for the realm or client (Client Specific) | | ❌ |
+| Get a role by name (Client Specific) | | ❌ |
+| Update a role by name (Client Specific) | | ❌ |
+| Delete a role by name (Client Specific) | | ❌ |
+| Add a composite to the role (Client Specific) | | ❌ |
+| Get composites of the role (Client Specific) | | ❌ |
+| Remove roles from the role’s composite (Client Specific) | | ❌ |
+| An app-level roles for the specified app for the role’s composite (Client Specific) | | ❌ |
+| Get realm-level roles of the role’s composite (Client Specific) | | ❌ |
+| Return List of Groups that have the specified role name (Client Specific) | | ❌ |
+| Return object stating whether role Authoirzation permissions have been initialized or not and a reference (Client Specific) | | ❌ |
+| Update object stating whether role Authoirzation permissions have been initialized or not and a reference (Client Specific) | | ❌ |
+| Return List of Users that have the specified role name (Client Specific) | getClientRoleUsers | ✔️ |
 | Create a new role for the realm or client | | ❌ |
 | Get all roles for the realm or client | | ❌ |
 | Get a role by name | | ❌ |
@@ -354,21 +395,7 @@ $client->createUser([
 | Get realm-level roles of the role’s composite | | ❌ |
 | Return List of Groups that have the specified role name | | ❌ |
 | Return object stating whether role Authoirzation permissions have been initialized or not and a reference | | ❌ |
-| Return object stating whether role Authoirzation permissions have been initialized or not and a reference | | ❌ |
-| Return List of Users that have the specified role name | | ❌ |
-| Create a new role for the realm or client | | ❌ |
-| Get all roles for the realm or client | | ❌ |
-| Get a role by name | | ❌ |
-| Update a role by name | | ❌ |
-| Delete a role by name | | ❌ |
-| Add a composite to the role | | ❌ |
-| Get composites of the role | | ❌ |
-| Remove roles from the role’s composite | | ❌ |
-| An app-level roles for the specified app for the role’s composite | | ❌ |
-| Get realm-level roles of the role’s composite | | ❌ |
-| Return List of Groups that have the specified role name | | ❌ |
-| Return object stating whether role Authoirzation permissions have been initialized or not and a reference | | ❌ |
-| Return object stating whether role Authoirzation permissions have been initialized or not and a reference | | ❌ |
+| Update object stating whether role Authoirzation permissions have been initialized or not and a reference | | ❌ |
 | Return List of Users that have the specified role name | | ❌ |
 
  ## [Roles (by ID)]()
@@ -428,10 +455,10 @@ $client->createUser([
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| Create a new user Username must be unique. | | ❌ |
-| Get users Returns a list of users, filtered according to query parameters | | ❌ |
+| Create a new user Username must be unique. | createUser | ✔️ |
+| Get users Returns a list of users, filtered according to query parameters | getUsers | ✔️ |
 | GET /{realm}/users/count | | ❌ |
-| Get representation of the user | | ❌ |
+| Get representation of the user | getUser | ️️️✔️ |
 | Update the user | | ❌ |
 | Delete the user | | ❌ |
 | Get consents granted by the user | | ❌ |

@@ -1,5 +1,6 @@
 <?php
 
+require_once('Definitions/keycloak-1_0.php');
 
 return array(
     'name'        => 'Keycloak',
@@ -20,260 +21,9 @@ return array(
                     'type'        => 'string',
                     'required'    => true,
                 ),
-                //UserRepresentation
-                'access' => array(
-                    'location'    => 'json',
-                    'type'        => 'object',
-                    'required'    => false,
-                ),
-                'attributes' => array(
-                    'location'    => 'json',
-                    'type'        => 'object',
-                    'required'    => false,
-                ),
-                'clientConsents' => array(
-                    'location'    => 'json',
-                    'type'        => 'array',
-                    'required'    => false,
-                    'items' => array(
-                        'type' => 'object',
-                        'properties' => array(
-                            'clientId' => array(
-                                'location' => 'json',
-                                'type' => 'string',
-                                'required'    => false,
-                            ),
-                            'createdDate' => array(
-                                'location' => 'json',
-                                'type' => 'integer',
-                                'required'    => false,
-                            ),
-                            'grantedClientScopes' => array(
-                                'location' => 'json',
-                                'type' => 'array',
-                                'required'    => false,
-                            ),
-                            'lastUpdatedDate' => array(
-                                'location' => 'json',
-                                'type' => 'integer',
-                                'required'    => false,
-                            )
-                        )
-                    )
-                ),
-                'clientRoles' => array(
-                    'location' => 'json',
-                    'type' => 'object',
-                    'required' => false
-                ),
-                'createdTimestamp' => array(
-                    'location' => 'json',
-                    'type' => 'integer',
-                    'required' => false
-                ),
-                //CredentialRepresentation
-                'credentials' => array(
-                    'location' => 'json',
-                    'type' => 'array',
-                    'required' => false,
-                    'items' => array(
-                        'type' => 'object',
-                        'properties' => array(
-                            'algorithm' => array(
-                                'location' => 'json',
-                                'type' => 'string',
-                                'required'    => false,
-                            ),
-                            //MultivaluedHashMap
-                            'config' => array(
-                                'location' => 'json',
-                                'type' => 'object',
-                                'required'    => false,
-                                'properties' => array(
-                                    'empty' => array(
-                                        'location' => 'json',
-                                        'type' => 'boolean',
-                                        'required' => false
-                                    ),
-                                    'loadFactor' => array(
-                                        'location' => 'json',
-                                        'type' => 'number',
-                                        'required' => false
-                                    ),
-                                    'threshold' => array(
-                                        'location' => 'json',
-                                        'type' => 'integer',
-                                        'required' => false
-                                    )
-                                )
-                            ),
-                            'counter' => array(
-                                'location' => 'json',
-                                'type' => 'integer',
-                                'required'    => false,
-                            ),
-                            'createdDate' => array(
-                                'location' => 'json',
-                                'type' => 'integer',
-                                'required'    => false,
-                            ),
-                            'device' => array(
-                                'location' => 'json',
-                                'type' => 'string',
-                                'required'    => false,
-                            ),
-                            'digits' => array(
-                                'location' => 'json',
-                                'type' => 'integer',
-                                'required'    => false,
-                            ),
-                            'hashIterations' => array(
-                                'location' => 'json',
-                                'type' => 'integer',
-                                'required'    => false,
-                            ),
-                            'hashedSaltedValue' => array(
-                                'location' => 'json',
-                                'type' => 'string',
-                                'required'    => false,
-                            ),
-                            'period' => array(
-                                'location' => 'json',
-                                'type' => 'integer',
-                                'required'    => false,
-                            ),
-                            'salt' => array(
-                                'location' => 'json',
-                                'type' => 'string',
-                                'required'    => false,
-                            ),
-                            'temporary' => array(
-                                'location' => 'json',
-                                'type' => 'boolean',
-                                'required'    => false,
-                            ),
-                            'type' => array(
-                                'location' => 'json',
-                                'type' => 'string',
-                                'required'    => false,
-                            ),
-                            'value' => array(
-                                'location' => 'json',
-                                'type' => 'string',
-                                'required'    => false,
-                            )
-                        )
-                    )
-                ),
-                'disableableCredentialTypes' => array(
-                    'location' => 'json',
-                    'type' => 'array',
-                    'required' => false
-                ),
-                'email' => array(
-                    'location' => 'json',
-                    'type' => 'string',
-                    'required' => false
-                ),
-                'emailVerified' => array(
-                    'location' => 'json',
-                    'type' => 'boolean',
-                    'required' => false
-                ),
-                'enabled' => array(
-                    'location' => 'json',
-                    'type' => 'boolean',
-                    'required' => false
-                ),
-                //FederatedIdentityRepresentation
-                'federatedIdentities' => array(
-                    'location' => 'json',
-                    'type' => 'array',
-                    'required' => false,
-                    'items' => array(
-                        'type' => 'object',
-                        'properties' => array(
-                            'identityProvider' => array(
-                                'location' => 'json',
-                                'type' => 'string',
-                                'required' => false
-                            ),
-                            'userId' => array(
-                                'location' => 'json',
-                                'type' => 'string',
-                                'required' => false
-                            ),
-                            'userName' => array(
-                                'location' => 'json',
-                                'type' => 'string',
-                                'required' => false
-                            )
-                        )
-                    )
-                ),
-                'federationLink' => array(
-                    'location' => 'json',
-                    'type' => 'string',
-                    'required' => false
-                ),
-                'firstName' => array(
-                    'location' => 'json',
-                    'type' => 'string',
-                    'required' => false
-                ),
-                'groups' => array(
-                    'location' => 'json',
-                    'type' => 'array',
-                    'required' => false
-                ),
-                'id' => array(
-                    'location' => 'json',
-                    'type' => 'string',
-                    'required' => false
-                ),
-                'lastName' => array(
-                    'location' => 'json',
-                    'type' => 'string',
-                    'required' => false
-                ),
-                'notBefore' => array(
-                    'location' => 'json',
-                    'type' => 'integer',
-                    'required' => false
-                ),
-                'origin' => array(
-                    'location' => 'json',
-                    'type' => 'string',
-                    'required' => false
-                ),
-                'realmRoles' => array(
-                    'location' => 'json',
-                    'type' => 'array',
-                    'required' => false
-                ),
-                'requiredActions' => array(
-                    'location' => 'json',
-                    'type' => 'array',
-                    'required' => false
-                ),
-                'self' => array(
-                    'location' => 'json',
-                    'type' => 'string',
-                    'required' => false
-                ),
-                'serviceAccountId' => array(
-                    'location' => 'json',
-                    'type' => 'string',
-                    'required' => false
-                ),
-                'username' => array(
-                    'location' => 'json',
-                    'type' => 'string',
-                    'required' => false
-                )
-
-            ),
+            ) + $UserRepresentation
         ),
+
         'getUsers' => array(
             'uri'         => 'auth/admin/realms/{realm}/users',
             'description' => 'Get users Returns a list of users, filtered according to query parameters',
@@ -329,6 +79,7 @@ return array(
                 )
             ),
         ),
+
         'getUser' => array(
             'uri'         => 'auth/admin/realms/{realm}/users/{id}',
             'description' => 'Get representation of the user',
@@ -348,7 +99,9 @@ return array(
                 )
             )
         ),
+
         //Clients
+
         'getClients' => array(
             'uri'         => 'auth/admin/realms/{realm}/clients',
             'description' => 'Get clients belonging to the realm Returns a list of clients belonging to the realm',
@@ -372,6 +125,43 @@ return array(
                     'type'        => 'boolean',
                     'required'    => false,
                 )
+            ),
+        ),
+
+        //Roles
+
+        'getClientRoleUsers' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles/{role-name}/users',
+            'description' => 'Return List of Users that have the specified role name (Client Specific)',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'first' => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'required' => false
+                ),
+                'max' => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'required' => false
+                ),
             ),
         ),
     )
