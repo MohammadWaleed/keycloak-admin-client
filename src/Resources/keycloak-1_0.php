@@ -164,5 +164,52 @@ return array(
                 ),
             ),
         ),
-    )
-);
+        
+         'getClientRoles' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles',
+            'description' => 'Get all roles for the realm or client (Client Specific)',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ),
+        ),
+        
+        'getClientRole' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles/{role-name}',
+            'description' => 'Get a role by name (Client Specific)',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ),
+        ),
+        
+    )//End of Operations Array 
+);//End of return array
