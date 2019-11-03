@@ -1,6 +1,6 @@
 <?php
 
-require_once('Definitions/keycloak-1_0.php');
+require 'Definitions/keycloak-1_0.php';
 
 return array(
     'name'        => 'Keycloak',
@@ -164,8 +164,8 @@ return array(
                 ),
             ),
         ),
-        
-         'getClientRoles' => array(
+
+        'getClientRoles' => array(
             'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles',
             'description' => 'Get all roles for the realm or client (Client Specific)',
             'httpMethod'  => 'GET',
@@ -184,7 +184,6 @@ return array(
                 ),
             ),
         ),
-        
         'getClientRole' => array(
             'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles/{role-name}',
             'description' => 'Get a role by name (Client Specific)',
@@ -210,6 +209,6 @@ return array(
                 ),
             ),
         ),
-        
-    )//End of Operations Array 
+
+    ) //End of Operations Array 
 );//End of return array
