@@ -69,12 +69,12 @@ return array(
                 'search' => array(
                     'location'    => 'query',
                     'description' => 'A String contained in username, first or last name, or email',
-                    'type'        => 'integer',
+                    'type'        => 'string',
                     'required'    => false,
                 ),
                 'username' => array(
                     'location'    => 'query',
-                    'type'        => 'integer',
+                    'type'        => 'string',
                     'required'    => false,
                 )
             ),
@@ -211,5 +211,5 @@ return array(
             ),
         ),
 
-    ) //End of Operations Array 
+    ) //End of Operations Array
 );//End of return array
