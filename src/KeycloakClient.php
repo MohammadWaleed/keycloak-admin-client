@@ -22,7 +22,7 @@ class KeycloakClient extends GuzzleClient
      *
      * @param array $config
      *
-     * @returns \Keycloak\Admin\KeycloakClient
+     * @return \Keycloak\Admin\KeycloakClient
      */
     public static function factory($config = array())
     {
