@@ -8,6 +8,62 @@ return array(
     'apiVersion'  => '1.0',
     'operations'  => array(
 
+        // Attack Detection
+
+        'clearAllLoginFailures' => array(
+            'uri' => 'auth/admin/realms/{realm}/attack-detection/brute-force/users',
+            'description' => 'Clear any user login failures for all users This can release temporary disabled users',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getBruteForceUserStatus' => array(
+            'uri' => 'auth/admin/realms/{realm}/attack-detection/brute-force/users/{userId}',
+            'description' => 'Get status of a username in brute force detection',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'userId' => array(
+                    'location' => 'uri',
+                    'description' => 'User id',
+                    'type' => 'string',
+                    'required' => true
+                )
+            )
+        ),
+
+        'clearUserLoginFailures' => array(
+            'uri' => 'auth/admin/realms/{realm}/attack-detection/brute-force/users/{userId}',
+            'description' => 'Clear any user login failures for the user This can release temporary disabled user',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'userId' => array(
+                    'location' => 'uri',
+                    'description' => 'User id',
+                    'type' => 'string',
+                    'required' => true
+                )
+            )
+        ),
+
         //Users
 
         'createUser' => array(
@@ -69,12 +125,12 @@ return array(
                 'search' => array(
                     'location'    => 'query',
                     'description' => 'A String contained in username, first or last name, or email',
-                    'type'        => 'integer',
+                    'type'        => 'string',
                     'required'    => false,
                 ),
                 'username' => array(
                     'location'    => 'query',
-                    'type'        => 'integer',
+                    'type'        => 'string',
                     'required'    => false,
                 )
             ),
@@ -210,5 +266,5 @@ return array(
             ),
         ),
 
-    ) //End of Operations Array 
+    ) //End of Operations Array
 );//End of return array
