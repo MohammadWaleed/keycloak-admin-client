@@ -109,9 +109,9 @@ $client->createUser([
 
 | API | Function Name | Supported |
 |-----|:--------:|:---------:|
-| Clear any user login failures for all users This can release temporary disabled users | clearAllLoginFailures | ❌ |
-| Get status of a username in brute force detection |  bruteForceUserStatus | ❌ |
-| Clear any user login failures for the user This can release temporary disabled user | clearUserLoginFailures | ❌ |
+| Clear any user login failures for all users This can release temporary disabled users | clearAllLoginFailures | ✔️ |
+| Get status of a username in brute force detection |  getBruteForceUserStatus | ✔️ |
+| Clear any user login failures for the user This can release temporary disabled user | clearUserLoginFailures | ✔️ |
 
 ## [Authentication Management](https://www.keycloak.org/docs-api/7.0/rest-api/index.html#_authentication_management_resource)
 
