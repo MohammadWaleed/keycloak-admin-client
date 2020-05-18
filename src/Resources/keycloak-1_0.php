@@ -64,6 +64,116 @@ return array(
             )
         ),
 
+        // Authentication Management
+
+        'getAuthenticatorProviders' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/authenticator-providers',
+            'description' => 'Get authenticator providers Returns a list of authenticator providers.',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getClientAuthenticatorProviders' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/client-authenticator-providers',
+            'description' => 'Get client authenticator providers Returns a list of client authenticator providers.',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getAuthenticatorConfigInfo' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/config-description/{providerId}',
+            'description' => 'Get authenticator provider’s configuration description',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'providerId' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Provider ID',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getAuthenticatorConfig' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/config/{id}',
+            'description' => 'Get authenticator configuration',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Configuration ID',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'updateAuthenticatorConfig' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/config/{id}',
+            'description' => 'Update authenticator configuration',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Configuration ID',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )+ $AuthenticatorConfigRepresentation
+        ),
+
+        'deleteAuthenticatorConfig' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/config/{id}',
+            'description' => 'Delete authenticator configuration',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Configuration ID',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
         //Users
 
         'createUser' => array(
