@@ -117,12 +117,12 @@ $client->createUser([
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| Get authenticator providers Returns a list of authenticator providers. | getAuthenticatorProviders | ❌ |
-| Get client authenticator providers Returns a list of client authenticator providers. | getClientAuthenticatorProviders | ❌ |
-| Get authenticator provider’s configuration description | getAuthenticatorConfigInfo | ❌ |
-| Get authenticator configuration |  getAuthenticatorConfig | ❌ |
-| Update authenticator configuration | updateAuthenticatorConfig | ❌ |
-| Delete authenticator configuration | deleteAuthenticatorConfig | ❌ |
+| Get authenticator providers Returns a list of authenticator providers. | getAuthenticatorProviders | ✔️ |
+| Get client authenticator providers Returns a list of client authenticator providers. | getClientAuthenticatorProviders | ✔️ |
+| Get authenticator provider’s configuration description | getAuthenticatorConfigInfo | ✔️ |
+| Get authenticator configuration |  getAuthenticatorConfig | ✔️ |
+| Update authenticator configuration | updateAuthenticatorConfig | ✔️ |
+| Delete authenticator configuration | deleteAuthenticatorConfig | ✔️ |
 | Add new authentication execution | createAuthenticationExecution | ❌ |
 | Get Single Execution | getExecution | ❌ |
 | Delete execution | deleteExecution | ❌ |
