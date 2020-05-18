@@ -13,7 +13,30 @@ use GuzzleHttp\HandlerStack;
  * Class KeycloakClient
  *
  * @package Keycloak\Admin\Client
+ * 
+ * @method array clearAllLoginFailures(array $args = array()) { @command Keycloak clearAllLoginFailures }
+ * @method array getBruteForceUserStatus(array $args = array()) { @command Keycloak getBruteForceUserStatus }
+ * @method array clearUserLoginFailures(array $args = array()) { @command Keycloak clearUserLoginFailures }
+ * 
+ * @method array getAuthenticatorProviders(array $args = array()) { @command Keycloak getAuthenticatorProviders }
+ * @method array getClientAuthenticatorProviders(array $args = array()) { @command Keycloak getClientAuthenticatorProviders }
+ * @method array getAuthenticatorConfigInfo(array $args = array()) { @command Keycloak getAuthenticatorConfigInfo }
+ * @method array getAuthenticatorConfig(array $args = array()) { @command Keycloak getAuthenticatorConfig }
+ * @method array updateAuthenticatorConfig(array $args = array()) { @command Keycloak updateAuthenticatorConfig }
+ * @method array deleteAuthenticatorConfig(array $args = array()) { @command Keycloak deleteAuthenticatorConfig }
+ * 
+ * @method array createUser(array $args = array()) { @command Keycloak createUser }
+ * @method array getUsers(array $args = array()) { @command Keycloak getUsers }
+ * @method array getUser(array $args = array()) { @command Keycloak getUser }
+ * 
+ * @method array getClients(array $args = array()) { @command Keycloak getClients }
+ * 
+ * @method array getClientRoleUsers(array $args = array()) { @command Keycloak getClientRoleUsers }
+ * @method array getClientRoles(array $args = array()) { @command Keycloak getClientRoles }
+ * @method array getClientRole(array $args = array()) { @command Keycloak getClientRole }
+ * 
  */
+
 class KeycloakClient extends GuzzleClient
 {
 
