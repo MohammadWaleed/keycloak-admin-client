@@ -151,7 +151,7 @@ return array(
                     'type'        => 'string',
                     'required'    => true,
                 ),
-            )+ $AuthenticatorConfigRepresentation
+            ) + $AuthenticatorConfigRepresentation
         ),
 
         'deleteAuthenticatorConfig' => array(
@@ -173,6 +173,121 @@ return array(
                 ),
             )
         ),
+
+        'createAuthenticationExecution' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/executions',
+            'description' => 'Add new authentication execution',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $AuthenticationExecutionRepresentation
+        ),
+
+        'getAuthenticationExecution' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/executions/{executionId}',
+            'description' => 'Get Single Execution',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'executionId' => array(
+                    'location'    => 'uri',
+                    'description' => 'Execution Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'deleteAuthenticationExecution' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/executions/{executionId}',
+            'description' => 'Delete execution',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'executionId' => array(
+                    'location'    => 'uri',
+                    'description' => 'Execution Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'updateAuthenticationExecution' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/executions/{executionId}',
+            'description' => 'Update execution with new configuration',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'executionId' => array(
+                    'location'    => 'uri',
+                    'description' => 'Execution Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $AuthenticationExecutionRepresentation
+        ),
+
+        'lowerAuthenticationExecutionPriority' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/executions/{executionId}/lower-priority',
+            'description' => 'Lower execution’s priority',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'executionId' => array(
+                    'location'    => 'uri',
+                    'description' => 'Execution Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'raiseAuthenticationExecutionPriority' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/executions/{executionId}/raise-priority',
+            'description' => 'Raise execution’s priority',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'executionId' => array(
+                    'location'    => 'uri',
+                    'description' => 'Execution Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
 
         //Users
 

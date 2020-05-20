@@ -24,6 +24,12 @@ use GuzzleHttp\HandlerStack;
  * @method array getAuthenticatorConfig(array $args = array()) { @command Keycloak getAuthenticatorConfig }
  * @method array updateAuthenticatorConfig(array $args = array()) { @command Keycloak updateAuthenticatorConfig }
  * @method array deleteAuthenticatorConfig(array $args = array()) { @command Keycloak deleteAuthenticatorConfig }
+ * @method array createAuthenticationExecution(array $args = array()) { @command Keycloak createAuthenticationExecution }
+ * @method array getAuthenticationExecution(array $args = array()) { @command Keycloak getAuthenticationExecution }
+ * @method array deleteAuthenticationExecution(array $args = array()) { @command Keycloak deleteAuthenticationExecution }
+ * @method array updateAuthenticationExecution(array $args = array()) { @command Keycloak updateAuthenticationExecution }
+ * @method array lowerAuthenticationExecutionPriority(array $args = array()) { @command Keycloak lowerAuthenticationExecutionPriority }
+ * @method array raiseAuthenticationExecutionPriority(array $args = array()) { @command Keycloak raiseAuthenticationExecutionPriority }
  * 
  * @method array createUser(array $args = array()) { @command Keycloak createUser }
  * @method array getUsers(array $args = array()) { @command Keycloak getUsers }

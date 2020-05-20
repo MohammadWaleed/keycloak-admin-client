@@ -123,12 +123,12 @@ $client->createUser([
 | Get authenticator configuration |  getAuthenticatorConfig | ✔️ |
 | Update authenticator configuration | updateAuthenticatorConfig | ✔️ |
 | Delete authenticator configuration | deleteAuthenticatorConfig | ✔️ |
-| Add new authentication execution | createAuthenticationExecution | ❌ |
-| Get Single Execution | getExecution | ❌ |
-| Delete execution | deleteExecution | ❌ |
-| Update execution with new configuration | updateExecutionConfig | ❌ |
-| Lower execution’s priority | lowerExecutionPriority | ❌ |
-| Raise execution’s priority | raiseExecutionPriority | ❌ |
+| Add new authentication execution | createAuthenticationExecution | ✔️ |
+| Get Single Execution | getAuthenticationExecution | ✔️ |
+| Delete execution | deleteAuthenticationExecution | ✔️ |
+| Update execution with new configuration | updateAuthenticationExecution | ✔️ |
+| Lower execution’s priority | lowerAuthenticationExecutionPriority | ✔️ |
+| Raise execution’s priority | raiseAuthenticationExecutionPriority | ✔️ |
 | Create a new authentication flow | createAuthenticationFlow | ❌ |
 | Get authentication flows Returns a list of authentication flows. | getAuthenticationFlows | ❌ |
 | Copy existing authentication flow under a new name The new name is given as 'newName' attribute of the passed JSON object | copyAuthenticationFlow | ❌ |
