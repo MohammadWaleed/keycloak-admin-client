@@ -129,16 +129,16 @@ $client->createUser([
 | Update execution with new configuration | updateAuthenticationExecution | ✔️ |
 | Lower execution’s priority | lowerAuthenticationExecutionPriority | ✔️ |
 | Raise execution’s priority | raiseAuthenticationExecutionPriority | ✔️ |
-| Create a new authentication flow | createAuthenticationFlow | ❌ |
-| Get authentication flows Returns a list of authentication flows. | getAuthenticationFlows | ❌ |
-| Copy existing authentication flow under a new name The new name is given as 'newName' attribute of the passed JSON object | copyAuthenticationFlow | ❌ |
-| Get authentication executions for a flow | getFlowExecutions | ❌ |
-| Update authentication executions for a flow | updateFlowExecutions | ❌ |
-| Add new authentication execution to a flow | createFlowExecution | ❌ |
-| Add new flow with new execution to existing flow | addFlowExecution | ❌ |
-| Get authentication flow for id | getAuthenticationFlow | ❌ |
-| Update authentication flow for id | updateAuthenticationFlow | ❌ |
-| Delete authentication flow for id | deleteAuthenticationFlow | ❌ |
+| Create a new authentication flow | createAuthenticationFlow | ✔️ |
+| Get authentication flows Returns a list of authentication flows. | getAuthenticationFlows | ✔️ |
+| Copy existing authentication flow under a new name The new name is given as 'newName' attribute of the passed JSON object | copyAuthenticationFlow | ✔️ |
+| Get authentication executions for a flow | getAuthenticationFlowExecutions | ✔️ |
+| Update authentication executions for a flow | updateAuthenticationFlowExecutions | ✔️ |
+| Add new authentication execution to a flow | createAuthenticationFlowExecution | ✔️ |
+| Add new flow with new execution to existing flow | addAuthenticationFlowExecution | ✔️ |
+| Get authentication flow for id | getAuthenticationFlow | ✔️ |
+| Update authentication flow for id | updateAuthenticationFlow | ✔️ |
+| Delete an authentication flow | deleteAuthenticationFlow | ✔️ |
 | Get form action providers Returns a list of form action providers. | getFormActionProviders | ❌ |
 | Get form providers Returns a list of form providers. | getFormProviders | ❌ |
 | Get configuration descriptions for all clients | getClientsConfigDescriptions | ❌ |

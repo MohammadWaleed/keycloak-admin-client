@@ -30,6 +30,16 @@ use GuzzleHttp\HandlerStack;
  * @method array updateAuthenticationExecution(array $args = array()) { @command Keycloak updateAuthenticationExecution }
  * @method array lowerAuthenticationExecutionPriority(array $args = array()) { @command Keycloak lowerAuthenticationExecutionPriority }
  * @method array raiseAuthenticationExecutionPriority(array $args = array()) { @command Keycloak raiseAuthenticationExecutionPriority }
+ * @method array createAuthenticationFlow(array $args = array()) { @command Keycloak createAuthenticationFlow }
+ * @method array getAuthenticationFlows(array $args = array()) { @command Keycloak getAuthenticationFlows }
+ * @method array copyAuthenticationFlow(array $args = array()) { @command Keycloak copyAuthenticationFlow }
+ * @method array getAuthenticationFlowExecutions(array $args = array()) { @command Keycloak getAuthenticationFlowExecutions }
+ * @method array updateAuthenticationFlowExecutions(array $args = array()) { @command Keycloak updateAuthenticationFlowExecutions }
+ * @method array createAuthenticationFlowExecution(array $args = array()) { @command Keycloak createAuthenticationFlowExecution }
+ * @method array addAuthenticationFlowExecution(array $args = array()) { @command Keycloak addAuthenticationFlowExecution }
+ * @method array getAuthenticationFlow(array $args = array()) { @command Keycloak getAuthenticationFlow }
+ * @method array updateAuthenticationFlow(array $args = array()) { @command Keycloak updateAuthenticationFlow }
+ * @method array deleteAuthenticationFlow(array $args = array()) { @command Keycloak deleteAuthenticationFlow }
  * 
  * @method array createUser(array $args = array()) { @command Keycloak createUser }
  * @method array getUsers(array $args = array()) { @command Keycloak getUsers }

@@ -288,6 +288,231 @@ return array(
             )
         ),
 
+        'createAuthenticationFlow' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/flows',
+            'description' => 'Create a new authentication flow',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $AuthenticationFlowRepresentation
+        ),
+
+        'getAuthenticationFlows' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/flows',
+            'description' => 'Get authentication flows Returns a list of authentication flows.',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'copyAuthenticationFlow' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/flows/{flowAlias}/copy',
+            'description' => "Copy existing authentication flow under a new name The new name is given as 'newName' attribute of the passed JSON object",
+            'httpMethod' => 'POST',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'flowAlias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Name of the existing authentication flow',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'newName' => array(
+                    'location' => 'json',
+                    'description' => "New copy name",
+                    'type' => 'string',
+                    'required' => true
+                ),
+            )
+        ),
+
+        'getAuthenticationFlowExecutions' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/flows/{flowAlias}/executions',
+            'description' => 'Get authentication executions for a flow',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'flowAlias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Flow alias',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'updateAuthenticationFlowExecutions' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/flows/{flowAlias}/executions',
+            'description' => 'Update authentication executions for a flow',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'flowAlias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Flow alias',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $AuthenticationExecutionInfoRepresentation
+        ),
+
+        'createAuthenticationFlowExecution' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/flows/{flowAlias}/executions/execution',
+            'description' => 'Add new authentication execution to a flow',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'flowAlias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Alias of parent flow',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'provider' => array(
+                    'location'    => 'json',
+                    'description' => 'Provider Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) 
+        ),
+
+        //I really don't know how this works, but it works 
+        'addAuthenticationFlowExecution' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/flows/{flowAlias}/executions/flow',
+            'description' => 'Add new flow with new execution to existing flow',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'flowAlias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Alias of parent authentication flow',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'alias' => array(
+                    'location' => 'json',
+                    'description' => "Alias for new Flow / Execution",
+                    'type' => 'string',
+                    'required' => true
+                ),
+                'type' => array(
+                    'location' => 'json',
+                    'description' => "Child type Flow / Execution",// i really don't know about this i'm just speculating here
+                    'type' => 'string',
+                    'required' => true
+                ),
+                'provider' => array(
+                    'location' => 'json',
+                    'description' => "Provider",
+                    'type' => 'string',
+                    'required' => true
+                ),
+                'description' => array(
+                    'location' => 'json',
+                    'description' => "Description",
+                    'type' => 'string',
+                    'required' => false
+                ),
+            ) 
+        ),
+
+        'getAuthenticationFlow' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/flows/{id}',
+            'description' => 'Get authentication flow for id',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Flow id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) 
+        ),
+
+        // Keycloak gives an error when calling this api even when it's working fine
+        'updateAuthenticationFlow' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/flows/{id}',
+            'description' => 'Update authentication flow for id',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Flow id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $AuthenticationFlowRepresentation 
+        ),
+
+        'deleteAuthenticationFlow' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/flows/{id}',
+            'description' => 'Delete an authentication flow',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Flow id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) 
+        ),
 
         //Users
 
