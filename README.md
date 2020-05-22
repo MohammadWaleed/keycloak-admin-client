@@ -139,17 +139,17 @@ $client->createUser([
 | Get authentication flow for id | getAuthenticationFlow | ✔️ |
 | Update authentication flow for id | updateAuthenticationFlow | ✔️ |
 | Delete an authentication flow | deleteAuthenticationFlow | ✔️ |
-| Get form action providers Returns a list of form action providers. | getFormActionProviders | ❌ |
-| Get form providers Returns a list of form providers. | getFormProviders | ❌ |
-| Get configuration descriptions for all clients | getClientsConfigDescriptions | ❌ |
-| Register a new required actions | createRequiredAction | ❌ |
-| Get required actions Returns a list of required actions. | getRequiredActions | ❌ |
-| Get required action for alias | getAliasRequiredAction | ❌ |
-| Update required action | updateRequiredAction | ❌ |
-| Delete required action | DeleteRequiredAction | ❌ |
-| Lower required action’s priority | lowerRequiredActionPriority | ❌ |
-| Raise required action’s priority | raiseRequiredActionPriority | ❌ |
-| Get unregistered required actions Returns a list of unregistered required actions. | getUnregisteredRequiredActions | ❌ |
+| Get form action providers Returns a list of form action providers. | getFormActionProviders | ✔️ |
+| Get form providers Returns a list of form providers. | getFormProviders | ✔️ |
+| Get configuration descriptions for all clients | getClientsConfigDescriptions | ✔️ |
+| Register a new required actions | createRequiredAction | ✔️ |
+| Get required actions Returns a list of required actions. | getRequiredActions | ✔️ |
+| Get required action for alias | getAliasRequiredAction | ✔️ |
+| Update required action | updateRequiredAction | ✔️ |
+| Delete required action | deleteRequiredAction | ✔️ |
+| Lower required action’s priority | lowerRequiredActionPriority | ✔️ |
+| Raise required action’s priority | raiseRequiredActionPriority | ✔️ |
+| Get unregistered required actions Returns a list of unregistered required actions. | getUnregisteredRequiredActions | ✔️ |
 
 ## [Client Attribute Certificate](https://www.keycloak.org/docs-api/7.0/rest-api/index.html#_client_attribute_certificate_resource)
 

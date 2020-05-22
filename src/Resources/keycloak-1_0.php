@@ -405,7 +405,7 @@ return array(
                     'type'        => 'string',
                     'required'    => true,
                 ),
-            ) 
+            )
         ),
 
         //I really don't know how this works, but it works 
@@ -434,7 +434,7 @@ return array(
                 ),
                 'type' => array(
                     'location' => 'json',
-                    'description' => "Child type Flow / Execution",// i really don't know about this i'm just speculating here
+                    'description' => "Child type Flow / Execution", // i really don't know about this i'm just speculating here
                     'type' => 'string',
                     'required' => true
                 ),
@@ -450,7 +450,7 @@ return array(
                     'type' => 'string',
                     'required' => false
                 ),
-            ) 
+            )
         ),
 
         'getAuthenticationFlow' => array(
@@ -470,7 +470,7 @@ return array(
                     'type'        => 'string',
                     'required'    => true,
                 ),
-            ) 
+            )
         ),
 
         // Keycloak gives an error when calling this api even when it's working fine
@@ -491,7 +491,7 @@ return array(
                     'type'        => 'string',
                     'required'    => true,
                 ),
-            ) + $AuthenticationFlowRepresentation 
+            ) + $AuthenticationFlowRepresentation
         ),
 
         'deleteAuthenticationFlow' => array(
@@ -511,7 +511,204 @@ return array(
                     'type'        => 'string',
                     'required'    => true,
                 ),
-            ) 
+            )
+        ),
+
+        'getFormActionProviders' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/form-action-providers',
+            'description' => 'Get form action providers Returns a list of form action providers.',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getFormProviders' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/form-providers',
+            'description' => 'Get form providers Returns a list of form providers.',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getClientsConfigDescriptions' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/per-client-config-description',
+            'description' => 'Get configuration descriptions for all clients',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        //If used incorrectly can break login, ok it can break even other apis be careful when using it
+        'createRequiredAction' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/register-required-action',
+            'description' => 'Register a new required actions',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'providerId' => array(
+                    'location'    => 'json',
+                    'description' => 'Provider Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'name' => array(
+                    'location'    => 'json',
+                    'description' => 'Required action name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getRequiredActions' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/required-actions',
+            'description' => 'Get required actions Returns a list of required actions.',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getAliasRequiredAction' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/required-actions/{alias}',
+            'description' => 'Get required action for alias',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'alias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Alias of required action',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'updateRequiredAction' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/required-actions/{alias}',
+            'description' => 'Update required action',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'alias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Alias of required action',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $RequiredActionProviderRepresentation
+        ),
+
+        'deleteRequiredAction' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/required-actions/{alias}',
+            'description' => 'Delete required action',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'alias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Alias of required action',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'lowerRequiredActionPriority' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/required-actions/{alias}/lower-priority',
+            'description' => 'Lower required action’s priority',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'alias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Alias of required action',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'raiseRequiredActionPriority' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/required-actions/{alias}/raise-priority',
+            'description' => 'Raise required action’s priority',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'alias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Alias of required action',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getUnregisteredRequiredActions' => array(
+            'uri' => 'auth/admin/realms/{realm}/authentication/unregistered-required-actions',
+            'description' => 'Get unregistered required actions Returns a list of unregistered required actions.',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
         ),
 
         //Users

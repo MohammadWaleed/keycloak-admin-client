@@ -40,6 +40,17 @@ use GuzzleHttp\HandlerStack;
  * @method array getAuthenticationFlow(array $args = array()) { @command Keycloak getAuthenticationFlow }
  * @method array updateAuthenticationFlow(array $args = array()) { @command Keycloak updateAuthenticationFlow }
  * @method array deleteAuthenticationFlow(array $args = array()) { @command Keycloak deleteAuthenticationFlow }
+ * @method array getFormActionProviders(array $args = array()) { @command Keycloak getFormActionProviders }
+ * @method array getFormProviders(array $args = array()) { @command Keycloak getFormProviders }
+ * @method array getClientsConfigDescriptions(array $args = array()) { @command Keycloak getClientsConfigDescriptions }
+ * @method array createRequiredAction(array $args = array()) { @command Keycloak createRequiredAction }
+ * @method array getRequiredActions(array $args = array()) { @command Keycloak getRequiredActions }
+ * @method array getAliasRequiredAction(array $args = array()) { @command Keycloak getAliasRequiredAction }
+ * @method array updateRequiredAction(array $args = array()) { @command Keycloak updateRequiredAction }
+ * @method array deleteRequiredAction(array $args = array()) { @command Keycloak deleteRequiredAction }
+ * @method array lowerRequiredActionPriority(array $args = array()) { @command Keycloak lowerRequiredActionPriority }
+ * @method array raiseRequiredActionPriority(array $args = array()) { @command Keycloak raiseRequiredActionPriority }
+ * @method array getUnregisteredRequiredActions(array $args = array()) { @command Keycloak getUnregisteredRequiredActions }
  * 
  * @method array createUser(array $args = array()) { @command Keycloak createUser }
  * @method array getUsers(array $args = array()) { @command Keycloak getUsers }
