@@ -13,7 +13,57 @@ use GuzzleHttp\HandlerStack;
  * Class KeycloakClient
  *
  * @package Keycloak\Admin\Client
+ * 
+ * @method array clearAllLoginFailures(array $args = array()) { @command Keycloak clearAllLoginFailures }
+ * @method array getBruteForceUserStatus(array $args = array()) { @command Keycloak getBruteForceUserStatus }
+ * @method array clearUserLoginFailures(array $args = array()) { @command Keycloak clearUserLoginFailures }
+ * 
+ * @method array getAuthenticatorProviders(array $args = array()) { @command Keycloak getAuthenticatorProviders }
+ * @method array getClientAuthenticatorProviders(array $args = array()) { @command Keycloak getClientAuthenticatorProviders }
+ * @method array getAuthenticatorConfigInfo(array $args = array()) { @command Keycloak getAuthenticatorConfigInfo }
+ * @method array getAuthenticatorConfig(array $args = array()) { @command Keycloak getAuthenticatorConfig }
+ * @method array updateAuthenticatorConfig(array $args = array()) { @command Keycloak updateAuthenticatorConfig }
+ * @method array deleteAuthenticatorConfig(array $args = array()) { @command Keycloak deleteAuthenticatorConfig }
+ * @method array createAuthenticationExecution(array $args = array()) { @command Keycloak createAuthenticationExecution }
+ * @method array getAuthenticationExecution(array $args = array()) { @command Keycloak getAuthenticationExecution }
+ * @method array deleteAuthenticationExecution(array $args = array()) { @command Keycloak deleteAuthenticationExecution }
+ * @method array updateAuthenticationExecution(array $args = array()) { @command Keycloak updateAuthenticationExecution }
+ * @method array lowerAuthenticationExecutionPriority(array $args = array()) { @command Keycloak lowerAuthenticationExecutionPriority }
+ * @method array raiseAuthenticationExecutionPriority(array $args = array()) { @command Keycloak raiseAuthenticationExecutionPriority }
+ * @method array createAuthenticationFlow(array $args = array()) { @command Keycloak createAuthenticationFlow }
+ * @method array getAuthenticationFlows(array $args = array()) { @command Keycloak getAuthenticationFlows }
+ * @method array copyAuthenticationFlow(array $args = array()) { @command Keycloak copyAuthenticationFlow }
+ * @method array getAuthenticationFlowExecutions(array $args = array()) { @command Keycloak getAuthenticationFlowExecutions }
+ * @method array updateAuthenticationFlowExecutions(array $args = array()) { @command Keycloak updateAuthenticationFlowExecutions }
+ * @method array createAuthenticationFlowExecution(array $args = array()) { @command Keycloak createAuthenticationFlowExecution }
+ * @method array addAuthenticationFlowExecution(array $args = array()) { @command Keycloak addAuthenticationFlowExecution }
+ * @method array getAuthenticationFlow(array $args = array()) { @command Keycloak getAuthenticationFlow }
+ * @method array updateAuthenticationFlow(array $args = array()) { @command Keycloak updateAuthenticationFlow }
+ * @method array deleteAuthenticationFlow(array $args = array()) { @command Keycloak deleteAuthenticationFlow }
+ * @method array getFormActionProviders(array $args = array()) { @command Keycloak getFormActionProviders }
+ * @method array getFormProviders(array $args = array()) { @command Keycloak getFormProviders }
+ * @method array getClientsConfigDescriptions(array $args = array()) { @command Keycloak getClientsConfigDescriptions }
+ * @method array createRequiredAction(array $args = array()) { @command Keycloak createRequiredAction }
+ * @method array getRequiredActions(array $args = array()) { @command Keycloak getRequiredActions }
+ * @method array getAliasRequiredAction(array $args = array()) { @command Keycloak getAliasRequiredAction }
+ * @method array updateRequiredAction(array $args = array()) { @command Keycloak updateRequiredAction }
+ * @method array deleteRequiredAction(array $args = array()) { @command Keycloak deleteRequiredAction }
+ * @method array lowerRequiredActionPriority(array $args = array()) { @command Keycloak lowerRequiredActionPriority }
+ * @method array raiseRequiredActionPriority(array $args = array()) { @command Keycloak raiseRequiredActionPriority }
+ * @method array getUnregisteredRequiredActions(array $args = array()) { @command Keycloak getUnregisteredRequiredActions }
+ * 
+ * @method array createUser(array $args = array()) { @command Keycloak createUser }
+ * @method array getUsers(array $args = array()) { @command Keycloak getUsers }
+ * @method array getUser(array $args = array()) { @command Keycloak getUser }
+ * 
+ * @method array getClients(array $args = array()) { @command Keycloak getClients }
+ * 
+ * @method array getClientRoleUsers(array $args = array()) { @command Keycloak getClientRoleUsers }
+ * @method array getClientRoles(array $args = array()) { @command Keycloak getClientRoles }
+ * @method array getClientRole(array $args = array()) { @command Keycloak getClientRole }
+ * 
  */
+
 class KeycloakClient extends GuzzleClient
 {
 
