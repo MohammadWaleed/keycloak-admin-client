@@ -1105,7 +1105,6 @@ return array(
                 ),
             ),
         ),
-
         'getClientRole' => array(
             'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles/{role-name}',
             'description' => 'Get a role by name (Client Specific)',
