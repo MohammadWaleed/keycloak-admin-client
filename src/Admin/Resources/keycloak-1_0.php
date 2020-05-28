@@ -711,7 +711,225 @@ return array(
             )
         ),
 
-        //Users
+        // Client Attribute Certificate
+
+        'getClientKeyInfo' => array(
+            'uri' => 'auth/admin/realms/{realm}/clients/{id}/certificates/{attr}',
+            'description' => 'Get key info',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'attr' => array(
+                    'location'    => 'uri',
+                    'description' => 'attribute prefix', // one acceptable value is jwt.credential
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getClientKeyStore' => array(
+            'uri' => 'auth/admin/realms/{realm}/clients/{id}/certificates/{attr}/download',
+            'description' => 'Get a keystore file for the client, containing private key and public certificate',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'attr' => array(
+                    'location'    => 'uri',
+                    'description' => 'attribute prefix', // one acceptable value is jwt.credential
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $KeyStoreConfig
+        ),
+
+        'generateClientCertificate' => array(
+            'uri' => 'auth/admin/realms/{realm}/clients/{id}/certificates/{attr}/generate',
+            'description' => 'Generate a new certificate with new key pair',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'attr' => array(
+                    'location'    => 'uri',
+                    'description' => 'attribute prefix', // one acceptable value is jwt.credential
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'generateDownloadClientCertificate' => array(
+            'uri' => 'auth/admin/realms/{realm}/clients/{id}/certificates/{attr}/generate-and-download',
+            'description' => 'Generate a new keypair and certificate, and get the private key file Generates a keypair and certificate and serves the private key in a specified keystore format.',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'attr' => array(
+                    'location'    => 'uri',
+                    'description' => 'attribute prefix', // one acceptable value is jwt.credential
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $KeyStoreConfig
+        ),
+
+        // need to tell Keycloak team about this, it's not mentioned in the documentation
+        'uploadClientCertificateAndPrivateKey' => array(
+            'uri' => 'auth/admin/realms/{realm}/clients/{id}/certificates/{attr}/upload',
+            'description' => 'Upload certificate and eventually private key',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'attr' => array(
+                    'location'    => 'uri',
+                    'description' => 'attribute prefix', // one acceptable value is jwt.credential
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'file' => array(
+                    'location'    => 'multipart',
+                    'description' => 'new certificate and private key',
+                    'required'    => true,
+                ),
+                'keystoreFormat' => array(
+                    'location'    => 'multipart',
+                    'description' => 'Certificate format (Certificate PEM , Public Key PEM , JSON Web Key Set , JKS)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'keyAlias' => array(
+                    'location'    => 'multipart',
+                    'description' => 'Key Alias',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'keyPassword' => array(
+                    'location'    => 'multipart',
+                    'description' => 'Key Password',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'storePassword' => array(
+                    'location'    => 'multipart',
+                    'description' => 'Store Password',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        // need to tell Keycloak team about this, it's not mentioned in the documentation
+        'uploadClientCertificateOnly' => array(
+            'uri' => 'auth/admin/realms/{realm}/clients/{id}/certificates/{attr}/upload-certificate',
+            'description' => 'Upload only certificate, not private key',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'attr' => array(
+                    'location'    => 'uri',
+                    'description' => 'attribute prefix', // one acceptable value is jwt.credential
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'file' => array(
+                    'location'    => 'multipart',
+                    'description' => 'new certificate and private key',
+                    'required'    => true,
+                ),
+                'keystoreFormat' => array(
+                    'location'    => 'multipart',
+                    'description' => 'Certificate format (Certificate PEM , Public Key PEM , JSON Web Key Set , JKS)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'keyAlias' => array(
+                    'location'    => 'multipart',
+                    'description' => 'Key Alias',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'keyPassword' => array(
+                    'location'    => 'multipart',
+                    'description' => 'Key Password',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'storePassword' => array(
+                    'location'    => 'multipart',
+                    'description' => 'Store Password',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        // Users
 
         'createUser' => array(
             'uri' => 'auth/admin/realms/{realm}/users',

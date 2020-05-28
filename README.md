@@ -156,12 +156,12 @@ $client->createUser([
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| Get key info | | ❌ |
-| Get a keystore file for the client, containing private key and public certificate | | ❌ |
-| Generate a new certificate with new key pair | | ❌ |
-| Generate a new keypair and certificate, and get the private key file Generates a keypair and certificate and serves the private key in a specified keystore format. | | ❌ |
-| Upload certificate and eventually private key | | ❌ |
-| Upload only certificate, not private key | | ❌ |
+| Get key info (try with attr = "jwt.credential") | getClientKeyInfo | ✔️ |
+| Get a keystore file for the client, containing private key and public certificate (note: write response content to a file) | getClientKeyStore | ✔️ |
+| Generate a new certificate with new key pair | generateClientCertificate | ✔️ |
+| Generate a new keypair and certificate, and get the private key file Generates a keypair and certificate and serves the private key in a specified keystore format. | generateDownloadClientCertificate | ✔️ |
+| Upload certificate and eventually private key | uploadClientCertificateAndPrivateKey | ✔️ |
+| Upload only certificate, not private key | uploadClientCertificateOnly | ✔️ |
 
  ## [Client Initial Access]()
 

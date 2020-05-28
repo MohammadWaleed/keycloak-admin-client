@@ -52,6 +52,13 @@ use GuzzleHttp\HandlerStack;
  * @method array raiseRequiredActionPriority(array $args = array()) { @command Keycloak raiseRequiredActionPriority }
  * @method array getUnregisteredRequiredActions(array $args = array()) { @command Keycloak getUnregisteredRequiredActions }
  * 
+ * @method array getClientKeyInfo(array $args = array()) { @command Keycloak getClientKeyInfo }
+ * @method array getClientKeyStore(array $args = array()) { @command Keycloak getClientKeyStore }
+ * @method array generateClientCertificate(array $args = array()) { @command Keycloak generateClientCertificate }
+ * @method array generateDownloadClientCertificate(array $args = array()) { @command Keycloak generateDownloadClientCertificate }
+ * @method array uploadClientCertificateAndPrivateKey(array $args = array()) { @command Keycloak uploadClientCertificateAndPrivateKey }
+ * @method array uploadClientCertificateOnly(array $args = array()) { @command Keycloak uploadClientCertificateOnly }
+ * 
  * @method array createUser(array $args = array()) { @command Keycloak createUser }
  * @method array getUsers(array $args = array()) { @command Keycloak getUsers }
  * @method array getUser(array $args = array()) { @command Keycloak getUser }
@@ -100,8 +107,9 @@ class KeycloakClient extends GuzzleClient
             new Client($config),
             new Description(include __DIR__ . "/Resources/{$file}"),
             null,
-            function ($arg) {
-                return json_decode($arg->getBody(), true);
+            function ($response) {
+                $responseBody = $response->getBody()->getContents();
+                return json_decode($responseBody, true) ?? ['content' => $responseBody];
             },
             null,
             $config
