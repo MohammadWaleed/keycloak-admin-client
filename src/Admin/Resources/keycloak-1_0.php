@@ -928,6 +928,7 @@ return array(
                 ),
             )
         ),
+
         // Users
 
         'createUser' => array(
