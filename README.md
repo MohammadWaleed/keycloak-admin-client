@@ -163,19 +163,19 @@ $client->createUser([
 | Upload certificate and eventually private key | uploadClientCertificateAndPrivateKey | ✔️ |
 | Upload only certificate, not private key | uploadClientCertificateOnly | ✔️ |
 
- ## [Client Initial Access]()
+ ## [Client Initial Access](https://www.keycloak.org/docs-api/10.0/rest-api/index.html#_client_initial_access_resource)
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| Create a new initial access token. | | ❌ |
-| GET /{realm}/clients-initial-access | | ❌ |
-| DELETE /{realm}/clients-initial-access/{id} | | ❌ |
+| Create a new initial access token. | createClientInitialAccessToken | ✔️ |
+| GET /{realm}/clients-initial-access | getClientInitialAccessTokens | ✔️ |
+| DELETE /{realm}/clients-initial-access/{id} | deleteClientInitialAccessToken | ✔️ |
 
- ## [Client Registration Policy]()
+ ## [Client Registration Policy](https://www.keycloak.org/docs-api/10.0/rest-api/index.html#_client_registration_policy_resource)
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| Base path for retrieve providers with the configProperties properly filled | | ❌ |
+| Base path for retrieve providers with the configProperties properly filled | getClientRegistrationPolicyProviders | ✔️ |
 
  ## [Client Role Mappings]()
 
