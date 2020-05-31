@@ -929,6 +929,56 @@ return array(
             )
         ),
 
+        // Client Initial Access
+
+        'createClientInitialAccessToken' => array(
+            'uri' => 'auth/admin/realms/{realm}/clients-initial-access',
+            'description' => 'Create a new initial access token.',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $ClientInitialAccessCreatePresentation
+        ),
+
+        'getClientInitialAccessTokens' => array(
+            'uri' => 'auth/admin/realms/{realm}/clients-initial-access',
+            'description' => 'Get client initial access tokens.',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'deleteClientInitialAccessToken' => array(
+            'uri' => 'auth/admin/realms/{realm}/clients-initial-access/{id}',
+            'description' => 'Delete client initial access token.',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
         // Users
 
         'createUser' => array(
