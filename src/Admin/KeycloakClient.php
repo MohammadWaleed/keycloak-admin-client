@@ -63,6 +63,8 @@ use GuzzleHttp\HandlerStack;
  * @method array getClientInitialAccessTokens(array $args = array()) { @command Keycloak getClientInitialAccessTokens }
  * @method array deleteClientInitialAccessToken(array $args = array()) { @command Keycloak deleteClientInitialAccessToken }
  * 
+ * @method array getClientRegistrationPolicyProviders(array $args = array()) { @command Keycloak deleteClientInitialAccessToken }
+ * 
  * @method array createUser(array $args = array()) { @command Keycloak createUser }
  * @method array getUsers(array $args = array()) { @command Keycloak getUsers }
  * @method array getUser(array $args = array()) { @command Keycloak getUser }

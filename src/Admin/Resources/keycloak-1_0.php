@@ -979,6 +979,22 @@ return array(
             )
         ),
 
+        // Client Registration Policy
+
+        'getClientRegistrationPolicyProviders' => array(
+            'uri' => 'auth/admin/realms/{realm}/client-registration-policy/providers',
+            'description' => 'Base path for retrieve providers with the configProperties properly filled',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
         // Users
 
         'createUser' => array(

@@ -171,11 +171,11 @@ $client->createUser([
 | GET /{realm}/clients-initial-access | getClientInitialAccessTokens | ✔️ |
 | DELETE /{realm}/clients-initial-access/{id} | deleteClientInitialAccessToken | ✔️ |
 
- ## [Client Registration Policy]()
+ ## [Client Registration Policy](https://www.keycloak.org/docs-api/10.0/rest-api/index.html#_client_registration_policy_resource)
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| Base path for retrieve providers with the configProperties properly filled | | ❌ |
+| Base path for retrieve providers with the configProperties properly filled | getClientRegistrationPolicyProviders | ✔️ |
 
  ## [Client Role Mappings]()
 
