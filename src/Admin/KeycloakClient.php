@@ -67,6 +67,17 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * 
  * @method array getClientRegistrationPolicyProviders(array $args = array()) { @command Keycloak deleteClientInitialAccessToken }
  * 
+ * @method array addGroupClientRoleMappings(array $args = array()) { @command Keycloak addGroupClientRoleMappings }
+ * @method array getGroupClientRoleMappings(array $args = array()) { @command Keycloak getGroupClientRoleMappings }
+ * @method array deleteGroupClientRoleMappings(array $args = array()) { @command Keycloak deleteGroupClientRoleMappings }
+ * @method array getAvailableGroupClientRoleMappings(array $args = array()) { @command Keycloak getAvailableGroupClientRoleMappings }
+ * @method array getGroupClientRoleMappingsWithComposite(array $args = array()) { @command Keycloak getGroupClientRoleMappingsWithComposite }
+ * @method array addUserClientRoleMappings(array $args = array()) { @command Keycloak addUserClientRoleMappings }
+ * @method array getUserClientRoleMappings(array $args = array()) { @command Keycloak getUserClientRoleMappings }
+ * @method array deleteUserClientRoleMappings(array $args = array()) { @command Keycloak deleteUserClientRoleMappings }
+ * @method array getAvailableUserClientRoleMappings(array $args = array()) { @command Keycloak getAvailableUserClientRoleMappings }
+ * @method array getUserClientRoleMappingsWithComposite(array $args = array()) { @command Keycloak getUserClientRoleMappingsWithComposite }
+ * 
  * @method array createUser(array $args = array()) { @command Keycloak createUser }
  * @method array getUsers(array $args = array()) { @command Keycloak getUsers }
  * @method array getUser(array $args = array()) { @command Keycloak getUser }

@@ -995,6 +995,300 @@ return array(
             )
         ),
 
+        // Client Role Mappings
+
+        'addGroupClientRoleMappings' => array(
+            'uri' => 'auth/admin/realms/{realm}/groups/{id}/role-mappings/clients/{client}',
+            'description' => 'Add client-level roles to the group role mapping',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'client' => array(
+                    'location'    => 'uri',
+                    'description' => 'Client id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'roles' => array(
+                    'location' => 'fullBody',
+                    'type' => 'array',
+                    'items' => array(
+                        'type' => 'object', 'properties' => $RoleRepresentation
+                    ),
+                    'required' => true
+                ),
+            )
+        ),
+
+        'getGroupClientRoleMappings' => array(
+            'uri' => 'auth/admin/realms/{realm}/groups/{id}/role-mappings/clients/{client}',
+            'description' => 'Get client-level role mappings for the group, and the app',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'client' => array(
+                    'location'    => 'uri',
+                    'description' => 'Client id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'deleteGroupClientRoleMappings' => array(
+            'uri' => 'auth/admin/realms/{realm}/groups/{id}/role-mappings/clients/{client}',
+            'description' => 'Delete client-level roles from group role mapping',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'client' => array(
+                    'location'    => 'uri',
+                    'description' => 'Client id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'roles' => array(
+                    'location' => 'fullBody',
+                    'type' => 'array',
+                    'items' => array(
+                        'type' => 'object', 'properties' => $RoleRepresentation
+                    ),
+                    'required' => true
+                ),
+            )
+        ),
+
+        'getAvailableGroupClientRoleMappings' => array(
+            'uri' => 'auth/admin/realms/{realm}/groups/{id}/role-mappings/clients/{client}/available',
+            'description' => 'Get available client-level roles that can be mapped to the group',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'client' => array(
+                    'location'    => 'uri',
+                    'description' => 'Client id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getGroupClientRoleMappingsWithComposite' => array(
+            'uri' => 'auth/admin/realms/{realm}/groups/{id}/role-mappings/clients/{client}/composite',
+            'description' => 'Get effective client-level role mappings This recurses any composite roles for groups',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'client' => array(
+                    'location'    => 'uri',
+                    'description' => 'Client id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'addUserClientRoleMappings' => array(
+            'uri' => 'auth/admin/realms/{realm}/users/{id}/role-mappings/clients/{client}',
+            'description' => 'Add client-level roles to the user role mapping ',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'User id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'client' => array(
+                    'location'    => 'uri',
+                    'description' => 'Client id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'roles' => array(
+                    'location' => 'fullBody',
+                    'type' => 'array',
+                    'items' => array(
+                        'type' => 'object', 'properties' => $RoleRepresentation
+                    ),
+                    'required' => true
+                ),
+            )
+        ),
+
+        'getUserClientRoleMappings' => array(
+            'uri' => 'auth/admin/realms/{realm}/users/{id}/role-mappings/clients/{client}',
+            'description' => 'Get client-level role mappings for the user, and the app',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'User id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'client' => array(
+                    'location'    => 'uri',
+                    'description' => 'Client id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'deleteUserClientRoleMappings' => array(
+            'uri' => 'auth/admin/realms/{realm}/users/{id}/role-mappings/clients/{client}',
+            'description' => 'Delete client-level roles from user role mapping',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'User id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'client' => array(
+                    'location'    => 'uri',
+                    'description' => 'Client id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'roles' => array(
+                    'location' => 'fullBody',
+                    'type' => 'array',
+                    'items' => array(
+                        'type' => 'object', 'properties' => $RoleRepresentation
+                    ),
+                    'required' => true
+                ),
+            )
+        ),
+
+        'getAvailableUserClientRoleMappings' => array(
+            'uri' => 'auth/admin/realms/{realm}/users/{id}/role-mappings/clients/{client}/available',
+            'description' => 'Get available client-level roles that can be mapped to the user',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'User id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'client' => array(
+                    'location'    => 'uri',
+                    'description' => 'Client id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getUserClientRoleMappingsWithComposite' => array(
+            'uri' => 'auth/admin/realms/{realm}/users/{id}/role-mappings/clients/{client}/composite',
+            'description' => 'Get effective client-level role mappings This recurses any composite roles for users',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'User id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'client' => array(
+                    'location'    => 'uri',
+                    'description' => 'Client id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
         // Users
 
         'createUser' => array(
