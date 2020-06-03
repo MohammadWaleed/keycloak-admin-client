@@ -177,20 +177,20 @@ $client->createUser([
 |-----|:-------------:|:---------:|
 | Base path for retrieve providers with the configProperties properly filled | getClientRegistrationPolicyProviders | ✔️ |
 
- ## [Client Role Mappings]()
+ ## [Client Role Mappings](https://www.keycloak.org/docs-api/10.0/rest-api/index.html#_client_role_mappings_resource)
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| Add client-level roles to the user role mapping | | ❌ |
-| Get client-level role mappings for the user, and the app | | ❌ |
-| Delete client-level roles from user role mapping | | ❌ |
-| Get available client-level roles that can be mapped to the user | | ❌ |
-| Get effective client-level role mappings This recurses any composite roles | | ❌ |
-| Add client-level roles to the user role mapping | | ❌ |
-| Get client-level role mappings for the user, and the app | | ❌ |
-| Delete client-level roles from user role mapping | | ❌ |
-| Get available client-level roles that can be mapped to the user | | ❌ |
-| Get effective client-level role mappings This recurses any composite roles | | ❌ |
+| Add client-level roles to the group role mapping (couldn't make it seems like an issue with keycloak itslef ??) | addGroupClientRoleMappings | ❌ |
+| Get client-level role mappings for the group, and the app | getGroupClientRoleMappings | ✔️ |
+| Delete client-level roles from group role mapping | deleteGroupClientRoleMappings | ✔️ |
+| Get available client-level roles that can be mapped to the group | getAvailableGroupClientRoleMappings | ✔️ |
+| Get effective client-level role mappings This recurses any composite roles for groups | getGroupClientRoleMappingsWithComposite | ✔️ |
+| Add client-level roles to the user role mapping (couldn't make it seems like an issue with keycloak itslef ??) | addUserClientRoleMappings | ❌ |
+| Get client-level role mappings for the user, and the app | getUserClientRoleMappings | ✔️ |
+| Delete client-level roles from user role mapping | deleteUserClientRoleMappings | ✔️ |
+| Get available client-level roles that can be mapped to the user | getAvailableUserClientRoleMappings | ✔️ |
+| Get effective client-level role mappings This recurses any composite roles for users | getUserClientRoleMappingsWithComposite | ✔️ |
 
  ## [Client Scopes]()
 
