@@ -5,9 +5,11 @@ namespace Keycloak\Admin;
 use Keycloak\Admin\Middleware\RefreshToken;
 use GuzzleHttp\Command\Guzzle\GuzzleClient;
 use GuzzleHttp\Command\Guzzle\Description;
+use GuzzleHttp\Command\Guzzle\Serializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;
+use Keycloak\Admin\Classes\FullBodyLocation;
 
 /**
  * Class KeycloakClient
@@ -108,11 +110,14 @@ class KeycloakClient extends GuzzleClient
 
         $config['handler'] = $stack;
 
+        $description = new Description(include __DIR__ . "/Resources/{$file}");
         // Create the new Keycloak Client with our Configuration
         return new self(
             new Client($config),
-            new Description(include __DIR__ . "/Resources/{$file}"),
-            null,
+            $description,
+            new Serializer($description, [
+                "fullBody" => new FullBodyLocation()
+            ]),
             function ($response) {
                 $responseBody = $response->getBody()->getContents();
                 return json_decode($responseBody, true) ?? ['content' => $responseBody];
