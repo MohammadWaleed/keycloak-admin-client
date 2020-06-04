@@ -1,3 +1,7 @@
+[![Latest Version](https://img.shields.io/github/v/tag/MohammadWaleed/keycloak-admin-client.svg?style=flat-square)](https://github.com/MohammadWaleed/keycloak-admin-client/releases)
+
+[![Total Downloads](https://img.shields.io/packagist/dt/mohammad-waleed/keycloak-admin-client.svg?style=flat-square)](https://packagist.org/packages/mohammad-waleed/keycloak-admin-client)
+
 - [Introduction](#introduction)
 - [How to use](#how-to-use)
 - [Supported APIs](#supported-apis)
