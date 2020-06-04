@@ -78,6 +78,12 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array getAvailableUserClientRoleMappings(array $args = array()) { @command Keycloak getAvailableUserClientRoleMappings }
  * @method array getUserClientRoleMappingsWithComposite(array $args = array()) { @command Keycloak getUserClientRoleMappingsWithComposite }
  * 
+ * @method array createClientScope(array $args = array()) { @command Keycloak createClientScope }
+ * @method array getClientScopes(array $args = array()) { @command Keycloak getClientScopes }
+ * @method array getClientScope(array $args = array()) { @command Keycloak getClientScope }
+ * @method array updateClientScope(array $args = array()) { @command Keycloak updateClientScope }
+ * @method array deleteClientScope(array $args = array()) { @command Keycloak deleteClientScope }
+ * 
  * @method array createUser(array $args = array()) { @command Keycloak createUser }
  * @method array getUsers(array $args = array()) { @command Keycloak getUsers }
  * @method array getUser(array $args = array()) { @command Keycloak getUser }

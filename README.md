@@ -1,3 +1,7 @@
+[![Latest Version](https://img.shields.io/github/v/tag/MohammadWaleed/keycloak-admin-client.svg?style=flat-square)](https://github.com/MohammadWaleed/keycloak-admin-client/releases)
+
+[![Total Downloads](https://img.shields.io/packagist/dt/mohammad-waleed/keycloak-admin-client.svg?style=flat-square)](https://packagist.org/packages/mohammad-waleed/keycloak-admin-client)
+
 - [Introduction](#introduction)
 - [How to use](#how-to-use)
 - [Supported APIs](#supported-apis)
@@ -192,15 +196,15 @@ $client->createUser([
 | Get available client-level roles that can be mapped to the user | getAvailableUserClientRoleMappings | ✔️ |
 | Get effective client-level role mappings This recurses any composite roles for users | getUserClientRoleMappingsWithComposite | ✔️ |
 
- ## [Client Scopes]()
+ ## [Client Scopes](https://www.keycloak.org/docs-api/10.0/rest-api/index.html#_client_scopes_resource)
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| Create a new client scope Client Scope’s name must be unique! | | ❌ |
-| Get client scopes belonging to the realm Returns a list of client scopes belonging to the realm | | ❌ |
-| Get representation of the client scope | | ❌ |
-| Update the client scope | | ❌ |
-| Delete the client scope | | ❌ |
+| Create a new client scope Client Scope’s name must be unique! | createClientScope | ✔️ |
+| Get client scopes belonging to the realm Returns a list of client scopes belonging to the realm | getClientScopes | ✔️ |
+| Get representation of the client scope | getClientScope | ✔️ |
+| Update the client scope | updateClientScope | ✔️ |
+| Delete the client scope | deleteClientScope | ✔️ |
 
  ## [Clients]()
 
