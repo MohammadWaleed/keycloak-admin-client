@@ -1289,6 +1289,96 @@ return array(
             )
         ),
 
+        // Client Scopes
+
+        'createClientScope' => array(
+            'uri' => 'auth/admin/realms/{realm}/client-scopes',
+            'description' => 'Create a new client scope Client Scope’s name must be unique!',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $ClientScopeRepresentation
+        ),
+
+        'getClientScopes' => array(
+            'uri' => 'auth/admin/realms/{realm}/client-scopes',
+            'description' => 'Get client scopes belonging to the realm Returns a list of client scopes belonging to the realm',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getClientScope' => array(
+            'uri' => 'auth/admin/realms/{realm}/client-scopes/{id}',
+            'description' => 'Get representation of the client scope',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client scope (not name)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'updateClientScope' => array(
+            'uri' => 'auth/admin/realms/{realm}/client-scopes/{id}',
+            'description' => 'Update the client scope',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client scope (not name)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $ClientScopeRepresentation
+        ),
+
+        'deleteClientScope' => array(
+            'uri' => 'auth/admin/realms/{realm}/client-scopes/{id}',
+            'description' => 'Delete the client scope',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client scope (not name)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
         // Users
 
         'createUser' => array(
