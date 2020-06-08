@@ -206,7 +206,7 @@ $client->createUser([
 | Update the client scope | updateClientScope | ✔️ |
 | Delete the client scope | deleteClientScope | ✔️ |
 
- ## [Clients]()
+ ## [Clients](https://www.keycloak.org/docs-api/10.0/rest-api/index.html#_clients_resource)
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
