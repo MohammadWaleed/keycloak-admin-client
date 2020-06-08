@@ -210,36 +210,36 @@ $client->createUser([
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| Create a new client Client’s client_id must be unique! | | ❌ |
+| Create a new client Client’s client_id must be unique! | createClient | ✔️ |
 | Get clients belonging to the realm Returns a list of clients belonging to the realm | getClients | ✔️ |
-| Get representation of the client | | ❌ |
-| Update the client | | ❌ |
-| Delete the client | | ❌ |
-| Generate a new secret for the client | | ❌ |
-| Get the client secret | | ❌ |
-| Get default client scopes. | | ❌ |
-| PUT /{realm}/clients/{id}/default-client-scopes/{clientScopeId} | | ❌ |
-| DELETE /{realm}/clients/{id}/default-client-scopes/{clientScopeId} | | ❌ |
-| Create JSON with payload of example access token | | ❌ |
-| Return list of all protocol mappers, which will be used when generating tokens issued for particular client. | | ❌ |
-| Get effective scope mapping of all roles of particular role container, which this client is defacto allowed to have in the accessToken issued for him. | | ❌ |
-| Get roles, which this client doesn’t have scope for and can’t have them in the accessToken issued for him. | | ❌ |
-| GET /{realm}/clients/{id}/installation/providers/{providerId} | | ❌ |
-| Return object stating whether client Authorization permissions have been initialized or not and a reference | | ❌ |
-| Return object stating whether client Authorization permissions have been initialized or not and a reference | | ❌ |
-| Register a cluster node with the client Manually register cluster node to this client - usually it’s not needed to call this directly as adapter should handle by sending registration request to Keycloak | | ❌ |
-| Unregister a cluster node from the client | | ❌ |
-| Get application offline session count Returns a number of offline user sessions associated with this client { "count": number } | | ❌ |
-| Get offline sessions for client Returns a list of offline user sessions associated with this client | | ❌ |
-| Get optional client scopes. | | ❌ |
-| PUT /{realm}/clients/{id}/optional-client-scopes/{clientScopeId} | | ❌ |
-| DELETE /{realm}/clients/{id}/optional-client-scopes/{clientScopeId} | | ❌ |
-| Push the client’s revocation policy to its admin URL If the client has an admin URL, push revocation policy to it. | | ❌ |
-| Generate a new registration access token for the client | | ❌ |
-| Get a user dedicated to the service account | | ❌ |
-| Get application session count Returns a number of user sessions associated with this client { "count": number } | | ❌ |
-| Test if registered cluster nodes are available Tests availability by sending 'ping' request to all cluster nodes. | | ❌ |
-| Get user sessions for client Returns a list of user sessions associated with this client | | ❌ |
+| Get representation of the client | getClient | ✔️ |
+| Update the client | updateClient | ✔️ |
+| Delete the client | deleteClient | ✔️ |
+| Generate a new secret for the client | generateClientSecret | ✔️ |
+| Get the client secret | getClientSecret | ✔️ |
+| Get default client scopes. | getClientDefaultScopes | ✔️ |
+| Set client scope as default scope | setClientScopeAsDefault | ✔️ |
+| Remove client scope from default scopes | removeClientScopeAsDefault | ✔️ |
+| Create JSON with payload of example access token | getClientExampleAccessToken | ✔️ |
+| Return list of all protocol mappers, which will be used when generating tokens issued for particular client. | getClientProtocolMappers | ✔️ |
+| Get effective scope mapping of all roles of particular role container, which this client is defacto allowed to have in the accessToken issued for him. | getClientAllowedRoleMappingsInContainer | ✔️ |
+| Get roles, which this client doesn’t have scope for and can’t have them in the accessToken issued for him. | getClientNotAllowedRoleMappingsInContainer | ✔️ |
+| Generate client adapter configuration takes one of these (keycloak-oidc-keycloak-json, keycloak-oidc-jboss-subsystem-cli, keycloak-oidc-jboss-subsystem, keycloak-saml, keycloak-saml-subsystem-cli, keycloak-saml-subsystem) | getClientInstallationConfiguration | ✔️ |
+| Return object stating whether client Authorization permissions have been initialized or not and a reference | getClientAuthorizationPermissionsStatus | ✔️ |
+| Update client Authorization permissions  initialization and a reference | updateClientAuthorizationPermissionsStatus | ✔️ |
+| Register a cluster node with the client Manually register cluster node to this client - usually it’s not needed to call this directly as adapter should handle by sending registration request to Keycloak | registerClientClusterNode | ✔️ |
+| Unregister a cluster node from the client | unregisterClientClusterNode | ✔️ |
+| Get application offline session count Returns a number of offline user sessions associated with this client { "count": number } | getClientOfflineSessionsCount | ✔️ |
+| Get offline sessions for client Returns a list of offline user sessions associated with this client | getClientOfflineSessions | ✔️ |
+| Get optional client scopes. | getClientOptionalScopes | ✔️ |
+| Assign client optional scope | assignClientOptionalScope | ✔️ |
+| remove client optional scope assignment | unassignClientOptionalScope | ✔️ |
+| Push the client’s revocation policy to its admin URL If the client has an admin URL, push revocation policy to it. | pushClientRevocationPolicy | ✔️ |
+| Generate a new registration access token for the client | generateClientRegistrationToken | ✔️ |
+| Get a user dedicated to the service account | getServiceAccountDedicatedUser | ✔️ |
+| Get application session count Returns a number of user sessions associated with this client { "count": number } | getClientSessionsCount | ✔️ |
+| Test if registered cluster nodes are available Tests availability by sending 'ping' request to all cluster nodes. | testClientNodesAvailability | ✔️ |
+| Get user sessions for client Returns a list of user sessions associated with this client | getClientSessions | ✔️ |
 
  ## [Component]()
 

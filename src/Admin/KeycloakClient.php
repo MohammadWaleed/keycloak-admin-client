@@ -84,11 +84,40 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array updateClientScope(array $args = array()) { @command Keycloak updateClientScope }
  * @method array deleteClientScope(array $args = array()) { @command Keycloak deleteClientScope }
  * 
+ * @method array createClient(array $args = array()) { @command Keycloak createClient }
+ * @method array getClients(array $args = array()) { @command Keycloak getClients }
+ * @method array getClient(array $args = array()) { @command Keycloak getClient }
+ * @method array updateClient(array $args = array()) { @command Keycloak updateClient }
+ * @method array deleteClient(array $args = array()) { @command Keycloak deleteClient }
+ * @method array generateClientSecret(array $args = array()) { @command Keycloak generateClientSecret }
+ * @method array getClientSecret(array $args = array()) { @command Keycloak getClientSecret }
+ * @method array getClientDefaultScopes(array $args = array()) { @command Keycloak getClientDefaultScopes }
+ * @method array setClientScopeAsDefault(array $args = array()) { @command Keycloak setClientScopeAsDefault }
+ * @method array removeClientScopeAsDefault(array $args = array()) { @command Keycloak removeClientScopeAsDefault }
+ * @method array getClientExampleAccessToken(array $args = array()) { @command Keycloak getClientExampleAccessToken }
+ * @method array getClientProtocolMappers(array $args = array()) { @command Keycloak getClientProtocolMappers }
+ * @method array getClientAllowedRoleMappingsInContainer(array $args = array()) { @command Keycloak getClientAllowedRoleMappingsInContainer }
+ * @method array getClientNotAllowedRoleMappingsInContainer(array $args = array()) { @command Keycloak getClientNotAllowedRoleMappingsInContainer }
+ * @method array getClientInstallationConfiguration(array $args = array()) { @command Keycloak getClientInstallationConfiguration }
+ * @method array getClientAuthorizationPermissionsStatus(array $args = array()) { @command Keycloak getClientAuthorizationPermissionsStatus }
+ * @method array updateClientAuthorizationPermissionsStatus(array $args = array()) { @command Keycloak updateClientAuthorizationPermissionsStatus }
+ * @method array registerClientClusterNode(array $args = array()) { @command Keycloak registerClientClusterNode }
+ * @method array unregisterClientClusterNode(array $args = array()) { @command Keycloak unregisterClientClusterNode }
+ * @method array getClientOfflineSessionsCount(array $args = array()) { @command Keycloak getClientOfflineSessionsCount }
+ * @method array getClientOfflineSessions(array $args = array()) { @command Keycloak getClientOfflineSessions }
+ * @method array getClientOptionalScopes(array $args = array()) { @command Keycloak getClientOptionalScopes }
+ * @method array assignClientOptionalScope(array $args = array()) { @command Keycloak assignClientOptionalScope }
+ * @method array unassignClientOptionalScope(array $args = array()) { @command Keycloak unassignClientOptionalScope }
+ * @method array pushClientRevocationPolicy(array $args = array()) { @command Keycloak pushClientRevocationPolicy }
+ * @method array generateClientRegistrationToken(array $args = array()) { @command Keycloak generateClientRegistrationToken }
+ * @method array getServiceAccountDedicatedUser(array $args = array()) { @command Keycloak getServiceAccountDedicatedUser }
+ * @method array getClientSessionsCount(array $args = array()) { @command Keycloak getClientSessionsCount }
+ * @method array testClientNodesAvailability(array $args = array()) { @command Keycloak testClientNodesAvailability }
+ * @method array getClientSessions(array $args = array()) { @command Keycloak getClientSessions }
+ * 
  * @method array createUser(array $args = array()) { @command Keycloak createUser }
  * @method array getUsers(array $args = array()) { @command Keycloak getUsers }
  * @method array getUser(array $args = array()) { @command Keycloak getUser }
- * 
- * @method array getClients(array $args = array()) { @command Keycloak getClients }
  * 
  * @method array getClientRoleUsers(array $args = array()) { @command Keycloak getClientRoleUsers }
  * @method array getClientRoles(array $args = array()) { @command Keycloak getClientRoles }
