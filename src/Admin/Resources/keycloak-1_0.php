@@ -1379,6 +1379,704 @@ return array(
             )
         ),
 
+        // Clients
+
+        'createClient' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients',
+            'description' => 'Create a new client Client’s client_id must be unique!',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $ClientRepresentation
+        ),
+
+        'getClients' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients',
+            'description' => 'Get clients belonging to the realm Returns a list of clients belonging to the realm',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'clientId' => array(
+                    'location'    => 'query',
+                    'description' => 'filter by clientId',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
+                'viewableOnly' => array(
+                    'location'    => 'query',
+                    'description' => 'filter clients that cannot be viewed in full by admin',
+                    'type'        => 'boolean',
+                    'required'    => false,
+                )
+            ),
+        ),
+
+        'getClient' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}',
+            'description' => 'Get representation of the client',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ),
+        ),
+
+        'updateClient' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}',
+            'description' => 'Update the client',
+            'httpMethod'  => 'PUT',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $ClientRepresentation
+        ),
+
+        'deleteClient' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}',
+            'description' => 'Delete the client',
+            'httpMethod'  => 'DELETE',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'generateClientSecret' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/client-secret',
+            'description' => 'Generate a new secret for the client',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getClientSecret' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/client-secret',
+            'description' => 'Get the client secret',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getClientDefaultScopes' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/default-client-scopes',
+            'description' => 'Get default client scopes.',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'setClientScopeAsDefault' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/default-client-scopes/{clientScopeId}',
+            'description' => 'Set client scope as default scope',
+            'httpMethod'  => 'PUT',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'clientScopeId' => array(
+                    'location'    => 'uri',
+                    'description' => 'Client Scope Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'removeClientScopeAsDefault' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/default-client-scopes/{clientScopeId}',
+            'description' => 'Remove client scope from default scopes ',
+            'httpMethod'  => 'DELETE',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'clientScopeId' => array(
+                    'location'    => 'uri',
+                    'description' => 'Client Scope Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getClientExampleAccessToken' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/evaluate-scopes/generate-example-access-token',
+            'description' => 'Create JSON with payload of example access token',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'scope' => array(
+                    'location'    => 'query',
+                    'description' => 'Scope',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
+                'userId' => array(
+                    'location'    => 'query',
+                    'description' => 'User Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getClientProtocolMappers' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/evaluate-scopes/protocol-mappers',
+            'description' => 'Return list of all protocol mappers, which will be used when generating tokens issued for particular client.',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'scope' => array(
+                    'location'    => 'query',
+                    'description' => 'Scope',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
+            )
+        ),
+
+        'getClientAllowedRoleMappingsInContainer' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/granted',
+            'description' => 'Get effective scope mapping of all roles of particular role container, which this client is defacto allowed to have in the accessToken issued for him.',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'roleContainerId' => array(
+                    'location'    => 'uri',
+                    'description' => 'either realm name OR client UUID',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'scope' => array(
+                    'location'    => 'query',
+                    'description' => 'Scope',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
+            )
+        ),
+
+        'getClientNotAllowedRoleMappingsInContainer' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/not-granted',
+            'description' => 'Get roles, which this client doesn’t have scope for and can’t have them in the accessToken issued for him.',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'roleContainerId' => array(
+                    'location'    => 'uri',
+                    'description' => 'either realm name OR client UUID',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'scope' => array(
+                    'location'    => 'query',
+                    'description' => 'Scope',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
+            )
+        ),
+
+        'getClientInstallationConfiguration' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/installation/providers/{providerId}',
+            'description' => 'Generate client adapter configuration takes one of these (keycloak-oidc-keycloak-json, keycloak-oidc-jboss-subsystem-cli, keycloak-oidc-jboss-subsystem, keycloak-saml, keycloak-saml-subsystem-cli, keycloak-saml-subsystem) ',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'providerId' => array(
+                    'location'    => 'uri',
+                    'description' => 'Provider Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getClientAuthorizationPermissionsStatus' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/management/permissions',
+            'description' => 'Return object stating whether client Authorization permissions have been initialized or not and a reference',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'updateClientAuthorizationPermissionsStatus' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/management/permissions',
+            'description' => 'Update client Authorization permissions  initialization and a reference',
+            'httpMethod'  => 'PUT',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $ManagementPermissionReference
+        ),
+
+        'registerClientClusterNode' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/nodes',
+            'description' => 'Register a cluster node with the client Manually register cluster node to this client - usually it’s not needed to call this directly as adapter should handle by sending registration request to Keycloak',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'node' => array(
+                    'location' => 'json',
+                    'description' => "New node host",
+                    'type' => 'string',
+                    'required' => true
+                ),
+            )
+        ),
+
+        'unregisterClientClusterNode' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/nodes/{node}',
+            'description' => 'Unregister a cluster node from the client ',
+            'httpMethod'  => 'DELETE',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'node' => array(
+                    'location' => 'uri',
+                    'description' => "Node host",
+                    'type' => 'string',
+                    'required' => true
+                ),
+            )
+        ),
+
+        'getClientOfflineSessionsCount' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/offline-session-count',
+            'description' => 'Get application offline session count Returns a number of offline user sessions associated with this client { "count": number }',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getClientOfflineSessions' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/offline-sessions',
+            'description' => 'Get offline sessions for client Returns a list of offline user sessions associated with this client',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'first' => array(
+                    'location'    => 'query',
+                    'description' => 'Paging offset',
+                    'type'        => 'integer',
+                    'required'    => false,
+                ),
+                'max' => array(
+                    'location'    => 'query',
+                    'description' => 'Maximum results size (defaults to 100)',
+                    'type'        => 'integer',
+                    'required'    => false,
+                ),
+            )
+        ),
+
+        'getClientOptionalScopes' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/optional-client-scopes',
+            'description' => 'Get optional client scopes.',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'assignClientOptionalScope' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/optional-client-scopes/{clientScopeId}',
+            'description' => 'Assign client optional scope',
+            'httpMethod'  => 'PUT',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'clientScopeId' => array(
+                    'location'    => 'uri',
+                    'description' => 'Client Scope Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'unassignClientOptionalScope' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/optional-client-scopes/{clientScopeId}',
+            'description' => 'remove client optional scope assignment',
+            'httpMethod'  => 'DELETE',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'clientScopeId' => array(
+                    'location'    => 'uri',
+                    'description' => 'Client Scope Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'pushClientRevocationPolicy' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/push-revocation',
+            'description' => 'Push the client’s revocation policy to its admin URL If the client has an admin URL, push revocation policy to it.',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'generateClientRegistrationToken' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/registration-access-token',
+            'description' => 'Generate a new registration access token for the client',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getServiceAccountDedicatedUser' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/service-account-user',
+            'description' => 'Get a user dedicated to the service account',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getClientSessionsCount' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/session-count',
+            'description' => 'Get application session count Returns a number of user sessions associated with this client { "count": number } ',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'testClientNodesAvailability' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/test-nodes-available',
+            'description' => "Test if registered cluster nodes are available Tests availability by sending 'ping' request to all cluster nodes.",
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getClientSessions' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/user-sessions',
+            'description' => 'Get user sessions for client Returns a list of user sessions associated with this client',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
         // Users
 
         'createUser' => array(
@@ -1471,35 +2169,7 @@ return array(
             )
         ),
 
-        //Clients
-
-        'getClients' => array(
-            'uri'         => 'auth/admin/realms/{realm}/clients',
-            'description' => 'Get clients belonging to the realm Returns a list of clients belonging to the realm',
-            'httpMethod'  => 'GET',
-            'parameters'  => array(
-                'realm' => array(
-                    'location'    => 'uri',
-                    'description' => 'The Realm name',
-                    'type'        => 'string',
-                    'required'    => true,
-                ),
-                'clientId' => array(
-                    'location'    => 'query',
-                    'description' => 'filter by clientId',
-                    'type'        => 'string',
-                    'required'    => false,
-                ),
-                'viewableOnly' => array(
-                    'location'    => 'query',
-                    'description' => 'filter clients that cannot be viewed in full by admin',
-                    'type'        => 'boolean',
-                    'required'    => false,
-                )
-            ),
-        ),
-
-        //Roles
+        // Roles
 
         'getClientRoleUsers' => array(
             'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles/{role-name}/users',
