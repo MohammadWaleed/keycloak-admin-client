@@ -241,16 +241,16 @@ $client->createUser([
 | Test if registered cluster nodes are available Tests availability by sending 'ping' request to all cluster nodes. | testClientNodesAvailability | ✔️ |
 | Get user sessions for client Returns a list of user sessions associated with this client | getClientSessions | ✔️ |
 
- ## [Component]()
+ ## [Component](https://www.keycloak.org/docs-api/10.0/rest-api/index.html#_component_resource)
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| POST /{realm}/components | | ❌ |
-| GET /{realm}/components | | ❌ |
-| GET /{realm}/components/{id} | | ❌ |
-| PUT /{realm}/components/{id} | | ❌ |
-| DELETE /{realm}/components/{id} | | ❌ |
-| List of subcomponent types that are available to configure for a particular parent component. | | ❌ |
+| Create new component | createComponent | ✔️ |
+| Get components | getComponents | ✔️ |
+| Get component | getComponent | ✔️ |
+| Update component | updateComponent | ✔️ |
+| Delete component | deleteComponent | ✔️ |
+| List of subcomponent types that are available to configure for a particular parent component. | getComponentSubTypes | ✔️ |
 
  ## [Groups]()
 
