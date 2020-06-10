@@ -115,6 +115,13 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array testClientNodesAvailability(array $args = array()) { @command Keycloak testClientNodesAvailability }
  * @method array getClientSessions(array $args = array()) { @command Keycloak getClientSessions }
  * 
+ * @method array createComponent(array $args = array()) { @command Keycloak createComponent }
+ * @method array getComponents(array $args = array()) { @command Keycloak getComponents }
+ * @method array getComponent(array $args = array()) { @command Keycloak getComponent }
+ * @method array updateComponent(array $args = array()) { @command Keycloak updateComponent }
+ * @method array deleteComponent(array $args = array()) { @command Keycloak deleteComponent }
+ * @method array getComponentSubTypes(array $args = array()) { @command Keycloak getComponentSubTypes }
+ * 
  * @method array createUser(array $args = array()) { @command Keycloak createUser }
  * @method array getUsers(array $args = array()) { @command Keycloak getUsers }
  * @method array getUser(array $args = array()) { @command Keycloak getUser }

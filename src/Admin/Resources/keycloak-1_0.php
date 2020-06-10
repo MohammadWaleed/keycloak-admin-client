@@ -2077,6 +2077,122 @@ return array(
             )
         ),
 
+        // Component
+
+        'createComponent' => array(
+            'uri'         => 'auth/admin/realms/{realm}/components',
+            'description' => 'Create new component',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $ComponentRepresentation
+        ),
+
+        'getComponents' => array(
+            'uri'         => 'auth/admin/realms/{realm}/components',
+            'description' => 'Get components',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getComponent' => array(
+            'uri'         => 'auth/admin/realms/{realm}/components/{id}',
+            'description' => 'Get component',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Component id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'updateComponent' => array(
+            'uri'         => 'auth/admin/realms/{realm}/components/{id}',
+            'description' => 'Update component',
+            'httpMethod'  => 'PUT',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Component id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $ComponentRepresentation
+        ),
+
+        'deleteComponent' => array(
+            'uri'         => 'auth/admin/realms/{realm}/components/{id}',
+            'description' => 'Delete component',
+            'httpMethod'  => 'DELETE',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Component id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getComponentSubTypes' => array(
+            'uri'         => 'auth/admin/realms/{realm}/components/{id}/sub-component-types',
+            'description' => 'List of subcomponent types that are available to configure for a particular parent component.',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Component id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'type' => array(
+                    'location'    => 'query',
+                    'description' => 'Provider type',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
         // Users
 
         'createUser' => array(
