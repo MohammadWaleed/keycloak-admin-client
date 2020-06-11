@@ -252,20 +252,20 @@ $client->createUser([
 | Delete component | deleteComponent | ✔️ |
 | List of subcomponent types that are available to configure for a particular parent component. | getComponentSubTypes | ✔️ |
 
- ## [Groups]()
+ ## [Groups](https://www.keycloak.org/docs-api/10.0/rest-api/index.html#_groups_resource)
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| create or add a top level realm groupSet or create child. | | ❌ |
-| Get group hierarchy. | | ❌ |
-| Returns the groups counts. | | ❌ |
-| GET /{realm}/groups/{id} | | ❌ |
-| Update group, ignores subgroups. | | ❌ |
-| DELETE /{realm}/groups/{id} | | ❌ |
-| Set or create child. | | ❌ |
-| Return object stating whether client Authorization permissions have been initialized or not and a reference | | ❌ |
-| Return object stating whether client Authorization permissions have been initialized or not and a reference | | ❌ |
-| Get users Returns a list of users, filtered according to query parameters | | ❌ |
+| create or add a top level realm groupSet or create child. | createGroup | ✔️ |
+| Get group hierarchy. | getGroups | ✔️ |
+| Returns the groups counts. | getGroupsCount | ✔️ |
+| Get Group | getGroup | ✔️ |
+| Update group, ignores subgroups. | updateGroup | ✔️ |
+| Delete Group | removeGroup | ✔️ |
+| Set or create child. | createChildGroup | ✔️ |
+| Return object stating whether client Authorization permissions have been initialized or not and a reference | getGroupManagementPermissions | ✔️ |
+| Return object stating whether client Authorization permissions have been initialized or not and a reference | updateGroupManagementPermissions | ✔️ |
+| Get users Returns a list of users, filtered according to query parameters | getGroupMembers | ✔️ |
 
  ## [Identity Providers]()
 

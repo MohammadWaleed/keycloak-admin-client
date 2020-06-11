@@ -2193,6 +2193,244 @@ return array(
             )
         ),
 
+        // Groups
+
+        'createGroup' => array(
+            'uri'         => 'auth/admin/realms/{realm}/groups',
+            'description' => 'create or add a top level realm groupSet or create child.',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $GroupRepresentation
+        ),
+
+        'getGroups' => array(
+            'uri'         => 'auth/admin/realms/{realm}/groups',
+            'description' => 'Get group hierarchy.',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'briefRepresentation' => array(
+                    'location'    => 'query',
+                    'description' => 'Wether to return only name and ids or full objects default true',
+                    'type'        => 'boolean',
+                    'required'    => false,
+                ),
+                'first' => array(
+                    'location'    => 'query',
+                    'description' => 'Pagination offset',
+                    'type'        => 'integer',
+                    'required'    => false,
+                ),
+                'max' => array(
+                    'location'    => 'query',
+                    'description' => 'Maximum results size (defaults to 100)',
+                    'type'        => 'integer',
+                    'required'    => false,
+                ),
+                'search' => array(
+                    'location'    => 'query',
+                    'description' => 'search string',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
+            )
+        ),
+
+        'getGroupsCount' => array(
+            'uri'         => 'auth/admin/realms/{realm}/groups/count',
+            'description' => 'Returns the groups counts.',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'search' => array(
+                    'location'    => 'query',
+                    'description' => 'search string',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
+                'top' => array(
+                    'location'    => 'query',
+                    'description' => 'default is false',
+                    'type'        => 'boolean',
+                    'required'    => false,
+                ),
+            )
+        ),
+
+        'getGroup' => array(
+            'uri'         => 'auth/admin/realms/{realm}/groups/{id}',
+            'description' => 'Get Group',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'updateGroup' => array(
+            'uri'         => 'auth/admin/realms/{realm}/groups/{id}',
+            'description' => 'Update group, ignores subgroups.',
+            'httpMethod'  => 'PUT',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $GroupRepresentation
+        ),
+
+        'removeGroup' => array(
+            'uri'         => 'auth/admin/realms/{realm}/groups/{id}',
+            'description' => 'Delete Group',
+            'httpMethod'  => 'DELETE',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'createChildGroup' => array(
+            'uri'         => 'auth/admin/realms/{realm}/groups/{id}/children',
+            'description' => 'Set or create child.',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $GroupRepresentation
+        ),
+
+        'getGroupManagementPermissions' => array(
+            'uri'         => 'auth/admin/realms/{realm}/groups/{id}/management/permissions',
+            'description' => 'Return object stating whether client Authorization permissions have been initialized or not and a reference',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'updateGroupManagementPermissions' => array(
+            'uri'         => 'auth/admin/realms/{realm}/groups/{id}/management/permissions',
+            'description' => 'Return object stating whether client Authorization permissions have been initialized or not and a reference',
+            'httpMethod'  => 'PUT',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $ManagementPermissionReference
+        ),
+
+        'getGroupMembers' => array(
+            'uri'         => 'auth/admin/realms/{realm}/groups/{id}/members',
+            'description' => 'Get users Returns a list of users, filtered according to query parameters',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'briefRepresentation' => array(
+                    'location'    => 'query',
+                    'description' => 'Only return basic information (only guaranteed to return id, username, created, first and last name, email, enabled state, email verification state, federation link, and access. Note that it means that namely user attributes, required actions, and not before are not returned.)',
+                    'type'        => 'boolean',
+                    'required'    => false,
+                ),
+                'first' => array(
+                    'location'    => 'query',
+                    'description' => 'Pagination offset',
+                    'type'        => 'integer',
+                    'required'    => false,
+                ),
+                'max' => array(
+                    'location'    => 'query',
+                    'description' => 'Maximum results size (defaults to 100)',
+                    'type'        => 'integer',
+                    'required'    => false,
+                ),
+            )
+        ),
+
         // Users
 
         'createUser' => array(

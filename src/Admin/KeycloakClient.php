@@ -122,6 +122,17 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array deleteComponent(array $args = array()) { @command Keycloak deleteComponent }
  * @method array getComponentSubTypes(array $args = array()) { @command Keycloak getComponentSubTypes }
  * 
+ * @method array createGroup(array $args = array()) { @command Keycloak createGroup }
+ * @method array getGroups(array $args = array()) { @command Keycloak getGroups }
+ * @method array getGroupsCount(array $args = array()) { @command Keycloak getGroupsCount }
+ * @method array getGroup(array $args = array()) { @command Keycloak getGroup }
+ * @method array updateGroup(array $args = array()) { @command Keycloak updateGroup }
+ * @method array removeGroup(array $args = array()) { @command Keycloak removeGroup }
+ * @method array createChildGroup(array $args = array()) { @command Keycloak createChildGroup }
+ * @method array getGroupManagementPermissions(array $args = array()) { @command Keycloak getGroupManagementPermissions }
+ * @method array updateGroupManagementPermissions(array $args = array()) { @command Keycloak updateGroupManagementPermissions }
+ * @method array getGroupMembers(array $args = array()) { @command Keycloak getGroupMembers }
+ * 
  * @method array createUser(array $args = array()) { @command Keycloak createUser }
  * @method array getUsers(array $args = array()) { @command Keycloak getUsers }
  * @method array getUser(array $args = array()) { @command Keycloak getUser }
