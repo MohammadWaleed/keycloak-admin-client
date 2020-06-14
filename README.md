@@ -288,11 +288,11 @@ $client->createUser([
 | Delete a mapper for the identity provider | deleteIdentityProviderMapper | ✔️ |
 | Get identity providers | getIdentityProviderById | ✔️ |
 
- ## [Key]()
+ ## [Key](https://www.keycloak.org/docs-api/10.0/rest-api/index.html#_key_resource)
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| GET /{realm}/keys | | ❌ |
+| Get Realm keys | getRealmKeys | ✔️ |
 
  ## [Protocol Mappers]()
 

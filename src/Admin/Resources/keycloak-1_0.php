@@ -2769,6 +2769,22 @@ return array(
             )
         ),
 
+        // Key
+
+        'getRealmKeys' => array(
+            'uri'         => 'auth/admin/realms/{realm}/keys',
+            'description' => 'Get Realm keys',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
         // Users
 
         'createUser' => array(

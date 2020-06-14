@@ -150,6 +150,8 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array deleteIdentityProviderMapper(array $args = array()) { @command Keycloak deleteIdentityProviderMapper }
  * @method array getIdentityProviderById(array $args = array()) { @command Keycloak getIdentityProviderById }
  * 
+ * @method array getRealmKeys(array $args = array()) { @command Keycloak getRealmKeys }
+ * 
  * @method array createUser(array $args = array()) { @command Keycloak createUser }
  * @method array getUsers(array $args = array()) { @command Keycloak getUsers }
  * @method array getUser(array $args = array()) { @command Keycloak getUser }
