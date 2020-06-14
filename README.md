@@ -267,32 +267,32 @@ $client->createUser([
 | Return object stating whether client Authorization permissions have been initialized or not and a reference | updateGroupManagementPermissions | ✔️ |
 | Get users Returns a list of users, filtered according to query parameters | getGroupMembers | ✔️ |
 
- ## [Identity Providers]()
+ ## [Identity Providers](https://www.keycloak.org/docs-api/10.0/rest-api/index.html#_identity_providers_resource)
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| Import identity provider from uploaded JSON file | | ❌ |
-| Create a new identity provider | | ❌ |
-| Get identity providers | | ❌ |
-| Get the identity provider | | ❌ |
-| Update the identity provider | | ❌ |
-| Delete the identity provider | | ❌ |
-| Export public broker configuration for identity provider | | ❌ |
-| Return object stating whether client Authorization permissions have been initialized or not and a reference | | ❌ |
-| Return object stating whether client Authorization permissions have been initialized or not and a reference | | ❌ |
-| Get mapper types for identity provider | | ❌ |
-| Add a mapper to identity provider | | ❌ |
-| Get mappers for identity provider | | ❌ |
-| Get mapper by id for the identity provider | | ❌ |
-| Update a mapper for the identity provider | | ❌ |
-| Delete a mapper for the identity provider | | ❌ |
-| Get identity providers | | ❌ |
+| Import identity provider from uploaded JSON file | importIdentityProvider | ✔️ |
+| Create a new identity provider | createIdentityProvider | ✔️ |
+| Get identity providers | getIdentityProviders | ✔️ |
+| Get the identity provider | getIdentityProvider | ✔️ |
+| Update the identity provider | updateIdentityProvider | ✔️ |
+| Delete the identity provider | deleteIdentityProvider | ✔️ |
+| Export public broker configuration for identity provider | exportIdentityProviderBrokerConfig | ✔️ |
+| Return object stating whether client Authorization permissions have been initialized or not and a reference | getIdentityProviderManagementPermissions | ✔️ |
+| Return object stating whether client Authorization permissions have been initialized or not and a reference | updateIdentityProviderManagementPermissions | ✔️ |
+| Get mapper types for identity provider (Keycloak gives exception report it) | getIdentityProviderMapperTypes | ✔️ |
+| Add a mapper to identity provider | createIdentityProviderMapper | ✔️ |
+| Get mappers for identity provider | getIdentityProviderMappers | ✔️ |
+| Get mapper by id for the identity provider | getIdentityProviderMapper | ✔️ |
+| Update a mapper for the identity provider (not working for some reason gives Null Pointer Exception) | updateIdentityProviderMapper | ✔️ |
+| Delete a mapper for the identity provider | deleteIdentityProviderMapper | ✔️ |
+| Get identity providers | getIdentityProviderById | ✔️ |
 
- ## [Key]()
+ ## [Key](https://www.keycloak.org/docs-api/10.0/rest-api/index.html#_key_resource)
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| GET /{realm}/keys | | ❌ |
+| Get Realm keys | getRealmKeys | ✔️ |
 
  ## [Protocol Mappers]()
 

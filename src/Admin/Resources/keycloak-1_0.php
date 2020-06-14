@@ -2431,6 +2431,360 @@ return array(
             )
         ),
 
+        // Identity Providers
+
+        'importIdentityProvider' => array(
+            'uri'         => 'auth/admin/realms/{realm}/identity-provider/import-config',
+            'description' => 'Import identity provider from uploaded JSON file',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'providerId' => array(
+                    'location'    => 'multipart',
+                    'description' => 'Identity provider id',
+                    'required'    => true,
+                ),
+                'file' => array(
+                    'location'    => 'multipart',
+                    'description' => 'Identity provider json file',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'createIdentityProvider' => array(
+            'uri'         => 'auth/admin/realms/{realm}/identity-provider/instances',
+            'description' => 'Create a new identity provider',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $IdentityProviderRepresentation
+        ),
+
+        'getIdentityProviders' => array(
+            'uri'         => 'auth/admin/realms/{realm}/identity-provider/instances',
+            'description' => 'Get identity providers',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getIdentityProvider' => array(
+            'uri'         => 'auth/admin/realms/{realm}/identity-provider/instances/{alias}',
+            'description' => 'Get the identity provider',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'alias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Identity provider alias',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'updateIdentityProvider' => array(
+            'uri'         => 'auth/admin/realms/{realm}/identity-provider/instances/{alias}',
+            'description' => 'Update the identity provider',
+            'httpMethod'  => 'PUT',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'alias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Identity provider alias',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $IdentityProviderRepresentation
+        ),
+
+        'deleteIdentityProvider' => array(
+            'uri'         => 'auth/admin/realms/{realm}/identity-provider/instances/{alias}',
+            'description' => 'Delete the identity provider',
+            'httpMethod'  => 'DELETE',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'alias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Identity provider alias',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'exportIdentityProviderBrokerConfig' => array(
+            'uri'         => 'auth/admin/realms/{realm}/identity-provider/instances/{alias}/export',
+            'description' => 'Export public broker configuration for identity provider',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'alias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Identity provider alias',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'format' => array(
+                    'location'    => 'query',
+                    'description' => 'Format to use',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
+            )
+        ),
+
+        'getIdentityProviderManagementPermissions' => array(
+            'uri'         => 'auth/admin/realms/{realm}/identity-provider/instances/{alias}/management/permissions',
+            'description' => 'Return object stating whether client Authorization permissions have been initialized or not and a reference',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'alias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Identity provider alias',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'updateIdentityProviderManagementPermissions' => array(
+            'uri'         => 'auth/admin/realms/{realm}/identity-provider/instances/{alias}/management/permissions',
+            'description' => 'Return object stating whether client Authorization permissions have been initialized or not and a reference',
+            'httpMethod'  => 'PUT',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'alias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Identity provider alias',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $ManagementPermissionReference
+        ),
+
+        'getIdentityProviderMapperTypes' => array(
+            'uri'         => 'auth/admin/realms/{realm}/identity-provider/instances/{alias}/mapper-types',
+            'description' => 'Get mapper types for identity provider',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'alias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Identity provider alias',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'createIdentityProviderMapper' => array(
+            'uri'         => 'auth/admin/realms/{realm}/identity-provider/instances/{alias}/mappers',
+            'description' => 'Add a mapper to identity provider',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'alias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Identity provider alias',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $IdentityProviderMapperRepresentation
+        ),
+
+        'getIdentityProviderMappers' => array(
+            'uri'         => 'auth/admin/realms/{realm}/identity-provider/instances/{alias}/mappers',
+            'description' => 'Get mappers for identity provider',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'alias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Identity provider alias',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getIdentityProviderMapper' => array(
+            'uri'         => 'auth/admin/realms/{realm}/identity-provider/instances/{alias}/mappers/{id}',
+            'description' => 'Get mapper by id for the identity provider',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'alias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Identity provider alias',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Mapper Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'updateIdentityProviderMapper' => array(
+            'uri'         => 'auth/admin/realms/{realm}/identity-provider/instances/{alias}/mappers/{id}',
+            'description' => 'Update a mapper for the identity provider',
+            'httpMethod'  => 'PUT',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'alias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Identity provider alias',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Mapper Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $IdentityProviderMapperRepresentation
+        ),
+
+        'deleteIdentityProviderMapper' => array(
+            'uri'         => 'auth/admin/realms/{realm}/identity-provider/instances/{alias}/mappers/{id}',
+            'description' => 'Delete a mapper for the identity provider',
+            'httpMethod'  => 'DELETE',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'alias' => array(
+                    'location'    => 'uri',
+                    'description' => 'Identity provider alias',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Mapper Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getIdentityProviderById' => array(
+            'uri'         => 'auth/admin/realms/{realm}/identity-provider/providers/{provider_id}',
+            'description' => 'Get identity provider',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'provider_id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Provider id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        // Key
+
+        'getRealmKeys' => array(
+            'uri'         => 'auth/admin/realms/{realm}/keys',
+            'description' => 'Get Realm keys',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
         // Users
 
         'createUser' => array(
