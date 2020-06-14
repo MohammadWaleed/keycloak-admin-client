@@ -133,6 +133,23 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array updateGroupManagementPermissions(array $args = array()) { @command Keycloak updateGroupManagementPermissions }
  * @method array getGroupMembers(array $args = array()) { @command Keycloak getGroupMembers }
  * 
+ * @method array importIdentityProvider(array $args = array()) { @command Keycloak importIdentityProvider }
+ * @method array createIdentityProvider(array $args = array()) { @command Keycloak createIdentityProvider }
+ * @method array getIdentityProviders(array $args = array()) { @command Keycloak getIdentityProviders }
+ * @method array getIdentityProvider(array $args = array()) { @command Keycloak getIdentityProvider }
+ * @method array updateIdentityProvider(array $args = array()) { @command Keycloak updateIdentityProvider }
+ * @method array deleteIdentityProvider(array $args = array()) { @command Keycloak deleteIdentityProvider }
+ * @method array exportIdentityProviderBrokerConfig(array $args = array()) { @command Keycloak exportIdentityProviderBrokerConfig }
+ * @method array getIdentityProviderManagementPermissions(array $args = array()) { @command Keycloak getIdentityProviderManagementPermissions }
+ * @method array updateIdentityProviderManagementPermissions(array $args = array()) { @command Keycloak updateIdentityProviderManagementPermissions }
+ * @method array getIdentityProviderMapperTypes(array $args = array()) { @command Keycloak getIdentityProviderMapperTypes }
+ * @method array createIdentityProviderMapper(array $args = array()) { @command Keycloak createIdentityProviderMapper }
+ * @method array getIdentityProviderMappers(array $args = array()) { @command Keycloak getIdentityProviderMappers }
+ * @method array getIdentityProviderMapper(array $args = array()) { @command Keycloak getIdentityProviderMapper }
+ * @method array updateIdentityProviderMapper(array $args = array()) { @command Keycloak updateIdentityProviderMapper }
+ * @method array deleteIdentityProviderMapper(array $args = array()) { @command Keycloak deleteIdentityProviderMapper }
+ * @method array getIdentityProviderById(array $args = array()) { @command Keycloak getIdentityProviderById }
+ * 
  * @method array createUser(array $args = array()) { @command Keycloak createUser }
  * @method array getUsers(array $args = array()) { @command Keycloak getUsers }
  * @method array getUser(array $args = array()) { @command Keycloak getUser }
