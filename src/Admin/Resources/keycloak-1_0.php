@@ -2785,6 +2785,352 @@ return array(
             )
         ),
 
+        // Protocol Mappers
+
+        'createClientScopeProtocolMappers' => array(
+            'uri'         => 'auth/admin/realms/{realm}/client-scopes/{clientScopeId}/protocol-mappers/add-models',
+            'description' => 'Create multiple mappers',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'clientScopeId' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client scope (not name)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'reps' => array(
+                    'location' => 'fullBody',
+                    'type' => 'array',
+                    'items' => array(
+                        'type' => 'object', 'properties' => $ProtocolMapperRepresentation
+                    ),
+                    'required' => true
+                ),
+            )
+        ),
+
+        'createClientScopeProtocolMapper' => array(
+            'uri'         => 'auth/admin/realms/{realm}/client-scopes/{clientScopeId}/protocol-mappers/models',
+            'description' => 'Create a mapper',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'clientScopeId' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client scope (not name)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $ProtocolMapperRepresentation
+        ),
+
+        'getClientScopeProtocolMappers' => array(
+            'uri'         => 'auth/admin/realms/{realm}/client-scopes/{clientScopeId}/protocol-mappers/models',
+            'description' => 'Get mappers',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'clientScopeId' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client scope (not name)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getClientScopeProtocolMapperById' => array(
+            'uri'         => 'auth/admin/realms/{realm}/client-scopes/{clientScopeId}/protocol-mappers/models/{mapperId}',
+            'description' => 'Get mapper by id',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'clientScopeId' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client scope (not name)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'mapperId' => array(
+                    'location'    => 'uri',
+                    'description' => 'Mapper id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'updateClientScopeProtocolMapper' => array(
+            'uri'         => 'auth/admin/realms/{realm}/client-scopes/{clientScopeId}/protocol-mappers/models/{mapperId}',
+            'description' => 'Update the mapper',
+            'httpMethod'  => 'PUT',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'clientScopeId' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client scope (not name)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'mapperId' => array(
+                    'location'    => 'uri',
+                    'description' => 'Mapper id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $ProtocolMapperRepresentation
+        ),
+
+        'deleteClientScopeProtocolMapper' => array(
+            'uri'         => 'auth/admin/realms/{realm}/client-scopes/{clientScopeId}/protocol-mappers/models/{mapperId}',
+            'description' => 'Delete the mapper',
+            'httpMethod'  => 'DELETE',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'clientScopeId' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client scope (not name)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'mapperId' => array(
+                    'location'    => 'uri',
+                    'description' => 'Mapper id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getClientScopeProtocolMappersByProtocolName' => array(
+            'uri'         => 'auth/admin/realms/{realm}/client-scopes/{clientScopeId}/protocol-mappers/protocol/{protocol}',
+            'description' => 'Delete the mapper',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'clientScopeId' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client scope (not name)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'protocol' => array(
+                    'location'    => 'uri',
+                    'description' => 'Protocol name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'createClientProtocolMappers' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{clientId}/protocol-mappers/add-models',
+            'description' => 'Create multiple mappers',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'clientId' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'reps' => array(
+                    'location' => 'fullBody',
+                    'type' => 'array',
+                    'items' => array(
+                        'type' => 'object', 'properties' => $ProtocolMapperRepresentation
+                    ),
+                    'required' => true
+                ),
+            )
+        ),
+
+        'createClientProtocolMapper' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{clientId}/protocol-mappers/models',
+            'description' => 'Create a mapper',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'clientId' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $ProtocolMapperRepresentation
+        ),
+
+        'getClientProtocolMappers' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{clientId}/protocol-mappers/models',
+            'description' => 'Get mappers',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'clientId' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getClientProtocolMapperById' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{clientId}/protocol-mappers/models/{mapperId}',
+            'description' => 'Get mapper by id',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'clientId' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'mapperId' => array(
+                    'location'    => 'uri',
+                    'description' => 'Mapper id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'updateClientProtocolMapper' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{clientId}/protocol-mappers/models/{mapperId}',
+            'description' => 'Update the mapper',
+            'httpMethod'  => 'PUT',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'clientId' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'mapperId' => array(
+                    'location'    => 'uri',
+                    'description' => 'Mapper id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $ProtocolMapperRepresentation
+        ),
+
+        'deleteClientProtocolMapper' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{clientId}/protocol-mappers/models/{mapperId}',
+            'description' => 'Delete the mapper',
+            'httpMethod'  => 'DELETE',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'clientId' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'mapperId' => array(
+                    'location'    => 'uri',
+                    'description' => 'Mapper id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getClientProtocolMappersByProtocolName' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{clientId}/protocol-mappers/protocol/{protocol}',
+            'description' => 'Delete the mapper',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'clientId' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'protocol' => array(
+                    'location'    => 'uri',
+                    'description' => 'Protocol name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
         // Users
 
         'createUser' => array(
