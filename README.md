@@ -294,24 +294,26 @@ $client->createUser([
 |-----|:-------------:|:---------:|
 | Get Realm keys | getRealmKeys | ✔️ |
 
- ## [Protocol Mappers]()
+ ## [Protocol Mappers](https://www.keycloak.org/docs-api/10.0/rest-api/index.html#_protocol_mappers_resource)
+
+Note: Ids are sent as clientScopeId or clientId and mapperId everything else is just as the keycloak documentation
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| Create multiple mappers | | ❌ |
-| Create a mapper | | ❌ |
-| Get mappers | | ❌ |
-| Get mapper by id | | ❌ |
-| Update the mapper | | ❌ |
-| Delete the mapper | | ❌ |
-| Get mappers by name for a specific protocol | | ❌ |
-| Create multiple mappers | | ❌ |
-| Create a mapper | | ❌ |
-| Get mappers | | ❌ |
-| Get mapper by id | | ❌ |
-| Update the mapper | | ❌ |
-| Delete the mapper | | ❌ |
-| Get mappers by name for a specific protocol | | ❌ |
+| Create multiple mappers (keycloak have an issue where it doesn't extract the request correctly)| createClientScopeProtocolMappers | ✔️ |
+| Create a mapper | createClientScopeProtocolMapper | ✔️ |
+| Get mappers | getClientScopeProtocolMappers | ✔️ |
+| Get mapper by id | getClientScopeProtocolMapperById | ✔️ |
+| Update the mapper | updateClientScopeProtocolMapper | ✔️ |
+| Delete the mapper | deleteClientScopeProtocolMapper | ✔️ |
+| Get mappers by name for a specific protocol | getClientScopeProtocolMappersByProtocolName | ✔️ |
+| Create multiple mappers | createClientProtocolMappers | ✔️ |
+| Create a mapper | createClientProtocolMapper | ✔️ |
+| Get mappers | getClientProtocolMappers | ✔️ |
+| Get mapper by id | getClientProtocolMapperById | ✔️ |
+| Update the mapper | updateClientProtocolMapper | ✔️ |
+| Delete the mapper | deleteClientProtocolMapper | ✔️ |
+| Get mappers by name for a specific protocol | getClientProtocolMappersByProtocolName | ✔️ |
 
  ## [Realms Admin]()
 

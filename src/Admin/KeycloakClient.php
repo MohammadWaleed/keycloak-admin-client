@@ -152,6 +152,21 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * 
  * @method array getRealmKeys(array $args = array()) { @command Keycloak getRealmKeys }
  * 
+ * @method array createClientScopeProtocolMappers(array $args = array()) { @command Keycloak createClientScopeProtocolMappers }
+ * @method array createClientScopeProtocolMapper(array $args = array()) { @command Keycloak createClientScopeProtocolMapper }
+ * @method array getClientScopeProtocolMappers(array $args = array()) { @command Keycloak getClientScopeProtocolMappers }
+ * @method array getClientScopeProtocolMapperById(array $args = array()) { @command Keycloak getClientScopeProtocolMapperById }
+ * @method array updateClientScopeProtocolMapper(array $args = array()) { @command Keycloak updateClientScopeProtocolMapper }
+ * @method array deleteClientScopeProtocolMapper(array $args = array()) { @command Keycloak deleteClientScopeProtocolMapper }
+ * @method array getClientScopeProtocolMappersByProtocolName(array $args = array()) { @command Keycloak getClientScopeProtocolMappersByProtocolName }
+ * @method array createClientProtocolMappers(array $args = array()) { @command Keycloak createClientProtocolMappers }
+ * @method array createClientProtocolMapper(array $args = array()) { @command Keycloak createClientProtocolMapper }
+ * @method array getClientProtocolMappers(array $args = array()) { @command Keycloak getClientProtocolMappers }
+ * @method array getClientProtocolMapperById(array $args = array()) { @command Keycloak getClientProtocolMapperById }
+ * @method array updateClientProtocolMapper(array $args = array()) { @command Keycloak updateClientProtocolMapper }
+ * @method array deleteClientProtocolMapper(array $args = array()) { @command Keycloak deleteClientProtocolMapper }
+ * @method array getClientProtocolMappersByProtocolName(array $args = array()) { @command Keycloak getClientProtocolMappersByProtocolName }
+ * 
  * @method array createUser(array $args = array()) { @command Keycloak createUser }
  * @method array getUsers(array $args = array()) { @command Keycloak getUsers }
  * @method array getUser(array $args = array()) { @command Keycloak getUser }
