@@ -315,44 +315,45 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | Delete the mapper | deleteClientProtocolMapper | ✔️ |
 | Get mappers by name for a specific protocol | getClientProtocolMappersByProtocolName | ✔️ |
 
- ## [Realms Admin]()
+ ## [Realms Admin](https://www.keycloak.org/docs-api/10.0/rest-api/index.html#_realms_admin_resource)
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| Import a realm Imports a realm from a full representation of that realm. | | ❌ |
-| Get the top-level representation of the realm It will not include nested information like User and Client representations. | | ❌ |
-| Update the top-level information of the realm Any user, roles or client information in the representation will be ignored. | | ❌ |
-| Delete the realm | | ❌ |
-| Get admin events Returns all admin events, or filters events based on URL query parameters listed here | | ❌ |
-| Delete all admin events | | ❌ |
-| Clear cache of external public keys (Public keys of clients or Identity providers) | | ❌ |
-| Clear realm cache | | ❌ |
-| Clear user cache | | ❌ |
-| Base path for importing clients under this realm. | | ❌ |
-| Get client session stats Returns a JSON map. | | ❌ |
-| Get realm default client scopes. | | ❌ |
-| PUT /{realm}/default-default-client-scopes/{clientScopeId} | | ❌ |
-| DELETE /{realm}/default-default-client-scopes/{clientScopeId} | | ❌ |
-| Get group hierarchy. | | ❌ |
-| PUT /{realm}/default-groups/{groupId} | | ❌ |
-| DELETE /{realm}/default-groups/{groupId} | | ❌ |
-| Get realm optional client scopes. | | ❌ |
-| PUT /{realm}/default-optional-client-scopes/{clientScopeId} | | ❌ |
-| DELETE /{realm}/default-optional-client-scopes/{clientScopeId} | | ❌ |
-| Get events Returns all events, or filters them based on URL query parameters listed here | | ❌ |
-| Delete all events | | ❌ |
-| Get the events provider configuration Returns JSON object with events provider configuration | | ❌ |
-| Update the events provider Change the events provider and/or its configuration | | ❌ |
-| GET /{realm}/group-by-path/{path} | | ❌ |
-| Removes all user sessions. | | ❌ |
-| Partial export of existing realm into a JSON file. | | ❌ |
-| Partial import from a JSON file to an existing realm. | | ❌ |
-| Push the realm’s revocation policy to any client that has an admin url associated with it. | | ❌ |
-| Remove a specific user session. | | ❌ |
-| Test LDAP connection | | ❌ |
-| Test SMTP connection with current logged in user | | ❌ |
-| GET /{realm}/users-management-permissions | | ❌ |
-| PUT /{realm}/users-management-permissions | | ❌ |
+| Import a realm Imports a realm from a full representation of that realm. | importRealm  | ✔️ |
+| Get the top-level representation of the realm It will not include nested information like User and Client representations. | getRealm | ✔️ |
+| Update the top-level information of the realm Any user, roles or client information in the representation will be ignored. | updateRealm | ✔️ |
+| Delete the realm | deleteRealm | ✔️ |
+| Get admin events Returns all admin events, or filters events based on URL query parameters listed here | getAdminEvents | ✔️ |
+| Delete all admin events | deleteAdminEvents | ✔️ |
+| Clear cache of external public keys (Public keys of clients or Identity providers) | clearExternalPublicKeysCache | ✔️ |
+| Clear realm cache | clearRealmCache | ✔️ |
+| Clear user cache | clearUserCache | ✔️ |
+| Base path for importing clients under this realm. | importClient | ✔️ |
+| Get client session stats Returns a JSON map. | getClientsSessionStats | ✔️ |
+| GET /{realm}/credential-registrators | getCredentialRegistrators | ✔️ |
+| Get realm default client scopes. | getDefaultClientScopes | ✔️ |
+| PUT /{realm}/default-default-client-scopes/{clientScopeId} | setScopeAsDefaultClientScope | ✔️ |
+| DELETE /{realm}/default-default-client-scopes/{clientScopeId} | unsetScopeAsDefaultClientScope | ✔️ |
+| Get group hierarchy. | getDefaultGroupHierarchy | ✔️ |
+| PUT /{realm}/default-groups/{groupId} | setGroupAsDefaultGroup | ✔️ |
+| DELETE /{realm}/default-groups/{groupId} | unsetGroupAsDefaultGroup | ✔️ |
+| Get realm optional client scopes. | getOptionalClientScopes | ✔️ |
+| PUT /{realm}/default-optional-client-scopes/{clientScopeId} | setScopeAsOptionalClientScope | ✔️ |
+| DELETE /{realm}/default-optional-client-scopes/{clientScopeId} | unsetScopeAsOptionalClientScope | ✔️ |
+| Get events Returns all events, or filters them based on URL query parameters listed here | getAllEvents | ✔️ |
+| Delete all events | deleteAllEvents | ✔️ |
+| Get the events provider configuration Returns JSON object with events provider configuration | getEventsConfig | ✔️ |
+| Update the events provider Change the events provider and/or its configuration | updateEventsConfig | ✔️ |
+| Get user group by path | getGroupByPath | ✔️ |
+| Removes all user sessions. (Keycloak throws an exception when this one is called)| logoutAllUsers | ❌ |
+| Partial export of existing realm into a JSON file. | partialExportRealm | ✔️ |
+| Partial import from a JSON file to an existing realm. | partialImportRealm | ✔️ |
+| Push the realm’s revocation policy to any client that has an admin url associated with it. (Keycloak throws an exception when this one is called) | pushRevocationPolicy | ❌ |
+| Remove a specific user session. | revokeUserSession | ✔️ |
+| Test LDAP connection | testLDAPConnection | ✔️ |
+| Test SMTP connection with current logged in user | testSMTPConnection | ✔️ |
+| Get User Management Permissions | getUserManagementPermissions | ✔️ |
+| Update User Management Permissions | updateUserManagementPermissions | ✔️ |
 
  ## [Role Mapper]()
 
