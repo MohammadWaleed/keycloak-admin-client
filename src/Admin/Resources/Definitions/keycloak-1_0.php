@@ -1139,6 +1139,49 @@ $SystemInfoRepresentation = array(
     ),
 );
 
+$TestLdapConnectionRepresentation = array(
+    'action' => array(
+        'location' => 'json',
+        'type' => 'string',
+        'required' => false
+    ),
+    'bindCredential' => array(
+        'location' => 'json',
+        'type' => 'string',
+        'required' => false
+    ),
+    'bindDn' => array(
+        'location' => 'json',
+        'type' => 'string',
+        'required' => false
+    ),
+    'componentId' => array(
+        'location' => 'json',
+        'type' => 'string',
+        'required' => false
+    ),
+    'connectionTimeout' => array(
+        'location' => 'json',
+        'type' => 'string',
+        'required' => false
+    ),
+    'connectionUrl' => array(
+        'location' => 'json',
+        'type' => 'string',
+        'required' => false
+    ),
+    'startTls' => array(
+        'location' => 'json',
+        'type' => 'string',
+        'required' => false
+    ),
+    'useTruststoreSpi' => array(
+        'location' => 'json',
+        'type' => 'string',
+        'required' => false
+    ),
+);
+
 $UserConsentRepresentation = array(
     'clientId' => array(
         'location' => 'json',
@@ -3092,5 +3135,68 @@ $RealmRepresentation = array(
         'location' => 'json',
         'type' => 'integer',
         'required' => false
+    ),
+);
+
+$SMTPSettingsRepresentation = array(
+    'host' => array(
+        'location'    => 'json',
+        'description' => 'host',
+        'type'        => 'string',
+        'required'    => false,
+    ),
+    'port' => array(
+        'location'    => 'json',
+        'description' => 'port',
+        'type'        => 'string',
+        'required'    => false,
+    ),
+    'from' => array(
+        'location'    => 'json',
+        'description' => 'from',
+        'type'        => 'string',
+        'required'    => false,
+    ),
+    'auth' => array(
+        'location'    => 'json',
+        'description' => 'auth',
+        'type'        => 'string',
+        'required'    => false,
+    ),
+    'ssl' => array(
+        'location'    => 'json',
+        'description' => 'ssl',
+        'type'        => 'string',
+        'required'    => false,
+    ),
+    'starttls' => array(
+        'location'    => 'json',
+        'description' => 'starttls',
+        'type'        => 'string',
+        'required'    => false,
+    ),
+    'user' => array(
+        'location'    => 'json',
+        'description' => 'username',
+        'type'        => 'string',
+        'required'    => false,
+    ),
+    'password' => array(
+        'location'    => 'json',
+        'description' => 'password',
+        'type'        => 'string',
+        'required'    => false,
+    ),
+    'replyTo' => array(
+        'location'    => 'json',
+        'description' => 'replyTo',
+        'type'        => 'string',
+        'required'    => false,
+    ),
+    'envelopeFrom' => array(
+        'location'    => 'json',
+        'description' => 'envelopeFrom',
+        'type'        => 'string',
+        'required'    => false,
     ),
 );
