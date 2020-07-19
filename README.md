@@ -355,22 +355,22 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | Get User Management Permissions | getUserManagementPermissions | ✔️ |
 | Update User Management Permissions | updateUserManagementPermissions | ✔️ |
 
- ## [Role Mapper]()
+ ## [Role Mapper](https://www.keycloak.org/docs-api/10.0/rest-api/index.html#_role_mapper_resource)
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| Get role mappings | | ❌ |
-| Add realm-level role mappings to the user | | ❌ |
-| Get realm-level role mappings | | ❌ |
-| Delete realm-level role mappings | | ❌ |
-| Get realm-level roles that can be mapped | | ❌ |
-| Get effective realm-level role mappings This will recurse all composite roles to get the result. | | ❌ |
-| Get role mappings | | ❌ |
-| Add realm-level role mappings to the user | | ❌ |
-| Get realm-level role mappings | | ❌ |
-| Delete realm-level role mappings | | ❌ |
-| Get realm-level roles that can be mapped | | ❌ |
-| Get effective realm-level role mappings This will recurse all composite roles to get the result. | | ❌ |
+| Get role mappings | getGroupRoleMappings | ✔️ |
+| Add realm-level role mappings to the group (Keycloak gives null pointer exception)| addGlobalRolesToGroup | ❌ |
+| Get realm-level role mappings | getGroupRealmRoleMappings | ✔️ |
+| Delete realm-level role mappings | deleteGroupRealmRoleMappings | ✔️ |
+| Get realm-level roles that can be mapped | getAvailableGroupRealmRoleMappings | ✔️ |
+| Get effective realm-level role mappings This will recurse all composite roles to get the result. | getEffectiveGroupRealmRoleMappings | ✔️ |
+| Get role mappings | getUserRoleMappings | ✔️ |
+| Add realm-level role mappings to the user (Keycloak gives null pointer exception) | addGlobalRolesToUser | ❌ |
+| Get realm-level role mappings | getUserRealmRoleMappings | ✔️ |
+| Delete realm-level role mappings | deleteUserRealmRoleMappings | ✔️ |
+| Get realm-level roles that can be mapped | getAvailableUserRealmRoleMappings | ✔️ |
+| Get effective realm-level role mappings This will recurse all composite roles to get the result. | getEffectiveUserRealmRoleMappings | ✔️ |
 
  ## [Roles](https://www.keycloak.org/docs-api/7.0/rest-api/index.html#_roles_resource)
 

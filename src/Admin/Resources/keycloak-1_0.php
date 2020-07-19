@@ -3796,6 +3796,280 @@ return array(
             ) + $ManagementPermissionReference
         ),
 
+        // Role Mapper
+
+        'getGroupRoleMappings' => array(
+            'uri'         => 'auth/admin/realms/{realm}/groups/{id}/role-mappings',
+            'description' => 'Get Group role mappings',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'addGlobalRolesToGroup' => array(
+            'uri'         => 'auth/admin/realms/{realm}/groups/{id}/role-mappings/realm',
+            'description' => 'Add realm-level role mappings to the group',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'roles' => array(
+                    'location' => 'fullBody',
+                    'type' => 'array',
+                    'items' => array(
+                        'type' => 'object', 'properties' => $RoleRepresentation
+                    ),
+                    'required' => true
+                ),
+            )
+        ),
+
+        'getGroupRealmRoleMappings' => array(
+            'uri'         => 'auth/admin/realms/{realm}/groups/{id}/role-mappings/realm',
+            'description' => 'Get realm-level role mappings',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'deleteGroupRealmRoleMappings' => array(
+            'uri'         => 'auth/admin/realms/{realm}/groups/{id}/role-mappings/realm',
+            'description' => 'Delete realm-level role mappings',
+            'httpMethod'  => 'DELETE',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'roles' => array(
+                    'location' => 'fullBody',
+                    'type' => 'array',
+                    'items' => array(
+                        'type' => 'object', 'properties' => $RoleRepresentation
+                    ),
+                    'required' => true
+                ),
+            )
+        ),
+
+        'getAvailableGroupRealmRoleMappings' => array(
+            'uri'         => 'auth/admin/realms/{realm}/groups/{id}/role-mappings/realm/available',
+            'description' => 'Get realm-level role mappings',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getEffectiveGroupRealmRoleMappings' => array(
+            'uri'         => 'auth/admin/realms/{realm}/groups/{id}/role-mappings/realm/composite',
+            'description' => 'Get effective realm-level role mappings This will recurse all composite roles to get the result.',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getUserRoleMappings' => array(
+            'uri'         => 'auth/admin/realms/{realm}/users/{id}/role-mappings',
+            'description' => 'Get User role mappings',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'User Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'addGlobalRolesToUser' => array(
+            'uri'         => 'auth/admin/realms/{realm}/users/{id}/role-mappings/realm',
+            'description' => 'Add realm-level role mappings to the user',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'User Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'roles' => array(
+                    'location' => 'fullBody',
+                    'type' => 'array',
+                    'items' => array(
+                        'type' => 'object', 'properties' => $RoleRepresentation
+                    ),
+                    'required' => true
+                ),
+            )
+        ),
+
+        'getUserRealmRoleMappings' => array(
+            'uri'         => 'auth/admin/realms/{realm}/users/{id}/role-mappings/realm',
+            'description' => 'Get realm-level role mappings',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'User Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'deleteUserRealmRoleMappings' => array(
+            'uri'         => 'auth/admin/realms/{realm}/users/{id}/role-mappings/realm',
+            'description' => 'Delete realm-level role mappings',
+            'httpMethod'  => 'DELETE',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'User Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'roles' => array(
+                    'location' => 'fullBody',
+                    'type' => 'array',
+                    'items' => array(
+                        'type' => 'object', 'properties' => $RoleRepresentation
+                    ),
+                    'required' => true
+                ),
+            )
+        ),
+
+        'getAvailableUserRealmRoleMappings' => array(
+            'uri'         => 'auth/admin/realms/{realm}/users/{id}/role-mappings/realm/available',
+            'description' => 'Get realm-level role mappings',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'User Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getEffectiveUserRealmRoleMappings' => array(
+            'uri'         => 'auth/admin/realms/{realm}/users/{id}/role-mappings/realm/composite',
+            'description' => 'Get effective realm-level role mappings This will recurse all composite roles to get the result.',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'User Id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
         // Users
 
         'createUser' => array(
