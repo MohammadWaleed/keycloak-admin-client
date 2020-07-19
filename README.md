@@ -466,7 +466,7 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | Get users Returns a list of users, filtered according to query parameters | getUsers | ✔️ |
 | GET /{realm}/users/count | | ❌ |
 | Get representation of the user | getUser | ️️️✔️ |
-| Update the user | | ❌ |
+| Update the user | updateUser | ️️️✔️ |
 | Delete the user | | ❌ |
 | Get consents granted by the user | | ❌ |
 | Revoke consent and offline tokens for particular client from user | | ❌ |
