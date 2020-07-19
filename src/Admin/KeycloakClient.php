@@ -264,7 +264,7 @@ class KeycloakClient extends GuzzleClient
 
     public function getCommand($name, array $params = [])
     {
-        if (!$params['realm']) {
+        if (!isset($params['realm'])) {
             $params['realm'] = $this->getRealmName();
         }
         return parent::getCommand($name, $params);
