@@ -203,6 +203,19 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array getUserManagementPermissions(array $args = array()) { @command Keycloak getUserManagementPermissions }
  * @method array updateUserManagementPermissions(array $args = array()) { @command Keycloak updateUserManagementPermissions }
  * 
+ * @method array getGroupRoleMappings(array $args = array()) { @command Keycloak getGroupRoleMappings }
+ * @method array addGlobalRolesToGroup(array $args = array()) { @command Keycloak addGlobalRolesToGroup }
+ * @method array getGroupRealmRoleMappings(array $args = array()) { @command Keycloak getGroupRealmRoleMappings }
+ * @method array deleteGroupRealmRoleMappings(array $args = array()) { @command Keycloak deleteGroupRealmRoleMappings }
+ * @method array getAvailableGroupRealmRoleMappings	(array $args = array()) { @command Keycloak getAvailableGroupRealmRoleMappings	 }
+ * @method array getEffectiveGroupRealmRoleMappings	(array $args = array()) { @command Keycloak getEffectiveGroupRealmRoleMappings	 }
+ * @method array getUserRoleMappings(array $args = array()) { @command Keycloak getUserRoleMappings }
+ * @method array addGlobalRolesToUser(array $args = array()) { @command Keycloak addGlobalRolesToUser }
+ * @method array getUserRealmRoleMappings(array $args = array()) { @command Keycloak getUserRealmRoleMappings }
+ * @method array deleteUserRealmRoleMappings(array $args = array()) { @command Keycloak deleteUserRealmRoleMappings }
+ * @method array getAvailableUserRealmRoleMappings(array $args = array()) { @command Keycloak getAvailableUserRealmRoleMappings }
+ * @method array getEffectiveUserRealmRoleMappings(array $args = array()) { @command Keycloak getEffectiveUserRealmRoleMappings }
+ * 
  * @method array createUser(array $args = array()) { @command Keycloak createUser }
  * @method array getUsers(array $args = array()) { @command Keycloak getUsers }
  * @method array getUser(array $args = array()) { @command Keycloak getUser }
@@ -264,7 +277,7 @@ class KeycloakClient extends GuzzleClient
 
     public function getCommand($name, array $params = [])
     {
-        if (!$params['realm']) {
+        if (!isset($params['realm'])) {
             $params['realm'] = $this->getRealmName();
         }
         return parent::getCommand($name, $params);
