@@ -467,7 +467,7 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | GET /{realm}/users/count | | ❌ |
 | Get representation of the user | getUser | ️️️✔️ |
 | Update the user | updateUser | ️️️✔️ |
-| Delete the user | | ❌ |
+| Delete the user | deleteUser | ️️️✔️ |
 | Get consents granted by the user | | ❌ |
 | Revoke consent and offline tokens for particular client from user | | ❌ |
 | Disable all credentials for a user of a specific type | | ❌ |
