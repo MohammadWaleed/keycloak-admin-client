@@ -4162,25 +4162,25 @@ return array(
             )
         ),
 
-		'updateUser' => array(
-			'uri' => 'auth/admin/realms/{realm}/users/{id}',
-			'description' => 'Update a user (Username must be unique)',
-			'httpMethod' => 'PUT',
-			'parameters' => array(
-				'realm' => array(
-					'location'    => 'uri',
-					'description' => 'The Realm name',
-					'type'        => 'string',
-					'required'    => true,
-				),
-				'id' => array(
-					'location'    => 'uri',
-					'description' => 'The Realm name',
-					'type'        => 'string',
-					'required'    => true,
-				),
-				) + $UserRepresentation
-		),
+        'updateUser' => array(
+            'uri' => 'auth/admin/realms/{realm}/users/{id}',
+            'description' => 'Update a user (Username must be unique)',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'User id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $UserRepresentation
+        ),
 
         // Roles
 

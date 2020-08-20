@@ -219,6 +219,7 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array createUser(array $args = array()) { @command Keycloak createUser }
  * @method array getUsers(array $args = array()) { @command Keycloak getUsers }
  * @method array getUser(array $args = array()) { @command Keycloak getUser }
+ * @method array updateUser(array $args = array()) { @command Keycloak updateUser }
  * 
  * @method array getClientRoleUsers(array $args = array()) { @command Keycloak getClientRoleUsers }
  * @method array getClientRoles(array $args = array()) { @command Keycloak getClientRoles }
