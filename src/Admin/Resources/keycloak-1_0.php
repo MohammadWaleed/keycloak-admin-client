@@ -408,7 +408,7 @@ return array(
             )
         ),
 
-        //I really don't know how this works, but it works 
+        //I really don't know how this works, but it works
         'addAuthenticationFlowExecution' => array(
             'uri' => 'auth/admin/realms/{realm}/authentication/flows/{flowAlias}/executions/flow',
             'description' => 'Add new flow with new execution to existing flow',
@@ -4181,6 +4181,26 @@ return array(
                 ),
             ) + $UserRepresentation
         ),
+
+		'deleteUser' => array(
+			'uri' => 'auth/admin/realms/{realm}/users/{id}',
+			'description' => 'Delete a user',
+			'httpMethod' => 'DELETE',
+			'parameters' => array(
+				'realm' => array(
+					'location'    => 'uri',
+					'description' => 'The Realm name',
+					'type'        => 'string',
+					'required'    => true,
+				),
+				'id' => array(
+					'location'    => 'uri',
+					'description' => 'User id',
+					'type'        => 'string',
+					'required'    => true,
+				),
+			),
+		),
 
         // Roles
 
