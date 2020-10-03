@@ -4182,6 +4182,26 @@ return array(
             )
         ),
 
+        'getUserGroupsCount' => array(
+            'uri'         => 'auth/admin/realms/{realm}/users/{id}/groups/count',
+            'description' => 'Get the number user groups of a specific user',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location' => 'uri',
+                    'description' => 'User id',
+                    'type' => 'string',
+                    'required' => true
+                )
+            )
+        ),
+
         'updateUser' => array(
             'uri' => 'auth/admin/realms/{realm}/users/{id}',
             'description' => 'Update a user (Username must be unique)',
