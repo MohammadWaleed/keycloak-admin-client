@@ -475,7 +475,7 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | Get social logins associated with the user | | ❌ |
 | Add a social login provider to the user | | ❌ |
 | Remove a social login provider from user | | ❌ |
-| GET /{realm}/users/{id}/groups | getUserGroup | ✔️ |
+| GET /{realm}/users/{id}/groups | getUserGroups | ✔️ |
 | GET /{realm}/users/{id}/groups/count | getUserGroupsCount | ✔️ |
 | PUT /{realm}/users/{id}/groups/{groupId} | | ❌ | 
 | DELETE /{realm}/users/{id}/groups/{groupId} | | ❌ |
