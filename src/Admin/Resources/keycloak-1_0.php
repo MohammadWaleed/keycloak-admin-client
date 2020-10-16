@@ -408,7 +408,7 @@ return array(
             )
         ),
 
-        //I really don't know how this works, but it works 
+        //I really don't know how this works, but it works
         'addAuthenticationFlowExecution' => array(
             'uri' => 'auth/admin/realms/{realm}/authentication/flows/{flowAlias}/executions/flow',
             'description' => 'Add new flow with new execution to existing flow',
@@ -4883,6 +4883,46 @@ return array(
             )
         ),
 
+        'getUserGroups' => array(
+            'uri'         => 'auth/admin/realms/{realm}/users/{id}/groups',
+            'description' => 'Get the user groups of a specific user',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location' => 'uri',
+                    'description' => 'User id',
+                    'type' => 'string',
+                    'required' => true
+                )
+            )
+        ),
+
+        'getUserGroupsCount' => array(
+            'uri'         => 'auth/admin/realms/{realm}/users/{id}/groups/count',
+            'description' => 'Get the number user groups of a specific user',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location' => 'uri',
+                    'description' => 'User id',
+                    'type' => 'string',
+                    'required' => true
+                )
+            )
+        ),
+
         'updateUser' => array(
             'uri' => 'auth/admin/realms/{realm}/users/{id}',
             'description' => 'Update a user (Username must be unique)',
@@ -4901,6 +4941,26 @@ return array(
                     'required'    => true,
                 ),
             ) + $UserRepresentation
+        ),
+
+        'deleteUser' => array(
+            'uri' => 'auth/admin/realms/{realm}/users/{id}',
+            'description' => 'Delete a user',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'User id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ),
         ),
 
     ) //End of Operations Array

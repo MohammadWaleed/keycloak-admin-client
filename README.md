@@ -467,7 +467,7 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | GET /{realm}/users/count | | ❌ |
 | Get representation of the user | getUser | ️️️✔️ |
 | Update the user | updateUser | ️️️✔️ |
-| Delete the user | | ❌ |
+| Delete the user | deleteUser | ️️️✔️ |
 | Get consents granted by the user | | ❌ |
 | Revoke consent and offline tokens for particular client from user | | ❌ |
 | Disable all credentials for a user of a specific type | | ❌ |
@@ -475,9 +475,9 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | Get social logins associated with the user | | ❌ |
 | Add a social login provider to the user | | ❌ |
 | Remove a social login provider from user | | ❌ |
-| GET /{realm}/users/{id}/groups | | ❌ |
-| GET /{realm}/users/{id}/groups/count | | ❌ |
-| PUT /{realm}/users/{id}/groups/{groupId} | | ❌ |
+| GET /{realm}/users/{id}/groups | getUserGroups | ✔️ |
+| GET /{realm}/users/{id}/groups/count | getUserGroupsCount | ✔️ |
+| PUT /{realm}/users/{id}/groups/{groupId} | | ❌ | 
 | DELETE /{realm}/users/{id}/groups/{groupId} | | ❌ |
 | Impersonate the user | | ❌ |
 | Remove all user sessions associated with the user Also send notification to all clients that have an admin URL to invalidate the sessions for the particular user. | | ❌ |
