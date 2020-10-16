@@ -4070,6 +4070,727 @@ return array(
             )
         ),
 
+        // Roles
+
+        'createClientRole' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles',
+            'description' => 'Create a new role for the realm or client',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $RoleRepresentation
+        ),
+
+        'getClientRoles' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles',
+            'description' => 'Get all roles for the realm or client (Client Specific)',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ),
+        ),
+
+        'getClientRole' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles/{role-name}',
+            'description' => 'Get a role by name (Client Specific)',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ),
+        ),
+
+        'updateClientRole' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles/{role-name}',
+            'description' => 'Update a role by name',
+            'httpMethod'  => 'PUT',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $RoleRepresentation
+        ),
+
+        'deleteClientRole' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles/{role-name}',
+            'description' => 'Delete a role for the realm or client by name',
+            'httpMethod'  => 'DELETE',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'addCompositeRoleToClientRole' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles/{role-name}/composites',
+            'description' => 'Add a composite to the role',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'roles' => array(
+                    'location' => 'fullBody',
+                    'type' => 'array',
+                    'items' => array(
+                        'type' => 'object', 'properties' => $RoleRepresentation
+                    ),
+                    'required' => true
+                ),
+            )
+        ),
+
+        'getClientRoleCompositeRoles' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles/{role-name}/composites',
+            'description' => 'Get composites of the role',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'deleteCompositeRoleFromClientRole' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles/{role-name}/composites',
+            'description' => 'Remove roles from the role’s composite',
+            'httpMethod'  => 'DELETE',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'roles' => array(
+                    'location' => 'fullBody',
+                    'type' => 'array',
+                    'items' => array(
+                        'type' => 'object', 'properties' => $RoleRepresentation
+                    ),
+                    'required' => true
+                ),
+            )
+        ),
+
+        'getClientRoleCompositeRolesForClient' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles/{role-name}/composites/clients/{client}',
+            'description' => 'An app-level roles for the specified app for the role’s composite',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'client' => array(
+                    'location'    => 'uri',
+                    'description' => 'client id (not name!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getClientRoleCompositeRolesForRealm' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles/{role-name}/composites/realm',
+            'description' => 'Get realm-level roles of the role’s composite',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getClientRoleGroups' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles/{role-name}/groups',
+            'description' => 'Return List of Groups that have the specified role name',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'first' => array(
+                    'location'    => 'query',
+                    'description' => 'first',
+                    'type'        => 'integer',
+                    'required'    => false,
+                ),
+                'full' => array(
+                    'location'    => 'query',
+                    'description' => 'if true, return a full representation of the GroupRepresentation objects',
+                    'type'        => 'boolean',
+                    'required'    => false,
+                ),
+                'max' => array(
+                    'location'    => 'query',
+                    'description' => 'Maximum results size (defaults to 100)',
+                    'type'        => 'integer',
+                    'required'    => false,
+                ),
+            )
+        ),
+
+        'getClientRoleManagementPermissions' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles/{role-name}/management/permissions',
+            'description' => 'Return object stating whether role Authoirzation permissions have been initialized or not and a reference',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'updateClientRoleManagementPermissions' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles/{role-name}/management/permissions',
+            'description' => 'Update object stating whether role Authoirzation permissions have been initialized or not and a reference',
+            'httpMethod'  => 'PUT',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $ManagementPermissionReference
+        ),
+
+        'getClientRoleUsers' => array(
+            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles/{role-name}/users',
+            'description' => 'Return List of Users that have the specified role name (Client Specific)',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'id of client (not client-id)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'first' => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'required' => false
+                ),
+                'max' => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'required' => false
+                ),
+            ),
+        ),
+
+        'createRealmRole' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles',
+            'description' => 'Create a new role for the realm or client',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $RoleRepresentation
+        ),
+
+        'getRealmRoles' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles',
+            'description' => 'Get all roles for the realm or client (Realm Specific)',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ),
+        ),
+
+        'getRealmRole' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles/{role-name}',
+            'description' => 'Get a role by name (Realm Specific)',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ),
+        ),
+
+        'updateRealmRole' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles/{role-name}',
+            'description' => 'Update a role by name',
+            'httpMethod'  => 'PUT',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $RoleRepresentation
+        ),
+
+        'deleteRealmRole' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles/{role-name}',
+            'description' => 'Delete a role for the realm or client by name',
+            'httpMethod'  => 'DELETE',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'addCompositeRoleToRealmRole' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles/{role-name}/composites',
+            'description' => 'Add a composite to the role',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'roles' => array(
+                    'location' => 'fullBody',
+                    'type' => 'array',
+                    'items' => array(
+                        'type' => 'object', 'properties' => $RoleRepresentation
+                    ),
+                    'required' => true
+                ),
+            )
+        ),
+
+        'getRealmRoleCompositeRoles' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles/{role-name}/composites',
+            'description' => 'Get composites of the role',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'deleteCompositeRoleFromRealmRole' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles/{role-name}/composites',
+            'description' => 'Remove roles from the role’s composite',
+            'httpMethod'  => 'DELETE',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'roles' => array(
+                    'location' => 'fullBody',
+                    'type' => 'array',
+                    'items' => array(
+                        'type' => 'object', 'properties' => $RoleRepresentation
+                    ),
+                    'required' => true
+                ),
+            )
+        ),
+
+        'getRealmRoleCompositeRolesForClient' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles/{role-name}/composites/clients/{client}',
+            'description' => 'An app-level roles for the specified app for the role’s composite',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'client' => array(
+                    'location'    => 'uri',
+                    'description' => 'client id (not name!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getRealmRoleCompositeRolesForRealm' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles/{role-name}/composites/realm',
+            'description' => 'Get realm-level roles of the role’s composite',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getRealmRoleGroups' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles/{role-name}/groups',
+            'description' => 'Return List of Groups that have the specified role name',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'first' => array(
+                    'location'    => 'query',
+                    'description' => 'first',
+                    'type'        => 'integer',
+                    'required'    => false,
+                ),
+                'full' => array(
+                    'location'    => 'query',
+                    'description' => 'if true, return a full representation of the GroupRepresentation objects',
+                    'type'        => 'boolean',
+                    'required'    => false,
+                ),
+                'max' => array(
+                    'location'    => 'query',
+                    'description' => 'Maximum results size (defaults to 100)',
+                    'type'        => 'integer',
+                    'required'    => false,
+                ),
+            )
+        ),
+
+        'getRealmRoleManagementPermissions' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles/{role-name}/management/permissions',
+            'description' => 'Return object stating whether role Authoirzation permissions have been initialized or not and a reference',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'updateRealmRoleManagementPermissions' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles/{role-name}/management/permissions',
+            'description' => 'Update object stating whether role Authoirzation permissions have been initialized or not and a reference',
+            'httpMethod'  => 'PUT',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'description' => 'role’s name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $ManagementPermissionReference
+        ),
+
+        'getRealmRoleUsers' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles/{role-name}/users',
+            'description' => 'Return List of Users that have the specified role name (Realm Specific)',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+
+                'role-name' => array(
+                    'location'    => 'uri',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'first' => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'required' => false
+                ),
+                'max' => array(
+                    'location' => 'query',
+                    'type' => 'integer',
+                    'required' => false
+                ),
+            ),
+        ),
+
         // Users
 
         'createUser' => array(
@@ -4180,88 +4901,6 @@ return array(
                     'required'    => true,
                 ),
             ) + $UserRepresentation
-        ),
-
-        // Roles
-
-        'getClientRoleUsers' => array(
-            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles/{role-name}/users',
-            'description' => 'Return List of Users that have the specified role name (Client Specific)',
-            'httpMethod'  => 'GET',
-            'parameters'  => array(
-                'realm' => array(
-                    'location'    => 'uri',
-                    'description' => 'realm name (not id!)',
-                    'type'        => 'string',
-                    'required'    => true,
-                ),
-                'id' => array(
-                    'location'    => 'uri',
-                    'description' => 'id of client (not client-id)',
-                    'type'        => 'string',
-                    'required'    => true,
-                ),
-                'role-name' => array(
-                    'location'    => 'uri',
-                    'type'        => 'string',
-                    'required'    => true,
-                ),
-                'first' => array(
-                    'location' => 'query',
-                    'type' => 'integer',
-                    'required' => false
-                ),
-                'max' => array(
-                    'location' => 'query',
-                    'type' => 'integer',
-                    'required' => false
-                ),
-            ),
-        ),
-
-        'getClientRoles' => array(
-            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles',
-            'description' => 'Get all roles for the realm or client (Client Specific)',
-            'httpMethod'  => 'GET',
-            'parameters'  => array(
-                'realm' => array(
-                    'location'    => 'uri',
-                    'description' => 'realm name (not id!)',
-                    'type'        => 'string',
-                    'required'    => true,
-                ),
-                'id' => array(
-                    'location'    => 'uri',
-                    'description' => 'id of client (not client-id)',
-                    'type'        => 'string',
-                    'required'    => true,
-                ),
-            ),
-        ),
-        'getClientRole' => array(
-            'uri'         => 'auth/admin/realms/{realm}/clients/{id}/roles/{role-name}',
-            'description' => 'Get a role by name (Client Specific)',
-            'httpMethod'  => 'GET',
-            'parameters'  => array(
-                'realm' => array(
-                    'location'    => 'uri',
-                    'description' => 'realm name (not id!)',
-                    'type'        => 'string',
-                    'required'    => true,
-                ),
-                'id' => array(
-                    'location'    => 'uri',
-                    'description' => 'id of client (not client-id)',
-                    'type'        => 'string',
-                    'required'    => true,
-                ),
-                'role-name' => array(
-                    'location'    => 'uri',
-                    'description' => 'role’s name (not id!)',
-                    'type'        => 'string',
-                    'required'    => true,
-                ),
-            ),
         ),
 
     ) //End of Operations Array

@@ -376,34 +376,34 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| Create a new role for the realm or client (Client Specific) | | ❌ |
+| Create a new role for the realm or client (Client Specific) | createClientRole | ✔️ |
 | Get all roles for the realm or client (Client Specific) | getClientRoles | ✔️ |
 | Get a role by name (Client Specific) | getClientRole | ✔️ |
-| Update a role by name (Client Specific) | | ❌ |
-| Delete a role by name (Client Specific) | | ❌ |
-| Add a composite to the role (Client Specific) | | ❌ |
-| Get composites of the role (Client Specific) | | ❌ |
-| Remove roles from the role’s composite (Client Specific) | | ❌ |
-| An app-level roles for the specified app for the role’s composite (Client Specific) | | ❌ |
-| Get realm-level roles of the role’s composite (Client Specific) | | ❌ |
-| Return List of Groups that have the specified role name (Client Specific) | | ❌ |
-| Return object stating whether role Authoirzation permissions have been initialized or not and a reference (Client Specific) | | ❌ |
-| Update object stating whether role Authoirzation permissions have been initialized or not and a reference (Client Specific) | | ❌ |
+| Update a role by name (Client Specific) | updateClientRole | ✔️ |
+| Delete a role by name (Client Specific) | deleteClientRole | ✔️ |
+| Add a composite to the role (Client Specific) | addCompositeRoleToClientRole | ❌ |
+| Get composites of the role (Client Specific) | getClientRoleCompositeRoles | ✔️ |
+| Remove roles from the role’s composite (Client Specific) | deleteCompositeRoleFromClientRole | ❌ |
+| An app-level roles for the specified app for the role’s composite (Client Specific) | getClientRoleCompositeRolesForClient | ✔️ |
+| Get realm-level roles of the role’s composite (Client Specific) | getClientRoleCompositeRolesForRealm | ✔️ |
+| Return List of Groups that have the specified role name (Client Specific) | getClientRoleGroups | ✔️ |
+| Return object stating whether role Authoirzation permissions have been initialized or not and a reference (Client Specific) | getClientRoleManagementPermissions | ✔️ |
+| Update object stating whether role Authoirzation permissions have been initialized or not and a reference (Client Specific) | updateClientRoleManagementPermissions | ✔️ |
 | Return List of Users that have the specified role name (Client Specific) | getClientRoleUsers | ✔️ |
-| Create a new role for the realm or client | | ❌ |
-| Get all roles for the realm or client | | ❌ |
-| Get a role by name | | ❌ |
-| Update a role by name | | ❌ |
-| Delete a role by name | | ❌ |
-| Add a composite to the role | | ❌ |
-| Get composites of the role | | ❌ |
-| Remove roles from the role’s composite | | ❌ |
-| An app-level roles for the specified app for the role’s composite | | ❌ |
-| Get realm-level roles of the role’s composite | | ❌ |
-| Return List of Groups that have the specified role name | | ❌ |
-| Return object stating whether role Authoirzation permissions have been initialized or not and a reference | | ❌ |
-| Update object stating whether role Authoirzation permissions have been initialized or not and a reference | | ❌ |
-| Return List of Users that have the specified role name | | ❌ |
+| Create a new role for the realm or client | createRealmRole | ✔️ |
+| Get all roles for the realm or client | getRealmRoles | ✔️ |
+| Get a role by name | getRealmRole | ✔️ |
+| Update a role by name | updateRealmRole | ✔️ |
+| Delete a role by name | deleteRealmRole | ✔️ |
+| Add a composite to the role | addCompositeRoleToRealmRole | ❌ |
+| Get composites of the role | getRealmRoleCompositeRoles | ✔️ |
+| Remove roles from the role’s composite | deleteCompositeRoleFromRealmRole | ❌ |
+| An app-level roles for the specified app for the role’s composite | getRealmRoleCompositeRolesForClient | ✔️ |
+| Get realm-level roles of the role’s composite | getRealmRoleCompositeRolesForRealm | ✔️ |
+| Return List of Groups that have the specified role name | getRealmRoleGroups | ✔️ |
+| Return object stating whether role Authoirzation permissions have been initialized or not and a reference | getRealmRoleManagementPermissions | ✔️ |
+| Update object stating whether role Authoirzation permissions have been initialized or not and a reference | updateRealmRoleManagementPermissions | ✔️ |
+| Return List of Users that have the specified role name | getRealmRoleUsers | ✔️ |
 
  ## [Roles (by ID)]()
 
