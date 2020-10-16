@@ -216,14 +216,43 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array getAvailableUserRealmRoleMappings(array $args = array()) { @command Keycloak getAvailableUserRealmRoleMappings }
  * @method array getEffectiveUserRealmRoleMappings(array $args = array()) { @command Keycloak getEffectiveUserRealmRoleMappings }
  * 
+ * @method array createClientRole (array $args = array()) { @command Keycloak createClientRole }
+ * @method array getClientRoles (array $args = array()) { @command Keycloak getClientRoles }
+ * @method array getClientRole (array $args = array()) { @command Keycloak getClientRole }
+ * @method array updateClientRole (array $args = array()) { @command Keycloak updateClientRole }
+ * @method array deleteClientRole (array $args = array()) { @command Keycloak deleteClientRole }
+ * @method array addCompositeRoleToClientRole (array $args = array()) { @command Keycloak addCompositeRoleToClientRole }
+ * @method array getClientRoleCompositeRoles (array $args = array()) { @command Keycloak getClientRoleCompositeRoles }
+ * @method array deleteCompositeRoleFromClientRole (array $args = array()) { @command Keycloak deleteCompositeRoleFromClientRole }
+ * @method array getClientRoleCompositeRolesForClient (array $args = array()) { @command Keycloak getClientRoleCompositeRolesForClient }
+ * @method array getClientRoleCompositeRolesForRealm (array $args = array()) { @command Keycloak getClientRoleCompositeRolesForRealm }
+ * @method array getClientRoleGroups (array $args = array()) { @command Keycloak getClientRoleGroups }
+ * @method array getClientRoleManagementPermissions (array $args = array()) { @command Keycloak getClientRoleManagementPermissions }
+ * @method array updateClientRoleManagementPermissions (array $args = array()) { @command Keycloak updateClientRoleManagementPermissions }
+ * @method array getClientRoleUsers (array $args = array()) { @command Keycloak getClientRoleUsers }
+ * @method array createRealmRole (array $args = array()) { @command Keycloak createRealmRole }
+ * @method array getRealmRoles (array $args = array()) { @command Keycloak getRealmRoles }
+ * @method array getRealmRole (array $args = array()) { @command Keycloak getRealmRole }
+ * @method array updateRealmRole (array $args = array()) { @command Keycloak updateRealmRole }
+ * @method array deleteRealmRole (array $args = array()) { @command Keycloak deleteRealmRole }
+ * @method array addCompositeRoleToRealmRole (array $args = array()) { @command Keycloak addCompositeRoleToRealmRole }
+ * @method array getRealmRoleCompositeRoles (array $args = array()) { @command Keycloak getRealmRoleCompositeRoles }
+ * @method array deleteCompositeRoleFromRealmRole (array $args = array()) { @command Keycloak deleteCompositeRoleFromRealmRole }
+ * @method array getRealmRoleCompositeRolesForClient (array $args = array()) { @command Keycloak getRealmRoleCompositeRolesForClient }
+ * @method array getRealmRoleCompositeRolesForRealm (array $args = array()) { @command Keycloak getRealmRoleCompositeRolesForRealm }
+ * @method array getRealmRoleGroups (array $args = array()) { @command Keycloak getRealmRoleGroups }
+ * @method array getRealmRoleManagementPermissions (array $args = array()) { @command Keycloak getRealmRoleManagementPermissions }
+ * @method array updateRealmRoleManagementPermissions (array $args = array()) { @command Keycloak updateRealmRoleManagementPermissions }
+ * @method array getRealmRoleUsers (array $args = array()) { @command Keycloak getRealmRoleUsers }
+ * 
  * @method array createUser(array $args = array()) { @command Keycloak createUser }
  * @method array getUsers(array $args = array()) { @command Keycloak getUsers }
  * @method array getUser(array $args = array()) { @command Keycloak getUser }
- * 
- * @method array getClientRoleUsers(array $args = array()) { @command Keycloak getClientRoleUsers }
- * @method array getClientRoles(array $args = array()) { @command Keycloak getClientRoles }
- * @method array getClientRole(array $args = array()) { @command Keycloak getClientRole }
- * 
+ * @method array getUserGroups(array $args = array()) { @command Keycloak getUserGroups }
+ * @method array getUserGroupsCount(array $args = array()) { @command Keycloak getUserGroupsCount }
+ * @method array updateUser(array $args = array()) { @command Keycloak updateUser }
+ * @method array deleteUser(array $args = array()) { @command Keycloak deleteUser }
+ *
  */
 
 class KeycloakClient extends GuzzleClient
