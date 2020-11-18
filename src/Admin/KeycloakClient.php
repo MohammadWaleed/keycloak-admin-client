@@ -252,6 +252,8 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array getUserGroupsCount(array $args = array()) { @command Keycloak getUserGroupsCount }
  * @method array updateUser(array $args = array()) { @command Keycloak updateUser }
  * @method array deleteUser(array $args = array()) { @command Keycloak deleteUser }
+ * @method array addUserToGroup(array $args = array()) { @command Keycloak addUserToGroup }
+ * @method array deleteUserFromGroup(array $args = array()) { @command Keycloak deleteUserFromGroup }
  *
  */
 
