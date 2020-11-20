@@ -477,8 +477,8 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | Remove a social login provider from user | | ❌ |
 | GET /{realm}/users/{id}/groups | getUserGroups | ✔️ |
 | GET /{realm}/users/{id}/groups/count | getUserGroupsCount | ✔️ |
-| PUT /{realm}/users/{id}/groups/{groupId} | | ❌ | 
-| DELETE /{realm}/users/{id}/groups/{groupId} | | ❌ |
+| PUT /{realm}/users/{id}/groups/{groupId} | addUserToGroup | ✔️ | 
+| DELETE /{realm}/users/{id}/groups/{groupId} | deleteUserFromGroup | ✔️ |
 | Impersonate the user | | ❌ |
 | Remove all user sessions associated with the user Also send notification to all clients that have an admin URL to invalidate the sessions for the particular user. | | ❌ |
 | Get offline sessions associated with the user and client | | ❌ |

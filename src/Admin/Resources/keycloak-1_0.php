@@ -4963,5 +4963,57 @@ return array(
             ),
         ),
 
+        'addUserToGroup' => array(
+            'uri' => 'auth/admin/realms/{realm}/users/{id}/groups/{groupId}',
+            'description' => 'Assign a specific user to a specific group',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'User id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'groupId' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ),
+        ),
+
+        'deleteUserFromGroup' => array(
+            'uri' => 'auth/admin/realms/{realm}/users/{id}/groups/{groupId}',
+            'description' => 'Remove a specific user from a specific group',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'User id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'groupId' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ),
+        ),
+
     ) //End of Operations Array
 );//End of return array
