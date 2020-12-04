@@ -405,20 +405,20 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | Update object stating whether role Authoirzation permissions have been initialized or not and a reference | updateRealmRoleManagementPermissions | ✔️ |
 | Return List of Users that have the specified role name | getRealmRoleUsers | ✔️ |
 
- ## [Roles (by ID)]()
+ ## [Roles (by ID)](https://www.keycloak.org/docs-api/7.0/rest-api/index.html#_roles_by_id_resource)
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| Get a specific role’s representation | | ❌ |
-| Update the role | | ❌ |
-| Delete the role | | ❌ |
-| Make the role a composite role by associating some child roles | | ❌ |
-| Get role’s children Returns a set of role’s children provided the role is a composite. | | ❌ |
-| Remove a set of roles from the role’s composite | | ❌ |
-| Get client-level roles for the client that are in the role’s composite | | ❌ |
-| Get realm-level roles that are in the role’s composite | | ❌ |
-| Return object stating whether role Authoirzation permissions have been initialized or not and a reference | | ❌ |
-| Return object stating whether role Authoirzation permissions have been initialized or not and a reference | | ❌ |
+| Get a specific role’s representation | getRealmRoleById | ✔️ |
+| Update the role | updateRealmRoleById | ✔️ |
+| Delete the role | deleteRealmRoleById | ✔️ |
+| Make the role a composite role by associating some child roles | addCompositeRoleToRealmRoleByRoleId | ❌ |
+| Get role’s children Returns a set of role’s children provided the role is a composite. | getRealmRoleCompositeRolesByRoleId | ✔️ |
+| Remove a set of roles from the role’s composite | deleteCompositeRoleFromRealmRoleByRoleId | ❌ |
+| Get client-level roles for the client that are in the role’s composite | getRealmRoleCompositeRolesForClientByRoleId | ✔️ |
+| Get realm-level roles that are in the role’s composite | getRealmRoleCompositeRolesForRealmByRoleId | ✔️ |
+| Return object stating whether role Authoirzation permissions have been initialized or not and a reference | getRealmRoleManagementPermissionsByRoleId | ✔️ |
+| Return object stating whether role Authoirzation permissions have been initialized or not and a reference | updateRealmRoleManagementPermissionsByRoleId | ✔️ |
 
  ## [Scope Mappings]()
 
@@ -477,8 +477,8 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | Remove a social login provider from user | | ❌ |
 | GET /{realm}/users/{id}/groups | getUserGroups | ✔️ |
 | GET /{realm}/users/{id}/groups/count | getUserGroupsCount | ✔️ |
-| PUT /{realm}/users/{id}/groups/{groupId} | | ❌ | 
-| DELETE /{realm}/users/{id}/groups/{groupId} | | ❌ |
+| PUT /{realm}/users/{id}/groups/{groupId} | addUserToGroup | ✔️ | 
+| DELETE /{realm}/users/{id}/groups/{groupId} | deleteUserFromGroup | ✔️ |
 | Impersonate the user | | ❌ |
 | Remove all user sessions associated with the user Also send notification to all clients that have an admin URL to invalidate the sessions for the particular user. | | ❌ |
 | Get offline sessions associated with the user and client | | ❌ |

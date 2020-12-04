@@ -4791,6 +4791,223 @@ return array(
             ),
         ),
 
+        // Roles (by ID)
+
+        'getRealmRoleById' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles-by-id/{role-id}',
+            'description' => 'Get a specific role’s representation',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+
+                'role-id' => array(
+                    'location'    => 'uri',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ),
+        ),
+
+        'updateRealmRoleById' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles-by-id/{role-id}',
+            'description' => 'Update the role',
+            'httpMethod'  => 'PUT',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+
+                'role-id' => array(
+                    'location'    => 'uri',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $RoleRepresentation,
+        ),
+
+        'deleteRealmRoleById' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles-by-id/{role-id}',
+            'description' => 'Delete the role',
+            'httpMethod'  => 'DELETE',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+
+                'role-id' => array(
+                    'location'    => 'uri',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ),
+        ),
+
+        'addCompositeRoleToRealmRoleByRoleId' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles-by-id/{role-id}/composites',
+            'description' => 'Add a composite to the role',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-id' => array(
+                    'location'    => 'uri',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'roles' => array(
+                    'location' => 'fullBody',
+                    'type' => 'array',
+                    'items' => array(
+                        'type' => 'object', 'properties' => $RoleRepresentation
+                    ),
+                    'required' => true
+                ),
+            )
+        ),
+
+        'getRealmRoleCompositeRolesByRoleId' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles-by-id/{role-id}/composites',
+            'description' => 'Get composites of the role',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-id' => array(
+                    'location'    => 'uri',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'deleteCompositeRoleFromRealmRoleByRoleId' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles-by-id/{role-id}/composites',
+            'description' => 'Remove roles from the role’s composite',
+            'httpMethod'  => 'DELETE',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-id' => array(
+                    'location'    => 'uri',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'roles' => array(
+                    'location' => 'fullBody',
+                    'type' => 'array',
+                    'items' => array(
+                        'type' => 'object', 'properties' => $RoleRepresentation
+                    ),
+                    'required' => true
+                ),
+            )
+        ),
+
+        'getRealmRoleCompositeRolesForClientByRoleId' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles-by-id/{role-id}/composites/clients/{client}',
+            'description' => 'Get client-level roles for the client that are in the role’s composite',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-id' => array(
+                    'location'    => 'uri',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'client' => array(
+                    'location'    => 'uri',
+                    'description' => 'client id (not name!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getRealmRoleCompositeRolesForRealmByRoleId' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles-by-id/{role-id}/composites/realm',
+            'description' => 'Get realm-level roles of the role’s composite',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-id' => array(
+                    'location'    => 'uri',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getRealmRoleManagementPermissionsByRoleId' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles-by-id/{role-id}/management/permissions',
+            'description' => 'Return object stating whether role Authoirzation permissions have been initialized or not and a reference',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-id' => array(
+                    'location'    => 'uri',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'updateRealmRoleManagementPermissionsByRoleId' => array(
+            'uri'         => 'auth/admin/realms/{realm}/roles-by-id/{role-id}/management/permissions',
+            'description' => 'Update object stating whether role Authoirzation permissions have been initialized or not and a reference',
+            'httpMethod'  => 'PUT',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'role-id' => array(
+                    'location'    => 'uri',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ) + $ManagementPermissionReference
+        ),
+
         // Users
 
         'createUser' => array(
@@ -4957,6 +5174,58 @@ return array(
                 'id' => array(
                     'location'    => 'uri',
                     'description' => 'User id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ),
+        ),
+
+        'addUserToGroup' => array(
+            'uri' => 'auth/admin/realms/{realm}/users/{id}/groups/{groupId}',
+            'description' => 'Assign a specific user to a specific group',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'User id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'groupId' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ),
+        ),
+
+        'deleteUserFromGroup' => array(
+            'uri' => 'auth/admin/realms/{realm}/users/{id}/groups/{groupId}',
+            'description' => 'Remove a specific user from a specific group',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'User id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'groupId' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group id',
                     'type'        => 'string',
                     'required'    => true,
                 ),
