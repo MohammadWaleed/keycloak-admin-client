@@ -245,6 +245,17 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array updateRealmRoleManagementPermissions (array $args = array()) { @command Keycloak updateRealmRoleManagementPermissions }
  * @method array getRealmRoleUsers (array $args = array()) { @command Keycloak getRealmRoleUsers }
  * 
+ * @method array getRealmRoleById (array $args = array()) { @command Keycloak getRealmRoleById }
+ * @method array updateRealmRoleById (array $args = array()) { @command Keycloak updateRealmRoleById }
+ * @method array deleteRealmRoleById (array $args = array()) { @command Keycloak deleteRealmRoleById }
+ * @method array addCompositeRoleToRealmRoleByRoleId (array $args = array()) { @command Keycloak addCompositeRoleToRealmRoleByRoleId }
+ * @method array getRealmRoleCompositeRolesByRoleId (array $args = array()) { @command Keycloak getRealmRoleCompositeRolesByRoleId }
+ * @method array deleteCompositeRoleFromRealmRoleByRoleId (array $args = array()) { @command Keycloak deleteCompositeRoleFromRealmRoleByRoleId }
+ * @method array getRealmRoleCompositeRolesForClientByRoleId (array $args = array()) { @command Keycloak getRealmRoleCompositeRolesForClientByRoleId }
+ * @method array getRealmRoleCompositeRolesForRealmByRoleId (array $args = array()) { @command Keycloak getRealmRoleCompositeRolesForRealmByRoleId }
+ * @method array getRealmRoleManagementPermissionsByRoleId (array $args = array()) { @command Keycloak getRealmRoleManagementPermissionsByRoleId }
+ * @method array updateRealmRoleManagementPermissionsByRoleId (array $args = array()) { @command Keycloak updateRealmRoleManagementPermissionsByRoleId }
+ * 
  * @method array createUser(array $args = array()) { @command Keycloak createUser }
  * @method array getUsers(array $args = array()) { @command Keycloak getUsers }
  * @method array getUser(array $args = array()) { @command Keycloak getUser }
