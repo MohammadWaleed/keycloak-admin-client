@@ -96,7 +96,10 @@ class RefreshToken
         $token = [];
 
         try {
-            $httpClient = new Client(['base_uri' => $options['baseUri']]);
+            $httpClient = new Client([
+                'base_uri' => $options['baseUri'],
+                'verify'   => isset($options['verify']) ? $options['verify'] : true,
+            ]);
             $response = $httpClient->request('POST', $url, ['form_params' => $params]);
 
             if ($response->getStatusCode() === 200) {

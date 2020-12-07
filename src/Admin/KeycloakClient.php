@@ -15,11 +15,11 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * Class KeycloakClient
  *
  * @package Keycloak\Admin\Client
- * 
+ *
  * @method array clearAllLoginFailures(array $args = array()) { @command Keycloak clearAllLoginFailures }
  * @method array getBruteForceUserStatus(array $args = array()) { @command Keycloak getBruteForceUserStatus }
  * @method array clearUserLoginFailures(array $args = array()) { @command Keycloak clearUserLoginFailures }
- * 
+ *
  * @method array getAuthenticatorProviders(array $args = array()) { @command Keycloak getAuthenticatorProviders }
  * @method array getClientAuthenticatorProviders(array $args = array()) { @command Keycloak getClientAuthenticatorProviders }
  * @method array getAuthenticatorConfigInfo(array $args = array()) { @command Keycloak getAuthenticatorConfigInfo }
@@ -53,20 +53,20 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array lowerRequiredActionPriority(array $args = array()) { @command Keycloak lowerRequiredActionPriority }
  * @method array raiseRequiredActionPriority(array $args = array()) { @command Keycloak raiseRequiredActionPriority }
  * @method array getUnregisteredRequiredActions(array $args = array()) { @command Keycloak getUnregisteredRequiredActions }
- * 
+ *
  * @method array getClientKeyInfo(array $args = array()) { @command Keycloak getClientKeyInfo }
  * @method array getClientKeyStore(array $args = array()) { @command Keycloak getClientKeyStore }
  * @method array generateClientCertificate(array $args = array()) { @command Keycloak generateClientCertificate }
  * @method array generateDownloadClientCertificate(array $args = array()) { @command Keycloak generateDownloadClientCertificate }
  * @method array uploadClientCertificateAndPrivateKey(array $args = array()) { @command Keycloak uploadClientCertificateAndPrivateKey }
  * @method array uploadClientCertificateOnly(array $args = array()) { @command Keycloak uploadClientCertificateOnly }
- * 
+ *
  * @method array createClientInitialAccessToken(array $args = array()) { @command Keycloak createClientInitialAccessToken }
  * @method array getClientInitialAccessTokens(array $args = array()) { @command Keycloak getClientInitialAccessTokens }
  * @method array deleteClientInitialAccessToken(array $args = array()) { @command Keycloak deleteClientInitialAccessToken }
- * 
+ *
  * @method array getClientRegistrationPolicyProviders(array $args = array()) { @command Keycloak deleteClientInitialAccessToken }
- * 
+ *
  * @method array addGroupClientRoleMappings(array $args = array()) { @command Keycloak addGroupClientRoleMappings }
  * @method array getGroupClientRoleMappings(array $args = array()) { @command Keycloak getGroupClientRoleMappings }
  * @method array deleteGroupClientRoleMappings(array $args = array()) { @command Keycloak deleteGroupClientRoleMappings }
@@ -77,13 +77,13 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array deleteUserClientRoleMappings(array $args = array()) { @command Keycloak deleteUserClientRoleMappings }
  * @method array getAvailableUserClientRoleMappings(array $args = array()) { @command Keycloak getAvailableUserClientRoleMappings }
  * @method array getUserClientRoleMappingsWithComposite(array $args = array()) { @command Keycloak getUserClientRoleMappingsWithComposite }
- * 
+ *
  * @method array createClientScope(array $args = array()) { @command Keycloak createClientScope }
  * @method array getClientScopes(array $args = array()) { @command Keycloak getClientScopes }
  * @method array getClientScope(array $args = array()) { @command Keycloak getClientScope }
  * @method array updateClientScope(array $args = array()) { @command Keycloak updateClientScope }
  * @method array deleteClientScope(array $args = array()) { @command Keycloak deleteClientScope }
- * 
+ *
  * @method array createClient(array $args = array()) { @command Keycloak createClient }
  * @method array getClients(array $args = array()) { @command Keycloak getClients }
  * @method array getClient(array $args = array()) { @command Keycloak getClient }
@@ -114,14 +114,14 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array getClientSessionsCount(array $args = array()) { @command Keycloak getClientSessionsCount }
  * @method array testClientNodesAvailability(array $args = array()) { @command Keycloak testClientNodesAvailability }
  * @method array getClientSessions(array $args = array()) { @command Keycloak getClientSessions }
- * 
+ *
  * @method array createComponent(array $args = array()) { @command Keycloak createComponent }
  * @method array getComponents(array $args = array()) { @command Keycloak getComponents }
  * @method array getComponent(array $args = array()) { @command Keycloak getComponent }
  * @method array updateComponent(array $args = array()) { @command Keycloak updateComponent }
  * @method array deleteComponent(array $args = array()) { @command Keycloak deleteComponent }
  * @method array getComponentSubTypes(array $args = array()) { @command Keycloak getComponentSubTypes }
- * 
+ *
  * @method array createGroup(array $args = array()) { @command Keycloak createGroup }
  * @method array getGroups(array $args = array()) { @command Keycloak getGroups }
  * @method array getGroupsCount(array $args = array()) { @command Keycloak getGroupsCount }
@@ -132,7 +132,7 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array getGroupManagementPermissions(array $args = array()) { @command Keycloak getGroupManagementPermissions }
  * @method array updateGroupManagementPermissions(array $args = array()) { @command Keycloak updateGroupManagementPermissions }
  * @method array getGroupMembers(array $args = array()) { @command Keycloak getGroupMembers }
- * 
+ *
  * @method array importIdentityProvider(array $args = array()) { @command Keycloak importIdentityProvider }
  * @method array createIdentityProvider(array $args = array()) { @command Keycloak createIdentityProvider }
  * @method array getIdentityProviders(array $args = array()) { @command Keycloak getIdentityProviders }
@@ -149,9 +149,9 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array updateIdentityProviderMapper(array $args = array()) { @command Keycloak updateIdentityProviderMapper }
  * @method array deleteIdentityProviderMapper(array $args = array()) { @command Keycloak deleteIdentityProviderMapper }
  * @method array getIdentityProviderById(array $args = array()) { @command Keycloak getIdentityProviderById }
- * 
+ *
  * @method array getRealmKeys(array $args = array()) { @command Keycloak getRealmKeys }
- * 
+ *
  * @method array createClientScopeProtocolMappers(array $args = array()) { @command Keycloak createClientScopeProtocolMappers }
  * @method array createClientScopeProtocolMapper(array $args = array()) { @command Keycloak createClientScopeProtocolMapper }
  * @method array getClientScopeProtocolMappers(array $args = array()) { @command Keycloak getClientScopeProtocolMappers }
@@ -166,7 +166,7 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array updateClientProtocolMapper(array $args = array()) { @command Keycloak updateClientProtocolMapper }
  * @method array deleteClientProtocolMapper(array $args = array()) { @command Keycloak deleteClientProtocolMapper }
  * @method array getClientProtocolMappersByProtocolName(array $args = array()) { @command Keycloak getClientProtocolMappersByProtocolName }
- * 
+ *
  * @method array importRealm(array $args = array()) { @command Keycloak importRealm }
  * @method array getRealm(array $args = array()) { @command Keycloak getRealm }
  * @method array updateRealm(array $args = array()) { @command Keycloak updateRealm }
@@ -202,7 +202,7 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array testSMTPConnection(array $args = array()) { @command Keycloak testSMTPConnection }
  * @method array getUserManagementPermissions(array $args = array()) { @command Keycloak getUserManagementPermissions }
  * @method array updateUserManagementPermissions(array $args = array()) { @command Keycloak updateUserManagementPermissions }
- * 
+ *
  * @method array getGroupRoleMappings(array $args = array()) { @command Keycloak getGroupRoleMappings }
  * @method array addGlobalRolesToGroup(array $args = array()) { @command Keycloak addGlobalRolesToGroup }
  * @method array getGroupRealmRoleMappings(array $args = array()) { @command Keycloak getGroupRealmRoleMappings }
@@ -215,7 +215,7 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array deleteUserRealmRoleMappings(array $args = array()) { @command Keycloak deleteUserRealmRoleMappings }
  * @method array getAvailableUserRealmRoleMappings(array $args = array()) { @command Keycloak getAvailableUserRealmRoleMappings }
  * @method array getEffectiveUserRealmRoleMappings(array $args = array()) { @command Keycloak getEffectiveUserRealmRoleMappings }
- * 
+ *
  * @method array createClientRole (array $args = array()) { @command Keycloak createClientRole }
  * @method array getClientRoles (array $args = array()) { @command Keycloak getClientRoles }
  * @method array getClientRole (array $args = array()) { @command Keycloak getClientRole }
@@ -244,7 +244,7 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array getRealmRoleManagementPermissions (array $args = array()) { @command Keycloak getRealmRoleManagementPermissions }
  * @method array updateRealmRoleManagementPermissions (array $args = array()) { @command Keycloak updateRealmRoleManagementPermissions }
  * @method array getRealmRoleUsers (array $args = array()) { @command Keycloak getRealmRoleUsers }
- * 
+ *
  * @method array getRealmRoleById (array $args = array()) { @command Keycloak getRealmRoleById }
  * @method array updateRealmRoleById (array $args = array()) { @command Keycloak updateRealmRoleById }
  * @method array deleteRealmRoleById (array $args = array()) { @command Keycloak deleteRealmRoleById }
@@ -255,7 +255,7 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array getRealmRoleCompositeRolesForRealmByRoleId (array $args = array()) { @command Keycloak getRealmRoleCompositeRolesForRealmByRoleId }
  * @method array getRealmRoleManagementPermissionsByRoleId (array $args = array()) { @command Keycloak getRealmRoleManagementPermissionsByRoleId }
  * @method array updateRealmRoleManagementPermissionsByRoleId (array $args = array()) { @command Keycloak updateRealmRoleManagementPermissionsByRoleId }
- * 
+ *
  * @method array createUser(array $args = array()) { @command Keycloak createUser }
  * @method array getUsers(array $args = array()) { @command Keycloak getUsers }
  * @method array getUser(array $args = array()) { @command Keycloak getUser }
@@ -285,7 +285,8 @@ class KeycloakClient extends GuzzleClient
             'password' => null,
             'realm'    => 'master',
             'version'  => '1.0',
-            'baseUri' => null,
+            'baseUri'  => null,
+            'verify'   => true,
         );
 
         // Create client configuration
@@ -398,7 +399,7 @@ class KeycloakClient extends GuzzleClient
     protected static function parseConfig($config, $default)
     {
         array_walk($default, function ($value, $key) use (&$config) {
-            if (empty($config[$key]) || !isset($config[$key])) {
+            if (!isset($config[$key]) && empty($config[$key])) {
                 $config[$key] = $value;
             }
         });
