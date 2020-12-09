@@ -399,7 +399,7 @@ class KeycloakClient extends GuzzleClient
     protected static function parseConfig($config, $default)
     {
         array_walk($default, function ($value, $key) use (&$config) {
-            if (!isset($config[$key]) && empty($config[$key])) {
+            if (!isset($config[$key])) {
                 $config[$key] = $value;
             }
         });
