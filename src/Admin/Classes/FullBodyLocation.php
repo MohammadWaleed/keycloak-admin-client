@@ -44,11 +44,20 @@ class FullBodyLocation extends JsonLocation
         RequestInterface $request,
         Parameter $param
     ) {
-        $this->jsonData[] = $this->prepareValue(
+        $this->jsonData = $this->prepareValue(
             $command[$param->getName()],
             $param
         );
 
+        if ($this->jsonContentType && !$request->hasHeader('Content-Type')) {
+            $request = $request->withHeader('Content-Type', $this->jsonContentType);
+        }
+
         return $request->withBody(Psr7\stream_for(\GuzzleHttp\json_encode($this->jsonData)));
+    }
+
+    public function after(CommandInterface $command, RequestInterface $request, Operation $operation)
+    {
+        return $request;
     }
 }
