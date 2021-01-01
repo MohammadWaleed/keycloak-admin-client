@@ -185,12 +185,12 @@ $client->createUser([
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| Add client-level roles to the group role mapping (couldn't make it seems like an issue with keycloak itslef ??) | addGroupClientRoleMappings | ❌ |
+| Add client-level roles to the group role mapping | addGroupClientRoleMappings | ✔️ |
 | Get client-level role mappings for the group, and the app | getGroupClientRoleMappings | ✔️ |
 | Delete client-level roles from group role mapping | deleteGroupClientRoleMappings | ✔️ |
 | Get available client-level roles that can be mapped to the group | getAvailableGroupClientRoleMappings | ✔️ |
 | Get effective client-level role mappings This recurses any composite roles for groups | getGroupClientRoleMappingsWithComposite | ✔️ |
-| Add client-level roles to the user role mapping (couldn't make it seems like an issue with keycloak itslef ??) | addUserClientRoleMappings | ❌ |
+| Add client-level roles to the user role mapping | addUserClientRoleMappings | ✔️ |
 | Get client-level role mappings for the user, and the app | getUserClientRoleMappings | ✔️ |
 | Delete client-level roles from user role mapping | deleteUserClientRoleMappings | ✔️ |
 | Get available client-level roles that can be mapped to the user | getAvailableUserClientRoleMappings | ✔️ |
@@ -300,7 +300,7 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
-| Create multiple mappers (keycloak have an issue where it doesn't extract the request correctly)| createClientScopeProtocolMappers | ✔️ |
+| Create multiple mappers | createClientScopeProtocolMappers | ✔️ |
 | Create a mapper | createClientScopeProtocolMapper | ✔️ |
 | Get mappers | getClientScopeProtocolMappers | ✔️ |
 | Get mapper by id | getClientScopeProtocolMapperById | ✔️ |
@@ -360,13 +360,13 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | API | Function Name | Supported |
 |-----|:-------------:|:---------:|
 | Get role mappings | getGroupRoleMappings | ✔️ |
-| Add realm-level role mappings to the group (Keycloak gives null pointer exception)| addGlobalRolesToGroup | ❌ |
+| Add realm-level role mappings to the group | addGlobalRolesToGroup | ✔️ |
 | Get realm-level role mappings | getGroupRealmRoleMappings | ✔️ |
 | Delete realm-level role mappings | deleteGroupRealmRoleMappings | ✔️ |
 | Get realm-level roles that can be mapped | getAvailableGroupRealmRoleMappings | ✔️ |
 | Get effective realm-level role mappings This will recurse all composite roles to get the result. | getEffectiveGroupRealmRoleMappings | ✔️ |
 | Get role mappings | getUserRoleMappings | ✔️ |
-| Add realm-level role mappings to the user (Keycloak gives null pointer exception) | addGlobalRolesToUser | ❌ |
+| Add realm-level role mappings to the user | addGlobalRolesToUser | ✔️ |
 | Get realm-level role mappings | getUserRealmRoleMappings | ✔️ |
 | Delete realm-level role mappings | deleteUserRealmRoleMappings | ✔️ |
 | Get realm-level roles that can be mapped | getAvailableUserRealmRoleMappings | ✔️ |
@@ -381,9 +381,9 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | Get a role by name (Client Specific) | getClientRole | ✔️ |
 | Update a role by name (Client Specific) | updateClientRole | ✔️ |
 | Delete a role by name (Client Specific) | deleteClientRole | ✔️ |
-| Add a composite to the role (Client Specific) | addCompositeRoleToClientRole | ❌ |
+| Add a composite to the role (Client Specific) | addCompositeRoleToClientRole | ✔️ |
 | Get composites of the role (Client Specific) | getClientRoleCompositeRoles | ✔️ |
-| Remove roles from the role’s composite (Client Specific) | deleteCompositeRoleFromClientRole | ❌ |
+| Remove roles from the role’s composite (Client Specific) | deleteCompositeRoleFromClientRole | ✔️ |
 | An app-level roles for the specified app for the role’s composite (Client Specific) | getClientRoleCompositeRolesForClient | ✔️ |
 | Get realm-level roles of the role’s composite (Client Specific) | getClientRoleCompositeRolesForRealm | ✔️ |
 | Return List of Groups that have the specified role name (Client Specific) | getClientRoleGroups | ✔️ |
@@ -395,9 +395,9 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | Get a role by name | getRealmRole | ✔️ |
 | Update a role by name | updateRealmRole | ✔️ |
 | Delete a role by name | deleteRealmRole | ✔️ |
-| Add a composite to the role | addCompositeRoleToRealmRole | ❌ |
+| Add a composite to the role | addCompositeRoleToRealmRole | ✔️ |
 | Get composites of the role | getRealmRoleCompositeRoles | ✔️ |
-| Remove roles from the role’s composite | deleteCompositeRoleFromRealmRole | ❌ |
+| Remove roles from the role’s composite | deleteCompositeRoleFromRealmRole | ✔️ |
 | An app-level roles for the specified app for the role’s composite | getRealmRoleCompositeRolesForClient | ✔️ |
 | Get realm-level roles of the role’s composite | getRealmRoleCompositeRolesForRealm | ✔️ |
 | Return List of Groups that have the specified role name | getRealmRoleGroups | ✔️ |
@@ -412,9 +412,9 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | Get a specific role’s representation | getRealmRoleById | ✔️ |
 | Update the role | updateRealmRoleById | ✔️ |
 | Delete the role | deleteRealmRoleById | ✔️ |
-| Make the role a composite role by associating some child roles | addCompositeRoleToRealmRoleByRoleId | ❌ |
+| Make the role a composite role by associating some child roles | addCompositeRoleToRealmRoleByRoleId | ✔️ |
 | Get role’s children Returns a set of role’s children provided the role is a composite. | getRealmRoleCompositeRolesByRoleId | ✔️ |
-| Remove a set of roles from the role’s composite | deleteCompositeRoleFromRealmRoleByRoleId | ❌ |
+| Remove a set of roles from the role’s composite | deleteCompositeRoleFromRealmRoleByRoleId | ✔️ |
 | Get client-level roles for the client that are in the role’s composite | getRealmRoleCompositeRolesForClientByRoleId | ✔️ |
 | Get realm-level roles that are in the role’s composite | getRealmRoleCompositeRolesForRealmByRoleId | ✔️ |
 | Return object stating whether role Authoirzation permissions have been initialized or not and a reference | getRealmRoleManagementPermissionsByRoleId | ✔️ |
