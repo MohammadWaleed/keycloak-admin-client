@@ -484,7 +484,7 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | Remove all user sessions associated with the user Also send notification to all clients that have an admin URL to invalidate the sessions for the particular user. | | ❌ |
 | Get offline sessions associated with the user and client | | ❌ |
 | Remove TOTP from the user | | ❌ |
-| Set up a new password for the user. | | ❌ |
+| Set up a new password for the user. | resetUserPassword | ✔️ |
 | Send an email-verification email to the user An email contains a link the user can click to verify their email address. | | ❌ |
 | Get sessions associated with the user | | ❌ |
 
