@@ -299,6 +299,13 @@ class KeycloakClient extends GuzzleClient
         $stack = new HandlerStack();
         $stack->setHandler(new CurlHandler());
         $stack->push(new RefreshToken());
+        
+        $middlewares = isset($config["middlewares"]) && is_array($config["middlewares"]) ? $config["middlewares"] : [];
+        foreach ($middlewares as $middleware) {
+            if (is_callable($middleware)) {
+                $stack->push($middleware);
+            }
+        }
 
         $config['handler'] = $stack;
 
