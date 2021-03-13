@@ -257,6 +257,7 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array updateRealmRoleManagementPermissionsByRoleId (array $args = array()) { @command Keycloak updateRealmRoleManagementPermissionsByRoleId }
  *
  * @method array createUser(array $args = array()) { @command Keycloak createUser }
+ * @method array getUserCount(array $args = array()) { @command Keycloak getUserCount }
  * @method array getUsers(array $args = array()) { @command Keycloak getUsers }
  * @method array getUser(array $args = array()) { @command Keycloak getUser }
  * @method array getUserGroups(array $args = array()) { @command Keycloak getUserGroups }
