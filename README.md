@@ -464,7 +464,7 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 |-----|:-------------:|:---------:|
 | Create a new user Username must be unique. | createUser | ✔️ |
 | Get users Returns a list of users, filtered according to query parameters | getUsers | ✔️ |
-| GET /{realm}/users/count | | ❌ |
+| GET /{realm}/users/count | | ✔️ |
 | Get representation of the user | getUser | ️️️✔️ |
 | Update the user | updateUser | ️️️✔️ |
 | Update partial data for the user | updatePartialUser | ️️️✔️ |
