@@ -257,6 +257,7 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array updateRealmRoleManagementPermissionsByRoleId (array $args = array()) { @command Keycloak updateRealmRoleManagementPermissionsByRoleId }
  *
  * @method array createUser(array $args = array()) { @command Keycloak createUser }
+ * @method array getUserCount(array $args = array()) { @command Keycloak getUserCount }
  * @method array getUsers(array $args = array()) { @command Keycloak getUsers }
  * @method array getUser(array $args = array()) { @command Keycloak getUser }
  * @method array getUserGroups(array $args = array()) { @command Keycloak getUserGroups }
@@ -299,6 +300,13 @@ class KeycloakClient extends GuzzleClient
         $stack = new HandlerStack();
         $stack->setHandler(new CurlHandler());
         $stack->push(new RefreshToken());
+        
+        $middlewares = isset($config["middlewares"]) && is_array($config["middlewares"]) ? $config["middlewares"] : [];
+        foreach ($middlewares as $middleware) {
+            if (is_callable($middleware)) {
+                $stack->push($middleware);
+            }
+        }
 
         $config['handler'] = $stack;
 

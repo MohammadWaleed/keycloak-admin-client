@@ -5023,6 +5023,20 @@ return array(
                 ),
             ) + $UserRepresentation
         ),
+        
+        'getUserCount' => array(
+            'uri'         => 'auth/admin/realms/{realm}/users/count',
+            'description' => 'Get the number of users',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            ),
+        ),
 
         'getUsers' => array(
             'uri'         => 'auth/admin/realms/{realm}/users',
