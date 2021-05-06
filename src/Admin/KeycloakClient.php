@@ -265,6 +265,7 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array updateUser(array $args = array()) { @command Keycloak updateUser }
  * @method array updatePartialUser(array $args = array()) { @command Keycloak updatePartialUser }
  * @method array deleteUser(array $args = array()) { @command Keycloak deleteUser }
+ * @method array executeActionsEmail(array $args = array()) { @command Keycloak executeActionsEmail }
  * @method array addUserToGroup(array $args = array()) { @command Keycloak addUserToGroup }
  * @method array deleteUserFromGroup(array $args = array()) { @command Keycloak deleteUserFromGroup }
  * @method array resetUserPassword(array $args = array()) { @command Keycloak resetUserPassword }
