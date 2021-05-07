@@ -5214,6 +5214,49 @@ return array(
             ),
         ),
 
+        'executeActionsEmail' => array(
+            'uri' => 'auth/admin/realms/{realm}/users/{id}/execute-actions-email',
+            'description' => 'Send a update account email to the user An email contains a link the user can click to perform a set of required actions.',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'realm name (not id!)',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'User id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'client_id' => array(
+                    'location'    => 'query',
+                    'description' => 'Client id',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
+                'lifespan' => array(
+                    'location'    => 'query',
+                    'description' => 'Number of seconds after which the generated token expires',
+                    'type'        => 'integer',
+                    'required'    => false,
+                ),
+                'redirect_uri' => array(
+                    'location'    => 'query',
+                    'description' => 'Redirect uri',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
+                'actions' => array(
+                    'location' => 'fullBody',
+                    'type' => 'array',
+                    'required' => true
+                ),
+            ),
+        ),
+
         'addUserToGroup' => array(
             'uri' => 'auth/admin/realms/{realm}/users/{id}/groups/{groupId}',
             'description' => 'Assign a specific user to a specific group',
