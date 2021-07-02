@@ -4,6 +4,7 @@
 
 - [Introduction](#introduction)
 - [How to use](#how-to-use)
+- [Customization](#customization)
 - [Supported APIs](#supported-apis)
 	- [Attack Detection](#attack-detection)
 	- [Authentication Management](#authentication-management)
@@ -33,14 +34,10 @@
 This is a php client to connect to keycloak admin rest apis with no headache.
 
 Features:
-
-1- Easy to use 
-
-2- No need to get token or generate it it's already handled by the client
-
-3- No need to specify any urls other than the base uri
-
-4- No encode/decode for json just data as you expect
+1. Easy to use
+2. No need to get token or generate it it's already handled by the client
+3. No need to specify any urls other than the base uri
+4. No encode/decode for json just data as you expect
 
 works with Keycloak 7.0 admin rest api
 
@@ -49,19 +46,20 @@ https://www.keycloak.org/docs-api/7.0/rest-api/index.html
 
 # How to use
 
-1- Create new client 
+#### 1. Create new client 
 
 ```php
 $client = Keycloak\Admin\KeycloakClient::factory([
-    'realm'=>'master',
-    'username'=>'admin',
-    'password'=>'1234',
-    'client_id'=>'admin-cli',
-    'baseUri'=>'http://127.0.0.1:8180'
-    ]);
+    'realm' => 'master',
+    'username' => 'admin',
+    'password' => '1234',
+    'client_id' => 'admin-cli',
+    'baseUri' => 'http://127.0.0.1:8180',
+]);
 ```
 
-2- Use it
+
+#### 2. Use it
 
 ```php
 $client->getUsers();
@@ -94,18 +92,95 @@ $client->getUsers();
 */
 
 $client->createUser([
-    'username'=>'test',
-    'email'=>'test@test.com',
-    'enabled'=>true,
-    'credentials'=>[
+    'username' => 'test',
+    'email' => 'test@test.com',
+    'enabled' => true,
+    'credentials' => [
         [
             'type'=>'password',
-            'value'=>'1234'
-        ]
-    ]
-    ]);
-
+            'value'=>'1234',
+        ],
+    ],
+]);
 ```
+
+# Customization
+
+### Supported credentials
+
+It is possible to change the credential's type used to authenticate by changing the configuration of the keycloak client.
+
+Currently, the following credentials are supported
+- password credentials, used by default
+  - to authenticate with a user account
+  ````php
+  $client = Keycloak\Admin\KeycloakClient::factory([
+      ...
+      'grant_type' => 'password',
+      'username' => 'admin',
+      'password' => '1234',
+  ]);
+  ````
+- client credentials
+  - to authenticate with a client service account
+  ````php
+  $client = Keycloak\Admin\KeycloakClient::factory([
+      ...
+      'grant_type' => 'client_credentials',
+      'client_id' => 'admin-cli',
+      'client_secret' => '84ab3d98-a0c3-44c7-b532-306f222ce1ff',
+  ]);
+  ````
+
+### Injecting middleware
+
+It is possible to inject [Guzzle client middleware](https://docs.guzzlephp.org/en/stable/handlers-and-middleware.html#middleware) 
+in the keycloak client configuration using the `middlewares` keyword.
+
+For example: 
+```php 
+use GuzzleHttp\Middleware;
+use Psr\Http\Message\RequestInterface;
+
+$client = Keycloak\Admin\KeycloakClient::factory([
+    ...
+    'middlewares' => [
+        // throws exceptions when request fails
+        Middleware::httpErrors(),
+        // other custom middlewares
+        Middleware::mapRequest(function (RequestInterface $request) {
+            return $request;
+        }),
+    ],
+]);
+```
+
+### Changing how the token is saved and stored
+
+By default, the token is saved at runtime. This means that the previous token is not used when creating a new client.
+
+You can change customize how the token is stored in the client configuration by implementing your own `TokenStorage`, 
+an interface which describes how the token is stored and retrieved.
+```php 
+class CustomTokenStorage implements TokenStorage 
+{
+    public function getToken() 
+    {
+        // TODO
+    }
+    
+    public function saveToken(array $token)
+    {
+        // TODO
+    }
+}
+
+$client = Keycloak\Admin\KeycloakClient::factory([
+    ...
+    'token_storage' => new CustomTokenStorage(),
+]);
+```
+
 
 # Supported APIs
 
@@ -472,7 +547,7 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | Get consents granted by the user | | ❌ |
 | Revoke consent and offline tokens for particular client from user | | ❌ |
 | Disable all credentials for a user of a specific type | | ❌ |
-| Send a update account email to the user An email contains a link the user can click to perform a set of required actions. | | ❌ |
+| Send a update account email to the user An email contains a link the user can click to perform a set of required actions. | executeActionsEmail | ✔️ |
 | Get social logins associated with the user | | ❌ |
 | Add a social login provider to the user | | ❌ |
 | Remove a social login provider from user | | ❌ |

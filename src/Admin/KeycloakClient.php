@@ -10,6 +10,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;
 use Keycloak\Admin\Classes\FullBodyLocation;
+use Keycloak\Admin\TokenStorages\RuntimeTokenStorage;
 
 /**
  * Class KeycloakClient
@@ -265,6 +266,7 @@ use Keycloak\Admin\Classes\FullBodyLocation;
  * @method array updateUser(array $args = array()) { @command Keycloak updateUser }
  * @method array updatePartialUser(array $args = array()) { @command Keycloak updatePartialUser }
  * @method array deleteUser(array $args = array()) { @command Keycloak deleteUser }
+ * @method array executeActionsEmail(array $args = array()) { @command Keycloak executeActionsEmail }
  * @method array addUserToGroup(array $args = array()) { @command Keycloak addUserToGroup }
  * @method array deleteUserFromGroup(array $args = array()) { @command Keycloak deleteUserFromGroup }
  * @method array resetUserPassword(array $args = array()) { @command Keycloak resetUserPassword }
@@ -290,6 +292,7 @@ class KeycloakClient extends GuzzleClient
             'version'  => '1.0',
             'baseUri'  => null,
             'verify'   => true,
+            'token_storage' => new RuntimeTokenStorage(),
         );
 
         // Create client configuration
@@ -299,7 +302,6 @@ class KeycloakClient extends GuzzleClient
 
         $stack = new HandlerStack();
         $stack->setHandler(new CurlHandler());
-        $stack->push(new RefreshToken());
         
         $middlewares = isset($config["middlewares"]) && is_array($config["middlewares"]) ? $config["middlewares"] : [];
         foreach ($middlewares as $middleware) {
@@ -307,6 +309,8 @@ class KeycloakClient extends GuzzleClient
                 $stack->push($middleware);
             }
         }
+
+        $stack->push(new RefreshToken($config['token_storage']));
 
         $config['handler'] = $stack;
 
