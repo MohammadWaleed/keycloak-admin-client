@@ -10,6 +10,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;
 use Keycloak\Admin\Classes\FullBodyLocation;
+use Keycloak\Admin\TokenStorages\RuntimeTokenStorage;
 
 /**
  * Class KeycloakClient
@@ -291,6 +292,7 @@ class KeycloakClient extends GuzzleClient
             'version'  => '1.0',
             'baseUri'  => null,
             'verify'   => true,
+            'token_storage' => new RuntimeTokenStorage(),
         );
 
         // Create client configuration
@@ -300,7 +302,6 @@ class KeycloakClient extends GuzzleClient
 
         $stack = new HandlerStack();
         $stack->setHandler(new CurlHandler());
-        $stack->push(new RefreshToken());
         
         $middlewares = isset($config["middlewares"]) && is_array($config["middlewares"]) ? $config["middlewares"] : [];
         foreach ($middlewares as $middleware) {
@@ -308,6 +309,8 @@ class KeycloakClient extends GuzzleClient
                 $stack->push($middleware);
             }
         }
+
+        $stack->push(new RefreshToken($config['token_storage']));
 
         $config['handler'] = $stack;
 

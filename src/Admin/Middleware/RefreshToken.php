@@ -3,20 +3,39 @@
 namespace Keycloak\Admin\Middleware;
 
 use GuzzleHttp\Client;
+use Keycloak\Admin\TokenStorages\TokenStorage;
 use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
 
 class RefreshToken
 {
-    private  $token = null;
+    /**
+     * @var TokenStorage
+     */
+    private $tokenStorage;
+
+    public function __construct(TokenStorage $tokenStorage)
+    {
+        $this->tokenStorage = $tokenStorage;
+    }
 
     public function __invoke(callable $handler)
     {
         return function (RequestInterface $request, array $options) use ($handler) {
-
-            $cred =  $this->refreshTokenIfNeeded($this->token, $options);
-            $this->token = $cred;
+            $token = $this->tokenStorage->getToken();
+            $cred =  $this->refreshTokenIfNeeded($token, $options);
+            $this->tokenStorage->saveToken($cred);
             $request = $request->withHeader('Authorization', 'Bearer ' . $cred['access_token']);
-            return $handler($request, $options);
+            return $handler($request, $options)->then(function (ResponseInterface $response) {
+                if ($response->getStatusCode() >= 400) {
+                    $this->tokenStorage->saveToken([]);
+                }
+
+                return $response;
+            }, function ($reason) {
+                $this->tokenStorage->saveToken([]);
+                throw $reason;
+            });
         };
     }
 
@@ -39,12 +58,7 @@ class RefreshToken
             return $credentials;
         }
 
-        $credentials = $this->getAccessToken($credentials, true, $options);
-
-        if (empty($credentials['access_token'])) {
-            $this->credentials = null;
-        }
-        return $credentials;
+        return $this->getAccessToken($credentials, true, $options);
     }
 
     /**
