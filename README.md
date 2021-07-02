@@ -154,6 +154,33 @@ $client = Keycloak\Admin\KeycloakClient::factory([
 ]);
 ```
 
+### Changing how the token is saved and stored
+
+By default, the token is saved at runtime. This means that the previous token is not used when creating a new client.
+
+You can change customize how the token is stored in the client configuration by implementing your own `TokenStorage`, 
+an interface which describes how the token is stored and retrieved.
+```php 
+class CustomTokenStorage implements TokenStorage 
+{
+    public function getToken() 
+    {
+        // TODO
+    }
+    
+    public function saveToken(array $token)
+    {
+        // TODO
+    }
+}
+
+$client = Keycloak\Admin\KeycloakClient::factory([
+    ...
+    'token_storage' => new CustomTokenStorage(),
+]);
+```
+
+
 # Supported APIs
 
 ## [Attack Detection](https://www.keycloak.org/docs-api/7.0/rest-api/index.html#_attack_detection_resource)
