@@ -114,23 +114,45 @@ Currently, the following credentials are supported
   - to authenticate with a user account
   ````php
   $client = Keycloak\Admin\KeycloakClient::factory([
-    ...
-    'grant_type' => 'password',
-    'username' => 'admin',
-    'password' => '1234',
+      ...
+      'grant_type' => 'password',
+      'username' => 'admin',
+      'password' => '1234',
   ]);
   ````
 - client credentials
   - to authenticate with a client service account
   ````php
   $client = Keycloak\Admin\KeycloakClient::factory([
-    ...
-    'grant_type' => 'client_credentials',
-    'client_id' => 'admin-cli',
-    'client_secret' => '84ab3d98-a0c3-44c7-b532-306f222ce1ff',
+      ...
+      'grant_type' => 'client_credentials',
+      'client_id' => 'admin-cli',
+      'client_secret' => '84ab3d98-a0c3-44c7-b532-306f222ce1ff',
   ]);
   ````
 
+### Injecting middleware
+
+It is possible to inject [Guzzle client middleware](https://docs.guzzlephp.org/en/stable/handlers-and-middleware.html#middleware) 
+in the keycloak client configuration using the `middlewares` keyword.
+
+For example: 
+```php 
+use GuzzleHttp\Middleware;
+use Psr\Http\Message\RequestInterface;
+
+$client = Keycloak\Admin\KeycloakClient::factory([
+    ...
+    'middlewares' => [
+        // throws exceptions when request fails
+        Middleware::httpErrors(),
+        // other custom middlewares
+        Middleware::mapRequest(function (RequestInterface $request) {
+            return $request;
+        }),
+    ],
+]);
+```
 
 # Supported APIs
 
