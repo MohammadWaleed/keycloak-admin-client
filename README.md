@@ -4,6 +4,7 @@
 
 - [Introduction](#introduction)
 - [How to use](#how-to-use)
+- [Customization](#customization)
 - [Supported APIs](#supported-apis)
 	- [Attack Detection](#attack-detection)
 	- [Authentication Management](#authentication-management)
