@@ -314,7 +314,17 @@ class KeycloakClient extends GuzzleClient
 
         $config['handler'] = $stack;
 
-        $description = new Description(include __DIR__ . "/Resources/{$file}");
+        $serviceDescription = include __DIR__ . "/Resources/{$file}";
+        $custom_operations = isset($config["custom_operations"]) && is_array($config["custom_operations"]) ? $config["custom_operations"] : [];
+        foreach ($custom_operations as $operationKey => $operation) {
+            // Do not override built-in functionality
+            if (isset($serviceDescription['operations'][$operationKey])) {
+                continue;
+            }
+            $serviceDescription['operations'][$operationKey] = $operation;
+        }
+        $description = new Description($serviceDescription);
+
         // Create the new Keycloak Client with our Configuration
         return new self(
             new Client($config),
