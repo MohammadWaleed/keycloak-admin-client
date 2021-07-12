@@ -3,6 +3,10 @@
 namespace Keycloak\Admin\Middleware;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Promise\FulfilledPromise;
+use GuzzleHttp\Promise\PromiseInterface;
+use GuzzleHttp\Promise\RejectedPromise;
+use GuzzleHttp\Promise\RejectionException;
 use Keycloak\Admin\TokenStorages\TokenStorage;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -23,16 +27,18 @@ class RefreshToken
     {
         return function (RequestInterface $request, array $options) use ($handler) {
             $token = $this->tokenStorage->getToken();
-            $cred =  $this->refreshTokenIfNeeded($token, $options);
-            $this->tokenStorage->saveToken($cred);
-            $request = $request->withHeader('Authorization', 'Bearer ' . $cred['access_token']);
-            return $handler($request, $options)->then(function (ResponseInterface $response) {
+
+            return $this->refreshTokenIfNeeded($token, $options)->then(function (array $cred) use ($request, $handler, $options) {
+                $this->tokenStorage->saveToken($cred);
+                $request = $request->withHeader('Authorization', 'Bearer ' . $cred['access_token']);
+                return $handler($request, $options);
+            })->then(function (ResponseInterface $response) {
                 if ($response->getStatusCode() >= 400) {
                     $this->tokenStorage->saveToken([]);
                 }
 
                 return $response;
-            }, function ($reason) {
+            })->otherwise(function ($reason) {
                 $this->tokenStorage->saveToken([]);
                 throw $reason;
             });
@@ -42,8 +48,9 @@ class RefreshToken
     /**
      * Check we need to refresh token and refresh if needed
      *
-     * @param  array $credentials
-     * @return array
+     * @param ?array $credentials
+     * @param $options
+     * @return PromiseInterface
      */
     protected function refreshTokenIfNeeded($credentials, $options)
     {
@@ -55,7 +62,7 @@ class RefreshToken
         $exp = $info['exp'] ?? 0;
 
         if (time() < $exp) {
-            return $credentials;
+            return new FulfilledPromise($credentials);
         }
 
         return $this->getAccessToken($credentials, true, $options);
@@ -82,15 +89,17 @@ class RefreshToken
     /**
      * Refresh access token
      *
-     * @param  string $refreshToken
-     * @return array
+     * @param array|null $credentials
+     * @param $refresh
+     * @param $options
+     * @return PromiseInterface
      */
     public function getAccessToken($credentials, $refresh, $options)
     {
         if ($refresh && empty($credentials['refresh_token'])) {
-            return [];
+            return new RejectedPromise("cannot refresh token when the 'refresh_token' is missing");
         }
-        
+
         $url = "auth/realms/{$options['realm']}/protocol/openid-connect/token";
         $clientId = $options["client_id"] ?? "admin-cli";
         $grantType = $refresh ? "refresh_token" : ($options["grant_type"] ?? "password");
@@ -101,7 +110,7 @@ class RefreshToken
 
         if ($grantType === "refresh_token") {
             $params['refresh_token'] = $credentials['refresh_token'];
-        } else if ($grantType === "password"){
+        } else if ($grantType === "password") {
             $params['username'] = $options['username'];
             $params['password'] = $options['password'];
         } else if ($grantType === "client_credentials") {
@@ -112,23 +121,24 @@ class RefreshToken
             $params['client_secret'] = $options['client_secret'];
         }
 
-        $token = [];
+        $httpClient = new Client([
+            'base_uri' => $options['baseUri'],
+            'verify' => isset($options['verify']) ? $options['verify'] : true,
+        ]);
 
-        try {
-            $httpClient = new Client([
-                'base_uri' => $options['baseUri'],
-                'verify'   => isset($options['verify']) ? $options['verify'] : true,
-            ]);
-            $response = $httpClient->request('POST', $url, ['form_params' => $params]);
-
-            if ($response->getStatusCode() === 200) {
-                $token = $response->getBody()->getContents();
-                $token = json_decode($token, true);
+        return $httpClient->requestAsync('POST', $url, ['form_params' => $params])->then(function (ResponseInterface $response) {
+            if ($response->getStatusCode() !== 200) {
+                throw new RejectionException('expected to receive http status code 200 when requesting a token');
             }
-        } catch (GuzzleException $e) {
-            echo $e->getMessage();
-        }
 
-        return $token;
+            $serializedToken = $response->getBody()->getContents();
+            $token = json_decode($serializedToken, true);
+
+            if (!$token) {
+                throw new RejectionException('token returned in the response body is not in a valid json');
+            }
+
+            return $token;
+        });
     }
 }
