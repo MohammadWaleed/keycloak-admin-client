@@ -51,11 +51,12 @@ class RefreshToken
             return $this->getAccessToken($credentials, false, $options);
         }
 
-        $info = $this->parseAccessToken($credentials['access_token']);
-        $exp = $info['exp'] ?? 0;
-
-        if (time() < $exp) {
+        if (!$this->tokenExpired($credentials['access_token'])) {
             return $credentials;
+        }
+
+        if ($this->tokenExpired($credentials['refresh_token'])) {
+            return $this->getAccessToken($credentials, false, $options);
         }
 
         return $this->getAccessToken($credentials, true, $options);
@@ -67,7 +68,7 @@ class RefreshToken
      * @param string $token
      * @return array
      */
-    public function parseAccessToken($token)
+    public function getTokenPayload($token)
     {
         if (!is_string($token)) {
             return [];
@@ -77,6 +78,21 @@ class RefreshToken
         $token = base64_decode($token[1]);
 
         return json_decode($token, true);
+    }
+
+    /**
+     * Check token expiration
+     *
+     * @param string $token
+     * @return bool
+     */
+    public function tokenExpired($token) {
+        $info = $this->getTokenPayload($token);
+        $exp = $info['exp'] ?? 0;
+        if (time() < $exp) {
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -90,7 +106,7 @@ class RefreshToken
         if ($refresh && empty($credentials['refresh_token'])) {
             return [];
         }
-        
+
         $url = "auth/realms/{$options['realm']}/protocol/openid-connect/token";
         $clientId = $options["client_id"] ?? "admin-cli";
         $grantType = $refresh ? "refresh_token" : ($options["grant_type"] ?? "password");
