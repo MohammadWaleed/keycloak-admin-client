@@ -159,7 +159,7 @@ $client = Keycloak\Admin\KeycloakClient::factory([
 
 By default, the token is saved at runtime. This means that the previous token is not used when creating a new client.
 
-You can change customize how the token is stored in the client configuration by implementing your own `TokenStorage`, 
+You can customize how the token is stored in the client configuration by implementing your own `TokenStorage`, 
 an interface which describes how the token is stored and retrieved.
 ```php 
 class CustomTokenStorage implements TokenStorage 
@@ -178,6 +178,42 @@ class CustomTokenStorage implements TokenStorage
 $client = Keycloak\Admin\KeycloakClient::factory([
     ...
     'token_storage' => new CustomTokenStorage(),
+]);
+```
+
+### Custom Keycloak endpoints
+
+It is possible to inject [Guzzle Service Operations](https://guzzle3.readthedocs.io/webservice-client/guzzle-service-descriptions.html#operations)
+in the keycloak client configuration using the `custom_operations` keyword. This way you can extend the built-in supported endpoints with custom.
+
+```php
+$client = KeycloakClient::factory([
+...
+    'custom_operations' => [
+        'getUsersByAttribute' => [
+            'uri' => '/auth/realms/{realm}/userapi-rest/users/search-by-attr',
+            'description' => 'Get users by attribute Returns a list of users, filtered according to query parameters',
+            'httpMethod' => 'GET',
+            'parameters' => [
+                'realm' => [
+                    'location' => 'uri',
+                    'description' => 'The Realm name',
+                    'type' => 'string',
+                    'required' => true,
+                ],
+                'attr' => [
+                    'location' => 'query',
+                    'type' => 'string',
+                    'required' => true,
+                ],
+                'value' => [
+                    'location' => 'query',
+                    'type' => 'string',
+                    'required' => true,
+                ],
+            ],
+        ],
+    ]
 ]);
 ```
 
