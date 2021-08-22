@@ -366,7 +366,7 @@ class KeycloakClient extends GuzzleClient
      */
     public function getBaseUri()
     {
-        $this->getConfig('baseUri');
+        return $this->getConfig('baseUri');
     }
 
 
