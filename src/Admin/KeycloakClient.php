@@ -267,6 +267,7 @@ use Keycloak\Admin\TokenStorages\RuntimeTokenStorage;
  * @method array updatePartialUser(array $args = array()) { @command Keycloak updatePartialUser }
  * @method array deleteUser(array $args = array()) { @command Keycloak deleteUser }
  * @method array executeActionsEmail(array $args = array()) { @command Keycloak executeActionsEmail }
+ * @method array sendVerifyEmail(array $args = array()) { @command Keycloak sendVerifyEmail }
  * @method array addUserToGroup(array $args = array()) { @command Keycloak addUserToGroup }
  * @method array deleteUserFromGroup(array $args = array()) { @command Keycloak deleteUserFromGroup }
  * @method array resetUserPassword(array $args = array()) { @command Keycloak resetUserPassword }
@@ -366,7 +367,7 @@ class KeycloakClient extends GuzzleClient
      */
     public function getBaseUri()
     {
-        $this->getConfig('baseUri');
+        return $this->getConfig('baseUri');
     }
 
 

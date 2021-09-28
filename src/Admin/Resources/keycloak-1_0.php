@@ -5256,6 +5256,38 @@ return array(
                 ),
             ),
         ),
+        
+        'sendVerifyEmail' => array(
+            'uri' => 'auth/admin/realms/{realm}/users/{id}/send-verify-email',
+            'description' => 'Send an email-verification email to the user An email contains a link the user can click to verify their email address.',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'User id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'client_id' => array(
+                    'location'    => 'query',
+                    'description' => 'Client id',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
+                'redirect_uri' => array(
+                    'location'    => 'query',
+                    'description' => 'Redirect uri',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
+            ),
+        ),
 
         'addUserToGroup' => array(
             'uri' => 'auth/admin/realms/{realm}/users/{id}/groups/{groupId}',
