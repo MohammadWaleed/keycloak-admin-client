@@ -3693,7 +3693,7 @@ return array(
         ),
 
         'partialImportRealm' => array(
-            'uri'         => 'auth/admin/realms/{realm}/partial-export',
+            'uri'         => 'auth/admin/realms/{realm}/partialImport',
             'description' => 'Partial import from a JSON file to an existing realm.',
             'httpMethod'  => 'POST',
             'parameters'  => array(
