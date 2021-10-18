@@ -5023,7 +5023,7 @@ return array(
                 ),
             ) + $UserRepresentation
         ),
-        
+
         'getUserCount' => array(
             'uri'         => 'auth/admin/realms/{realm}/users/count',
             'description' => 'Get the number of users',
@@ -5035,6 +5035,37 @@ return array(
                     'type'        => 'string',
                     'required'    => true,
                 ),
+                'emailVerified' => array(
+                    'location'    => 'query',
+                    'type'        => 'boolean',
+                    'required'    => false,
+                ),
+                'email' => array(
+                    'location'    => 'query',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
+                'firstName' => array(
+                    'location'    => 'query',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
+                'lastName' => array(
+                    'location'    => 'query',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
+                'search' => array(
+                    'location'    => 'query',
+                    'description' => 'A String contained in username, first or last name, or email',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
+                'username' => array(
+                    'location'    => 'query',
+                    'type'        => 'string',
+                    'required'    => false,
+                )
             ),
         ),
 
