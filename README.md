@@ -2,6 +2,8 @@
 
 [![Total Downloads](https://img.shields.io/packagist/dt/mohammad-waleed/keycloak-admin-client.svg?style=flat-square)](https://packagist.org/packages/mohammad-waleed/keycloak-admin-client)
 
+[![Donate](https://img.shields.io/badge/Paypal-Donate-blue?style=flat-square)](https://paypal.me/mbarghash?locale.x=en_US)
+
 - [Introduction](#introduction)
 - [How to use](#how-to-use)
 - [Customization](#customization)
