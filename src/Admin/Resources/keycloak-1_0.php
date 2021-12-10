@@ -5090,6 +5090,12 @@ return array(
                     'type'        => 'string',
                     'required'    => false,
                 ),
+                'exact' => array(
+                    'location'    => 'query',
+                    'type'        => 'string',
+                    'required'    => false,
+                    'enum'        => ['true', 'false'],
+                ),
                 'first' => array(
                     'location'    => 'query',
                     'type'        => 'integer',
@@ -5121,7 +5127,7 @@ return array(
                     'location'    => 'query',
                     'type'        => 'string',
                     'required'    => false,
-                )
+                ),
             ),
         ),
 
