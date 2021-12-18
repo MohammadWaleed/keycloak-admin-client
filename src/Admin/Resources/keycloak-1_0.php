@@ -5398,5 +5398,31 @@ return array(
             ) + $CredentialRepresentation,
         ),
 
+        'syncUserStorage' => array(
+            'uri'         => 'auth/admin/realms/{realm}/user-storage/{id}/sync',
+            'description' => 'Trigger sync of users. Action can be "triggerFullSync" or "triggerChangedUsersSync"',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location' => 'uri',
+                    'description' => 'Storage id',
+                    'type' => 'string',
+                    'required' => true
+                ),
+                'action' => array(
+                    'location' => 'query',
+                    'description' => 'Action',
+                    'type' => 'string',
+                    'required' => false
+                )
+            )
+        ),
+
     ) //End of Operations Array
 );//End of return array
