@@ -272,6 +272,8 @@ use Keycloak\Admin\TokenStorages\RuntimeTokenStorage;
  * @method array deleteUserFromGroup(array $args = array()) { @command Keycloak deleteUserFromGroup }
  * @method array resetUserPassword(array $args = array()) { @command Keycloak resetUserPassword }
  *
+ * @method array syncUserStorage(array $args = array()) { @command Keycloak syncUserStorage }
+ *
  */
 
 class KeycloakClient extends GuzzleClient
