@@ -329,7 +329,7 @@ class KeycloakClient extends GuzzleClient
         $description = new Description($serviceDescription);
 
         // Create the new Keycloak Client with our Configuration
-        return new self(
+        return new static(
             new Client($config),
             $description,
             new Serializer($description, [
