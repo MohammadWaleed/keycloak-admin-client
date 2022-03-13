@@ -116,7 +116,7 @@ class RefreshToken
             return new RejectedPromise("cannot refresh token when the 'refresh_token' is missing");
         }
 
-        $url = "auth/realms/{$options['realm']}/protocol/openid-connect/token";
+        $url = "realms/{$options['realm']}/protocol/openid-connect/token";
         $clientId = $options["client_id"] ?? "admin-cli";
         $grantType = $refresh ? "refresh_token" : ($options["grant_type"] ?? "password");
         $params = [
