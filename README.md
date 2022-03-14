@@ -41,9 +41,9 @@ Features:
 3. No need to specify any urls other than the base uri
 4. No encode/decode for json just data as you expect
 
-works with Keycloak 7.0 admin rest api
+Works with Keycloak 7.0+ admin REST API.
 
-https://www.keycloak.org/docs-api/7.0/rest-api/index.html
+https://www.keycloak.org/documentation -> "Administration REST API"
 
 
 # How to use
@@ -59,6 +59,8 @@ $client = Keycloak\Admin\KeycloakClient::factory([
     'baseUri' => 'http://127.0.0.1:8180',
 ]);
 ```
+
+Since version 0.30, if your Keycloak base URL starts with `auth/`, add it to `baseUri` (e.g. http://127.0.0.1:8180/auth). Base URL for Keycloak versions 7 to 16 have systematically `auth/`. On Keycloak 17+ it depends on your settings.
 
 
 #### 2. Use it
