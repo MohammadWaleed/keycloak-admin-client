@@ -575,33 +575,33 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 
  ## [Users]()
 
-| API |    Function Name    | Supported |
-|-----|:-------------------:|:---------:|
-| Create a new user Username must be unique. |     createUser      | ✔️ |
-| Get users Returns a list of users, filtered according to query parameters |      getUsers       | ✔️ |
-| GET /{realm}/users/count |    getUserCount     | ✔️ |
-| Get representation of the user |       getUser       | ️️️✔️ |
-| Update the user |     updateUser      | ️️️✔️ |
-| Update partial data for the user |  updatePartialUser  | ️️️✔️ |
-| Delete the user |     deleteUser      | ️️️✔️ |
-| Get consents granted by the user |                     | ❌ |
-| Revoke consent and offline tokens for particular client from user |                     | ❌ |
-| Disable all credentials for a user of a specific type |                     | ❌ |
+| API | Function Name | Supported |
+|-----|:-------------:|:---------:|
+| Create a new user Username must be unique. | createUser | ✔️ |
+| Get users Returns a list of users, filtered according to query parameters | getUsers | ✔️ |
+| GET /{realm}/users/count | getUserCount | ✔️ |
+| Get representation of the user | getUser | ️️️✔️ |
+| Update the user | updateUser | ️️️✔️ |
+| Update partial data for the user | updatePartialUser | ️️️✔️ |
+| Delete the user | deleteUser | ️️️✔️ |
+| Get consents granted by the user | | ❌ |
+| Revoke consent and offline tokens for particular client from user | | ❌ |
+| Disable all credentials for a user of a specific type | | ❌ |
 | Send a update account email to the user An email contains a link the user can click to perform a set of required actions. | executeActionsEmail | ✔️ |
-| Get social logins associated with the user |                     | ❌ |
-| Add a social login provider to the user |                     | ❌ |
-| Remove a social login provider from user |                     | ❌ |
-| GET /{realm}/users/{id}/groups |    getUserGroups    | ✔️ |
-| GET /{realm}/users/{id}/groups/count | getUserGroupsCount  | ✔️ |
-| PUT /{realm}/users/{id}/groups/{groupId} |   addUserToGroup    | ✔️ | 
+| Get social logins associated with the user | | ❌ |
+| Add a social login provider to the user | | ❌ |
+| Remove a social login provider from user | | ❌ |
+| GET /{realm}/users/{id}/groups | getUserGroups | ✔️ |
+| GET /{realm}/users/{id}/groups/count | getUserGroupsCount | ✔️ |
+| PUT /{realm}/users/{id}/groups/{groupId} | addUserToGroup | ✔️ | 
 | DELETE /{realm}/users/{id}/groups/{groupId} | deleteUserFromGroup | ✔️ |
-| Impersonate the user |                     | ❌ |
-| Remove all user sessions associated with the user Also send notification to all clients that have an admin URL to invalidate the sessions for the particular user. |                     | ❌ |
-| Get offline sessions associated with the user and client |                     | ❌ |
-| Remove TOTP from the user |                     | ❌ |
-| Set up a new password for the user. |  resetUserPassword  | ✔️ |
-| Send an email-verification email to the user An email contains a link the user can click to verify their email address. |   sendVerifyEmail   | ✔️ |
-| Get sessions associated with the user |   getUserSessions   | ✔ |
+| Impersonate the user | | ❌ |
+| Remove all user sessions associated with the user Also send notification to all clients that have an admin URL to invalidate the sessions for the particular user. | | ❌ |
+| Get offline sessions associated with the user and client | | ❌ |
+| Remove TOTP from the user | | ❌ |
+| Set up a new password for the user. | resetUserPassword | ✔️ |
+| Send an email-verification email to the user An email contains a link the user can click to verify their email address. | sendVerifyEmail | ✔️ |
+| Get sessions associated with the user | getUserSessions | ✔ |
 
  ## [Root]()
 
