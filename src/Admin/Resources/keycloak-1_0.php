@@ -5128,6 +5128,12 @@ return array(
                     'type'        => 'string',
                     'required'    => false,
                 ),
+                'q' => array(
+                    'location'    => 'query',
+                    'description' => 'A query to search for custom attributes, in the format \'key1:value2 key2:value2\'',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
             ),
         ),
 
