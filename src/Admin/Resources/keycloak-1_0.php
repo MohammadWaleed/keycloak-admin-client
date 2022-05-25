@@ -5128,6 +5128,12 @@ return array(
                     'type'        => 'string',
                     'required'    => false,
                 ),
+                'q' => array(
+                    'location'    => 'query',
+                    'description' => 'A query to search for custom attributes, in the format \'key1:value2 key2:value2\'',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
             ),
         ),
 
@@ -5324,6 +5330,26 @@ return array(
                     'required'    => false,
                 ),
             ),
+        ),
+
+        'getUserSessions' => array(
+            'uri' => 'admin/realms/{realm}/users/{id}/sessions',
+            'description' => 'Get sessions associated with the user',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location' => 'uri',
+                    'description' => 'The Realm name',
+                    'type' => 'string',
+                    'required' => true,
+                ),
+                'id' => array(
+                    'location' => 'uri',
+                    'description' => 'User id',
+                    'type' => 'string',
+                    'required' => true
+                )
+            )
         ),
 
         'addUserToGroup' => array(

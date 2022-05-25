@@ -601,7 +601,7 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | Remove TOTP from the user | | ❌ |
 | Set up a new password for the user. | resetUserPassword | ✔️ |
 | Send an email-verification email to the user An email contains a link the user can click to verify their email address. | sendVerifyEmail | ✔️ |
-| Get sessions associated with the user | | ❌ |
+| Get sessions associated with the user | getUserSessions | ✔ |
 
  ## [Root]()
 
