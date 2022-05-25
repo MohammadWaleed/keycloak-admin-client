@@ -271,6 +271,7 @@ use Keycloak\Admin\TokenStorages\RuntimeTokenStorage;
  * @method array addUserToGroup(array $args = array()) { @command Keycloak addUserToGroup }
  * @method array deleteUserFromGroup(array $args = array()) { @command Keycloak deleteUserFromGroup }
  * @method array resetUserPassword(array $args = array()) { @command Keycloak resetUserPassword }
+ * @method array getUserSessions(array $args = array()) { @command Keycloak getUserSessions }
  *
  * @method array syncUserStorage(array $args = array()) { @command Keycloak syncUserStorage }
  *
