@@ -588,9 +588,9 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | Revoke consent and offline tokens for particular client from user | | ❌ |
 | Disable all credentials for a user of a specific type | | ❌ |
 | Send a update account email to the user An email contains a link the user can click to perform a set of required actions. | executeActionsEmail | ✔️ |
-| Get social logins associated with the user | | ❌ |
-| Add a social login provider to the user | | ❌ |
-| Remove a social login provider from user | | ❌ |
+| Get social logins associated with the user | | ✔ |
+| Add a social login provider to the user | | ✔ |
+| Remove a social login provider from user | | ✔ |
 | GET /{realm}/users/{id}/groups | getUserGroups | ✔️ |
 | GET /{realm}/users/{id}/groups/count | getUserGroupsCount | ✔️ |
 | PUT /{realm}/users/{id}/groups/{groupId} | addUserToGroup | ✔️ | 

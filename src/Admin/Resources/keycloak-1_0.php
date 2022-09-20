@@ -5449,6 +5449,74 @@ return array(
                 )
             )
         ),
-
+        'getSocialLogins' => array(
+            'uri'         => 'admin/realms/{realm}/users/{id}/federated-identity',
+            'description' => 'Get social logins associated with the user',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'User id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+        'removeSocialLogin' => array(
+            'uri'         => 'admin/realms/{realm}/users/{id}/federated-identity/{providerId}',
+            'description' => 'Remove social login associated with the user',
+            'httpMethod'  => 'DELETE',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'User id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'providerId' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Provider ID',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+        'addSocialLogin' => array(
+            'uri'         => 'admin/realms/{realm}/users/{id}/federated-identity/{providerId}',
+            'description' => 'Add social login associated with the user',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                    'realm' => array(
+                        'location'    => 'uri',
+                        'description' => 'The Realm name',
+                        'type'        => 'string',
+                        'required'    => true,
+                    ),
+                    'id' => array(
+                        'location'    => 'uri',
+                        'description' => 'User id',
+                        'type'        => 'string',
+                        'required'    => true,
+                    ),
+                    'providerId' => array(
+                        'location'    => 'uri',
+                        'description' => 'The Provider ID',
+                        'type'        => 'string',
+                        'required'    => true,
+                    ),
+                ) + $FederatedIdentityRepresentation,
+        ),
     ) //End of Operations Array
 );//End of return array
