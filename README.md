@@ -584,7 +584,7 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | Update the user | updateUser | ️️️✔️ |
 | Update partial data for the user | updatePartialUser | ️️️✔️ |
 | Delete the user | deleteUser | ️️️✔️ |
-| Get consents granted by the user | | ❌ |
+| Get consents granted by the user | | ️✔️ |
 | Revoke consent and offline tokens for particular client from user | | ❌ |
 | Disable all credentials for a user of a specific type | | ❌ |
 | Send a update account email to the user An email contains a link the user can click to perform a set of required actions. | executeActionsEmail | ✔️ |
