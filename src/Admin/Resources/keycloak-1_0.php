@@ -2334,7 +2334,7 @@ return array(
         ),
 
         'createChildGroup' => array(
-            'uri'         => 'admin/realms/{realm}/groups/{id}/children',
+            'uri'         => 'admin/realms/{realm}/groups/{groupId}/children',
             'description' => 'Set or create child.',
             'httpMethod'  => 'POST',
             'parameters'  => array(
@@ -2344,7 +2344,7 @@ return array(
                     'type'        => 'string',
                     'required'    => true,
                 ),
-                'id' => array(
+                'groupId' => array(
                     'location'    => 'uri',
                     'description' => 'Group id',
                     'type'        => 'string',
@@ -5180,6 +5180,26 @@ return array(
         'getUserGroupsCount' => array(
             'uri'         => 'admin/realms/{realm}/users/{id}/groups/count',
             'description' => 'Get the number user groups of a specific user',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location' => 'uri',
+                    'description' => 'User id',
+                    'type' => 'string',
+                    'required' => true
+                )
+            )
+        ),
+
+        'getUserConsents' => array(
+            'uri'         => 'admin/realms/{realm}/users/{id}/consents',
+            'description' => 'Get the consents granted by a user',
             'httpMethod'  => 'GET',
             'parameters'  => array(
                 'realm' => array(
