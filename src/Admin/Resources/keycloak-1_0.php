@@ -5197,6 +5197,26 @@ return array(
             )
         ),
 
+        'getUserConsents' => array(
+            'uri'         => 'admin/realms/{realm}/users/{id}/consents',
+            'description' => 'Get the consents granted by a user',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location' => 'uri',
+                    'description' => 'User id',
+                    'type' => 'string',
+                    'required' => true
+                )
+            )
+        ),
+
         'updateUser' => array(
             'uri' => 'admin/realms/{realm}/users/{id}',
             'description' => 'Update a user (Username must be unique)',
