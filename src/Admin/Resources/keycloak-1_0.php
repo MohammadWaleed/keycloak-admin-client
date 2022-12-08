@@ -2334,7 +2334,7 @@ return array(
         ),
 
         'createChildGroup' => array(
-            'uri'         => 'admin/realms/{realm}/groups/{id}/children',
+            'uri'         => 'admin/realms/{realm}/groups/{groupId}/children',
             'description' => 'Set or create child.',
             'httpMethod'  => 'POST',
             'parameters'  => array(
@@ -2344,7 +2344,7 @@ return array(
                     'type'        => 'string',
                     'required'    => true,
                 ),
-                'id' => array(
+                'groupId' => array(
                     'location'    => 'uri',
                     'description' => 'Group id',
                     'type'        => 'string',
