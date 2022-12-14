@@ -5372,6 +5372,26 @@ return array(
             )
         ),
 
+        'getUserCredentials' => array(
+            'uri' => 'admin/realms/{realm}/users/{id}/credentials',
+            'description' => 'Get credentials associated with the user',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+                'realm' => array(
+                    'location' => 'uri',
+                    'description' => 'The Realm name',
+                    'type' => 'string',
+                    'required' => true,
+                ),
+                'id' => array(
+                    'location' => 'uri',
+                    'description' => 'User id',
+                    'type' => 'string',
+                    'required' => true
+                )
+            )
+        ),
+
         'addUserToGroup' => array(
             'uri' => 'admin/realms/{realm}/users/{id}/groups/{groupId}',
             'description' => 'Assign a specific user to a specific group',
