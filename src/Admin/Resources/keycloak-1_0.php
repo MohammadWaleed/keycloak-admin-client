@@ -5237,26 +5237,6 @@ return array(
             ) + $UserRepresentation
         ),
 
-        'updatePartialUser' => array(
-            'uri' => 'admin/realms/{realm}/users/{id}',
-            'description' => 'Update a user (Username must be unique)',
-            'httpMethod' => 'PATCH',
-            'parameters' => array(
-                'realm' => array(
-                    'location'    => 'uri',
-                    'description' => 'The Realm name',
-                    'type'        => 'string',
-                    'required'    => true,
-                ),
-                'id' => array(
-                    'location'    => 'uri',
-                    'description' => 'User id',
-                    'type'        => 'string',
-                    'required'    => true,
-                ),
-            ) + $UserRepresentation
-        ),
-
         'deleteUser' => array(
             'uri' => 'admin/realms/{realm}/users/{id}',
             'description' => 'Delete a user',

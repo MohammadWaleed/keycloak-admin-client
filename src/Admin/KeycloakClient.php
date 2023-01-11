@@ -263,7 +263,6 @@ use Keycloak\Admin\TokenStorages\RuntimeTokenStorage;
  * @method array getUserGroups(array $args = array()) { @command Keycloak getUserGroups }
  * @method array getUserGroupsCount(array $args = array()) { @command Keycloak getUserGroupsCount }
  * @method array updateUser(array $args = array()) { @command Keycloak updateUser }
- * @method array updatePartialUser(array $args = array()) { @command Keycloak updatePartialUser }
  * @method array deleteUser(array $args = array()) { @command Keycloak deleteUser }
  * @method array executeActionsEmail(array $args = array()) { @command Keycloak executeActionsEmail }
  * @method array sendVerifyEmail(array $args = array()) { @command Keycloak sendVerifyEmail }
