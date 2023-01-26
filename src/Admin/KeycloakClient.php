@@ -263,7 +263,6 @@ use Keycloak\Admin\TokenStorages\RuntimeTokenStorage;
  * @method array getUserGroups(array $args = array()) { @command Keycloak getUserGroups }
  * @method array getUserGroupsCount(array $args = array()) { @command Keycloak getUserGroupsCount }
  * @method array updateUser(array $args = array()) { @command Keycloak updateUser }
- * @method array updatePartialUser(array $args = array()) { @command Keycloak updatePartialUser }
  * @method array deleteUser(array $args = array()) { @command Keycloak deleteUser }
  * @method array executeActionsEmail(array $args = array()) { @command Keycloak executeActionsEmail }
  * @method array sendVerifyEmail(array $args = array()) { @command Keycloak sendVerifyEmail }
@@ -272,14 +271,15 @@ use Keycloak\Admin\TokenStorages\RuntimeTokenStorage;
  * @method array resetUserPassword(array $args = array()) { @command Keycloak resetUserPassword }
  * @method array getUserSessions(array $args = array()) { @command Keycloak getUserSessions }
  * @method array getUserCredentials(array $args = array()) { @command Keycloak getUserCredentials }
- *
- * @method array syncUserStorage(array $args = array()) { @command Keycloak syncUserStorage }
+ * @method array impersonateUser(array $args = array()) { @command Keycloak impersonateUser }
+ * @method array logoutUser(array $args = array()) { @command Keycloak logoutUser }
  *
  * @method array getSocialLogins(array $args = array()) { @command Keycloak getSocialLogins }
  * @method array addSocialLogin(array $args = array()) { @command Keycloak addSocialLogin }
  * @method array removeSocialLogin(array $args = array()) { @command Keycloak removeSocialLogin }
+ * @method array syncUserStorage(array $args = array()) { @command Keycloak syncUserStorage }
  * @method array getUserConsents(array $args = array()) { @command Keycloak getUserConsents }
- * 
+ *
  */
 
 class KeycloakClient extends GuzzleClient
@@ -311,7 +311,7 @@ class KeycloakClient extends GuzzleClient
 
         $stack = new HandlerStack();
         $stack->setHandler(new CurlHandler());
-        
+
         $middlewares = isset($config["middlewares"]) && is_array($config["middlewares"]) ? $config["middlewares"] : [];
         foreach ($middlewares as $middleware) {
             if (is_callable($middleware)) {
