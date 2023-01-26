@@ -5299,7 +5299,7 @@ return array(
                 ),
             ),
         ),
-        
+
         'sendVerifyEmail' => array(
             'uri' => 'admin/realms/{realm}/users/{id}/send-verify-email',
             'description' => 'Send an email-verification email to the user An email contains a link the user can click to verify their email address.',
@@ -5469,6 +5469,7 @@ return array(
                 )
             )
         ),
+
         'getSocialLogins' => array(
             'uri'         => 'admin/realms/{realm}/users/{id}/federated-identity',
             'description' => 'Get social logins associated with the user',
@@ -5488,6 +5489,7 @@ return array(
                 ),
             )
         ),
+
         'removeSocialLogin' => array(
             'uri'         => 'admin/realms/{realm}/users/{id}/federated-identity/{providerId}',
             'description' => 'Remove social login associated with the user',
@@ -5513,6 +5515,7 @@ return array(
                 ),
             )
         ),
+
         'addSocialLogin' => array(
             'uri'         => 'admin/realms/{realm}/users/{id}/federated-identity/{providerId}',
             'description' => 'Add social login associated with the user',
@@ -5538,5 +5541,46 @@ return array(
                     ),
                 ) + $FederatedIdentityRepresentation,
         ),
+
+        'impersonateUser' => array(
+            'uri'         => 'admin/realms/{realm}/users/{id}/impersonation',
+            'description' => 'Remove all sessions associated with the user',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location' => 'uri',
+                    'description' => 'User id',
+                    'type' => 'string',
+                    'required' => true
+                )
+            )
+        ),
+
+        'logoutUser' => array(
+            'uri'         => 'admin/realms/{realm}/users/{id}/logout',
+            'description' => 'Remove all sessions associated with the user',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location' => 'uri',
+                    'description' => 'User id',
+                    'type' => 'string',
+                    'required' => true
+                )
+            )
+        ),
+
     ) //End of Operations Array
 );//End of return array
