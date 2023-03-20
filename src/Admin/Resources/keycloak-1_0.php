@@ -3652,6 +3652,175 @@ return array(
             )
         ),
 
+        'getLocalizationLocales' => array(
+            'uri'         => 'admin/realms/{realm}/localization',
+            'description' => 'Get localization locales for realm',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getLocalizationTexts' => array(
+            'uri'         => 'admin/realms/{realm}/localization/{locale}',
+            'description' => 'Get localization texts for a realm locale',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'locale' => array(
+                    'location'    => 'uri',
+                    'description' => 'The locale name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'useRealmDefaultLocaleFallback' => array(
+                    'location'    => 'query',
+                    'description' => 'Fallback to realm default locale',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
+            )
+        ),
+
+        'updateLocalizationTexts' => array(
+            'uri'         => 'admin/realms/{realm}/localization/{locale}',
+            'description' => 'Update localization texts for a realm locale',
+            'httpMethod'  => 'POST',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'locale' => array(
+                    'location'    => 'uri',
+                    'description' => 'The locale name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'localizationTexts' => array(
+                    'location' => 'fullBody',
+                    'description' => 'Map of text values for the locale',
+                    'required' => true
+                ),
+            )
+        ),
+
+        'deleteLocalizationTexts' => array(
+            'uri'         => 'admin/realms/{realm}/localization/{locale}',
+            'description' => 'Update localization texts for a realm locale',
+            'httpMethod'  => 'DELETE',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'locale' => array(
+                    'location'    => 'uri',
+                    'description' => 'The locale name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'getLocalizationText' => array(
+            'uri'         => 'admin/realms/{realm}/localization/{locale}/{key}',
+            'description' => 'Get a localization text for a realm locale',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'locale' => array(
+                    'location'    => 'uri',
+                    'description' => 'The locale name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'key' => array(
+                    'location'    => 'uri',
+                    'description' => 'The text key name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'saveLocalizationText' => array(
+            'uri'         => 'admin/realms/{realm}/localization/{locale}/{key}',
+            'description' => 'Set a localization text for a realm locale',
+            'httpMethod'  => 'PUT',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'locale' => array(
+                    'location'    => 'uri',
+                    'description' => 'The locale name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'key' => array(
+                    'location'    => 'uri',
+                    'description' => 'The text key name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'text' => array(
+                    'location'    => 'fullText',
+                    'description' => 'The text value',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
+        'deleteLocalizationText' => array(
+            'uri'         => 'admin/realms/{realm}/localization/{locale}/{key}',
+            'description' => 'Delete a localization text for a realm locale',
+            'httpMethod'  => 'DELETE',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'locale' => array(
+                    'location'    => 'uri',
+                    'description' => 'The locale name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'key' => array(
+                    'location'    => 'uri',
+                    'description' => 'The text key name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+            )
+        ),
+
         'logoutAllUsers' => array(
             'uri'         => 'admin/realms/{realm}/logout-all',
             'description' => 'Removes all user sessions.',
