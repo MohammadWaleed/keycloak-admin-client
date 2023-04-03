@@ -10,6 +10,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;
 use Keycloak\Admin\Classes\FullBodyLocation;
+use Keycloak\Admin\Classes\FullTextLocation;
 use Keycloak\Admin\TokenStorages\RuntimeTokenStorage;
 
 /**
@@ -193,6 +194,13 @@ use Keycloak\Admin\TokenStorages\RuntimeTokenStorage;
  * @method array getEventsConfig(array $args = array()) { @command Keycloak getEventsConfig }
  * @method array updateEventsConfig(array $args = array()) { @command Keycloak updateEventsConfig }
  * @method array getGroupByPath(array $args = array()) { @command Keycloak getGroupByPath }
+ * @method array getLocalizationLocales(array $args = array()) { @command Keycloak getLocalizationLocales }
+ * @method array getLocalizationTexts(array $args = array()) { @command Keycloak getLocalizationTexts }
+ * @method array updateLocalizationTexts(array $args = array()) { @command Keycloak updateLocalizationTexts }
+ * @method array deleteLocalizationTexts(array $args = array()) { @command Keycloak deleteLocalizationTexts }
+ * @method array getLocalizationText(array $args = array()) { @command Keycloak getLocalizationText }
+ * @method array saveLocalizationText(array $args = array()) { @command Keycloak saveLocalizationText }
+ * @method array deleteLocalizationText(array $args = array()) { @command Keycloak deleteLocalizationText }
  * @method array logoutAllUsers(array $args = array()) { @command Keycloak logoutAllUsers }
  * @method array partialExportRealm(array $args = array()) { @command Keycloak partialExportRealm }
  * @method array partialImportRealm(array $args = array()) { @command Keycloak partialImportRealm }
@@ -339,7 +347,8 @@ class KeycloakClient extends GuzzleClient
             new Client($config),
             $description,
             new Serializer($description, [
-                "fullBody" => new FullBodyLocation()
+                "fullBody" => new FullBodyLocation(),
+                "fullText" => new FullTextLocation(),
             ]),
             function ($response) {
                 $responseBody = $response->getBody()->getContents();
