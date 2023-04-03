@@ -460,6 +460,12 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | Get the events provider configuration Returns JSON object with events provider configuration                                                      |         getEventsConfig         |    ✔️     |
 | Update the events provider Change the events provider and/or its configuration                                                                    |       updateEventsConfig        |    ✔️     |
 | Get user group by path                                                                                                                            |         getGroupByPath          |    ✔️     |
+| GET /{realm}/localization                                                                                                                         |     getLocalizationLocales      |    ✔️     |
+| POST /{realm}/localization/{locale}                                                                                                               |     updateLocalizationTexts     |    ✔️     |
+| GET /{realm}/localization/{locale}                                                                                                                |       getLocalizationTexts      |    ✔️     |
+| DELETE /{realm}/localization/{locale}                                                                                                             |     deleteLocalizationTexts     |    ✔️     |
+| GET /{realm}/localization/{locale}/{key}                                                                                                          |       getLocalizationText       |    ✔️     |
+| PUT /{realm}/localization/{locale}/{key}                                                                                                          |       saveLocalizationText      |    ✔️     |
 | Removes all user sessions. (Keycloak throws an exception when this one is called)                                                                 |         logoutAllUsers          |     ❌     |
 | Partial export of existing realm into a JSON file.                                                                                                |       partialExportRealm        |    ✔️     |
 | Partial import from a JSON file to an existing realm.                                                                                             |       partialImportRealm        |    ✔️     |
