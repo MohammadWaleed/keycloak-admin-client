@@ -303,10 +303,10 @@ class KeycloakClient extends GuzzleClient
     public static function factory($config = array())
     {
         $default = array(
+            'apiVersion'  => '1.0',
             'username' => null,
             'password' => null,
             'realm'    => 'master',
-            'version'  => '1.0',
             'baseUri'  => null,
             'verify'   => true,
             'token_storage' => new RuntimeTokenStorage(),
@@ -315,7 +315,7 @@ class KeycloakClient extends GuzzleClient
         // Create client configuration
         $config = self::parseConfig($config, $default);
 
-        $file = 'keycloak-' . str_replace('.', '_', $config['version']) . '.php';
+        $file = 'keycloak-' . str_replace('.', '_', $config['apiVersion']) . '.php';
 
         $stack = new HandlerStack();
         $stack->setHandler(new CurlHandler());
@@ -416,7 +416,7 @@ class KeycloakClient extends GuzzleClient
      */
     public function setVersion($version)
     {
-        $this->setConfig('version', $version);
+        $this->setConfig('apiVersion', $version);
     }
 
     /**
@@ -426,7 +426,7 @@ class KeycloakClient extends GuzzleClient
      */
     public function getVersion()
     {
-        return $this->getConfig('version');
+        return $this->getConfig('apiVersion');
     }
 
 
