@@ -50,7 +50,7 @@ class FullTextLocation extends AbstractLocation
         $value = $param->filter($value);
 
         if ($oldValue !== '') {
-            $value = $oldValue.$vaule;
+            $value = $oldValue.$value;
         }
 
         if ($this->contentType && !$request->hasHeader('Content-Type')) {
