@@ -1417,7 +1417,13 @@ return array(
                     'description' => 'filter clients that cannot be viewed in full by admin',
                     'type'        => 'boolean',
                     'required'    => false,
-                )
+                ),
+                'q' => array(
+                    'location'    => 'query',
+                    'description' => 'A query to search for custom attributes, in the format \'key1:value2 key2:value2\'',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
             ),
         ),
 
@@ -2241,6 +2247,12 @@ return array(
                 'search' => array(
                     'location'    => 'query',
                     'description' => 'search string',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
+                'q' => array(
+                    'location'    => 'query',
+                    'description' => 'A query to search for custom attributes, in the format \'key1:value2 key2:value2\'',
                     'type'        => 'string',
                     'required'    => false,
                 ),
@@ -5234,7 +5246,13 @@ return array(
                     'location'    => 'query',
                     'type'        => 'string',
                     'required'    => false,
-                )
+                ),
+                'q' => array(
+                    'location'    => 'query',
+                    'description' => 'A query to search for custom attributes, in the format \'key1:value2 key2:value2\'',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
             ),
         ),
 
