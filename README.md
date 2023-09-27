@@ -60,7 +60,7 @@ $client = Keycloak\Admin\KeycloakClient::factory([
 ]);
 ```
 
-Since version 0.30, if your Keycloak base URL starts with `auth/`, add it to `baseUri` (e.g. http://127.0.0.1:8180/auth). Base URL for Keycloak versions 7 to 16 have systematically `auth/`. On Keycloak 17+ it depends on your settings.
+Since version 0.30, if your Keycloak base URL starts with `auth/`, add it to `baseUri` (e.g. http://127.0.0.1:8180/auth/). Base URL for Keycloak versions 7 to 16 have systematically `auth/`. On Keycloak 17+ it depends on your settings.
 
 
 #### 2. Use it
