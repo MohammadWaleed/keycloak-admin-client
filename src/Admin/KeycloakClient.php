@@ -280,6 +280,7 @@ use Keycloak\Admin\TokenStorages\RuntimeTokenStorage;
  * @method array resetUserPassword(array $args = array()) { @command Keycloak resetUserPassword }
  * @method array getUserSessions(array $args = array()) { @command Keycloak getUserSessions }
  * @method array getUserCredentials(array $args = array()) { @command Keycloak getUserCredentials }
+ * @method array deleteUserCredential(array $args = array()) { @command Keycloak deleteUserCredential }
  * @method array impersonateUser(array $args = array()) { @command Keycloak impersonateUser }
  * @method array logoutUser(array $args = array()) { @command Keycloak logoutUser }
  *
