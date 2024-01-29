@@ -375,6 +375,7 @@ $client = KeycloakClient::factory([
 | Get group hierarchy.                                                                                        |            getGroups             |    ✔️     |
 | Returns the groups counts.                                                                                  |          getGroupsCount          |    ✔️     |
 | Get Group                                                                                                   |             getGroup             |    ✔️     |
+| Get Group Children (subgroups)                                                                              |         getGroupChildren         |    ✔️     |
 | Update group, ignores subgroups.                                                                            |           updateGroup            |    ✔️     |
 | Delete Group                                                                                                |           removeGroup            |    ✔️     |
 | Set or create child.                                                                                        |         createChildGroup         |    ✔️     |

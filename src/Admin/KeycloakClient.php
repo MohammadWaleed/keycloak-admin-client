@@ -128,6 +128,7 @@ use Keycloak\Admin\TokenStorages\RuntimeTokenStorage;
  * @method array getGroups(array $args = array()) { @command Keycloak getGroups }
  * @method array getGroupsCount(array $args = array()) { @command Keycloak getGroupsCount }
  * @method array getGroup(array $args = array()) { @command Keycloak getGroup }
+ * @method array getGroupChildren(array $args = array()) { @command Keycloak getGroupChildren }
  * @method array updateGroup(array $args = array()) { @command Keycloak updateGroup }
  * @method array removeGroup(array $args = array()) { @command Keycloak removeGroup }
  * @method array createChildGroup(array $args = array()) { @command Keycloak createChildGroup }
