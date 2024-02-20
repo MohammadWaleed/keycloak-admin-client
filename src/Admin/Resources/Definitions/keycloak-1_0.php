@@ -5,8 +5,6 @@ $Object = [];
 $Map = [];
 $GroupRepresentation = [];
 $ScopeRepresentation = [];
-//
-
 
 $AccessToken_Access = array(
     'roles' => array(
