@@ -168,6 +168,7 @@ use Keycloak\Admin\TokenStorages\RuntimeTokenStorage;
  * @method array deleteClientProtocolMapper(array $args = array()) { @command Keycloak deleteClientProtocolMapper }
  * @method array getClientProtocolMappersByProtocolName(array $args = array()) { @command Keycloak getClientProtocolMappersByProtocolName }
  *
+ * @method array getRealms(array $args = array()) { @command Keycloak getRealms }
  * @method array importRealm(array $args = array()) { @command Keycloak importRealm }
  * @method array getRealm(array $args = array()) { @command Keycloak getRealm }
  * @method array updateRealm(array $args = array()) { @command Keycloak updateRealm }

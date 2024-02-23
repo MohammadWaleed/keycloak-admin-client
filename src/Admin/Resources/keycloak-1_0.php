@@ -3133,6 +3133,12 @@ return array(
 
         // Realms Admin
 
+        'getRealms' => array(
+            'uri'         => 'admin/realms',
+            'description' => 'Get accessible realms Returns a list of accessible realms. The list is filtered based on what realms the caller is allowed to view.',
+            'httpMethod'  => 'GET'
+        ),
+
         'importRealm' => array(
             'uri'         => 'admin/realms/',
             'description' => 'Import a realm Imports a realm from a full representation of that realm.',
