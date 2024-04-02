@@ -60,7 +60,7 @@ $client = Keycloak\Admin\KeycloakClient::factory([
 ]);
 ```
 
-Since version 0.30, if your Keycloak base URL starts with `auth/`, add it to `baseUri` (e.g. http://127.0.0.1:8180/auth). Base URL for Keycloak versions 7 to 16 have systematically `auth/`. On Keycloak 17+ it depends on your settings.
+Since version 0.30, if your Keycloak base URL starts with `auth/`, add it to `baseUri` (e.g. http://127.0.0.1:8180/auth/). Base URL for Keycloak versions 7 to 16 have systematically `auth/`. On Keycloak 17+ it depends on your settings.
 
 
 #### 2. Use it
@@ -375,6 +375,7 @@ $client = KeycloakClient::factory([
 | Get group hierarchy.                                                                                        |            getGroups             |    ✔️     |
 | Returns the groups counts.                                                                                  |          getGroupsCount          |    ✔️     |
 | Get Group                                                                                                   |             getGroup             |    ✔️     |
+| Get Group Children (subgroups)                                                                              |         getGroupChildren         |    ✔️     |
 | Update group, ignores subgroups.                                                                            |           updateGroup            |    ✔️     |
 | Delete Group                                                                                                |           removeGroup            |    ✔️     |
 | Set or create child.                                                                                        |         createChildGroup         |    ✔️     |
@@ -434,6 +435,7 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 
 | API                                                                                                                                               |          Function Name          | Supported |
 |---------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------:|:---------:|
+| Get accessible realms Returns a list of accessible realms. The list is filtered based on what realms the caller is allowed to view.               |            getRealms            |    ✔️     |
 | Import a realm Imports a realm from a full representation of that realm.                                                                          |           importRealm           |    ✔️     |
 | Get the top-level representation of the realm It will not include nested information like User and Client representations.                        |            getRealm             |    ✔️     |
 | Update the top-level information of the realm Any user, roles or client information in the representation will be ignored.                        |           updateRealm           |    ✔️     |
@@ -462,10 +464,10 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | Get user group by path                                                                                                                            |         getGroupByPath          |    ✔️     |
 | GET /{realm}/localization                                                                                                                         |     getLocalizationLocales      |    ✔️     |
 | POST /{realm}/localization/{locale}                                                                                                               |     updateLocalizationTexts     |    ✔️     |
-| GET /{realm}/localization/{locale}                                                                                                                |       getLocalizationTexts      |    ✔️     |
+| GET /{realm}/localization/{locale}                                                                                                                |      getLocalizationTexts       |    ✔️     |
 | DELETE /{realm}/localization/{locale}                                                                                                             |     deleteLocalizationTexts     |    ✔️     |
 | GET /{realm}/localization/{locale}/{key}                                                                                                          |       getLocalizationText       |    ✔️     |
-| PUT /{realm}/localization/{locale}/{key}                                                                                                          |       saveLocalizationText      |    ✔️     |
+| PUT /{realm}/localization/{locale}/{key}                                                                                                          |      saveLocalizationText       |    ✔️     |
 | Removes all user sessions. (Keycloak throws an exception when this one is called)                                                                 |         logoutAllUsers          |     ❌     |
 | Partial export of existing realm into a JSON file.                                                                                                |       partialExportRealm        |    ✔️     |
 | Partial import from a JSON file to an existing realm.                                                                                             |       partialImportRealm        |    ✔️     |
@@ -581,33 +583,34 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 
  ## [Users]()
 
-| API                                                                                                                                                                |    Function Name    | Supported |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------:|:---------:|
-| Create a new user Username must be unique.                                                                                                                         |     createUser      |    ✔️     |
-| Get users Returns a list of users, filtered according to query parameters                                                                                          |      getUsers       |    ✔️     |
-| GET /{realm}/users/count                                                                                                                                           |    getUserCount     |    ✔️     |
-| Get representation of the user                                                                                                                                     |       getUser       |   ️️️✔️   |
-| Update the user                                                                                                                                                    |     updateUser      |   ️️️✔️   |
-| Delete the user                                                                                                                                                    |     deleteUser      |   ️️️✔️   |
-| Get consents granted by the user                                                                                                                                   |                     |    ️✔️    |
-| Revoke consent and offline tokens for particular client from user                                                                                                  |                     |     ❌     |
-| Disable all credentials for a user of a specific type                                                                                                              |                     |     ❌     |
-| Send a update account email to the user An email contains a link the user can click to perform a set of required actions.                                          | executeActionsEmail |    ✔️     |
-| Get social logins associated with the user                                                                                                                         |                     |    ✔️     |
-| Add a social login provider to the user                                                                                                                            |                     |    ✔️     |
-| Remove a social login provider from user                                                                                                                           |                     |    ✔️     |
-| GET /{realm}/users/{id}/groups                                                                                                                                     |    getUserGroups    |    ✔️     |
-| GET /{realm}/users/{id}/groups/count                                                                                                                               | getUserGroupsCount  |    ✔️     |
-| PUT /{realm}/users/{id}/groups/{groupId}                                                                                                                           |   addUserToGroup    |    ✔️     | 
-| DELETE /{realm}/users/{id}/groups/{groupId}                                                                                                                        | deleteUserFromGroup |    ✔️     |
-| Impersonate the user                                                                                                                                               |   impersonateUser   |    ✔️     |
-| Remove all user sessions associated with the user Also send notification to all clients that have an admin URL to invalidate the sessions for the particular user. |     logoutUser      |    ✔️     |
-| Get offline sessions associated with the user and client                                                                                                           |                     |     ❌     |
-| Remove TOTP from the user                                                                                                                                          |                     |     ❌     |
-| Set up a new password for the user.                                                                                                                                |  resetUserPassword  |    ✔️     |
-| Send an email-verification email to the user An email contains a link the user can click to verify their email address.                                            |   sendVerifyEmail   |    ✔️     |
-| Get sessions associated with the user                                                                                                                              |   getUserSessions   |    ✔️     |
-| Get credentials associated with the user                                                                                                                           | getUserCredentials  |    ✔️     |
+| API                                                                                                                                                                |     Function Name    | Supported |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------:|:---------:|
+| Create a new user Username must be unique.                                                                                                                         |      createUser      |    ✔️     |
+| Get users Returns a list of users, filtered according to query parameters                                                                                          |       getUsers       |    ✔️     |
+| GET /{realm}/users/count                                                                                                                                           |     getUserCount     |    ✔️     |
+| Get representation of the user                                                                                                                                     |        getUser       |   ️️️✔️   |
+| Update the user                                                                                                                                                    |      updateUser      |   ️️️✔️   |
+| Delete the user                                                                                                                                                    |      deleteUser      |   ️️️✔️   |
+| Get consents granted by the user                                                                                                                                   |                      |    ️✔️    |
+| Revoke consent and offline tokens for particular client from user                                                                                                  |                      |     ❌     |
+| Disable all credentials for a user of a specific type                                                                                                              |                      |     ❌     |
+| Send a update account email to the user An email contains a link the user can click to perform a set of required actions.                                          |  executeActionsEmail |    ✔️     |
+| Get social logins associated with the user                                                                                                                         |                      |    ✔️     |
+| Add a social login provider to the user                                                                                                                            |                      |    ✔️     |
+| Remove a social login provider from user                                                                                                                           |                      |    ✔️     |
+| GET /{realm}/users/{id}/groups                                                                                                                                     |     getUserGroups    |    ✔️     |
+| GET /{realm}/users/{id}/groups/count                                                                                                                               |  getUserGroupsCount  |    ✔️     |
+| PUT /{realm}/users/{id}/groups/{groupId}                                                                                                                           |    addUserToGroup    |    ✔️     | 
+| DELETE /{realm}/users/{id}/groups/{groupId}                                                                                                                        |  deleteUserFromGroup |    ✔️     |
+| Impersonate the user                                                                                                                                               |    impersonateUser   |    ✔️     |
+| Remove all user sessions associated with the user Also send notification to all clients that have an admin URL to invalidate the sessions for the particular user. |      logoutUser      |    ✔️     |
+| Get offline sessions associated with the user and client                                                                                                           |                      |     ❌     |
+| Remove TOTP from the user                                                                                                                                          |                      |     ❌     |
+| Set up a new password for the user.                                                                                                                                |   resetUserPassword  |    ✔️     |
+| Send an email-verification email to the user An email contains a link the user can click to verify their email address.                                            |    sendVerifyEmail   |    ✔️     |
+| Get sessions associated with the user                                                                                                                              |    getUserSessions   |    ✔️     |
+| Get credentials associated with the user                                                                                                                           |  getUserCredentials  |    ✔️     |
+| Delete credential associated with the user                                                                                                                         | deleteUserCredential |    ✔️     |
 
  ## [Root]()
 

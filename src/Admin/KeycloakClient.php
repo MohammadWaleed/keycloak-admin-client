@@ -128,6 +128,7 @@ use Keycloak\Admin\TokenStorages\RuntimeTokenStorage;
  * @method array getGroups(array $args = array()) { @command Keycloak getGroups }
  * @method array getGroupsCount(array $args = array()) { @command Keycloak getGroupsCount }
  * @method array getGroup(array $args = array()) { @command Keycloak getGroup }
+ * @method array getGroupChildren(array $args = array()) { @command Keycloak getGroupChildren }
  * @method array updateGroup(array $args = array()) { @command Keycloak updateGroup }
  * @method array removeGroup(array $args = array()) { @command Keycloak removeGroup }
  * @method array createChildGroup(array $args = array()) { @command Keycloak createChildGroup }
@@ -168,6 +169,7 @@ use Keycloak\Admin\TokenStorages\RuntimeTokenStorage;
  * @method array deleteClientProtocolMapper(array $args = array()) { @command Keycloak deleteClientProtocolMapper }
  * @method array getClientProtocolMappersByProtocolName(array $args = array()) { @command Keycloak getClientProtocolMappersByProtocolName }
  *
+ * @method array getRealms(array $args = array()) { @command Keycloak getRealms }
  * @method array importRealm(array $args = array()) { @command Keycloak importRealm }
  * @method array getRealm(array $args = array()) { @command Keycloak getRealm }
  * @method array updateRealm(array $args = array()) { @command Keycloak updateRealm }
@@ -279,6 +281,7 @@ use Keycloak\Admin\TokenStorages\RuntimeTokenStorage;
  * @method array resetUserPassword(array $args = array()) { @command Keycloak resetUserPassword }
  * @method array getUserSessions(array $args = array()) { @command Keycloak getUserSessions }
  * @method array getUserCredentials(array $args = array()) { @command Keycloak getUserCredentials }
+ * @method array deleteUserCredential(array $args = array()) { @command Keycloak deleteUserCredential }
  * @method array impersonateUser(array $args = array()) { @command Keycloak impersonateUser }
  * @method array logoutUser(array $args = array()) { @command Keycloak logoutUser }
  *

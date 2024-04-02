@@ -1417,7 +1417,13 @@ return array(
                     'description' => 'filter clients that cannot be viewed in full by admin',
                     'type'        => 'boolean',
                     'required'    => false,
-                )
+                ),
+                'q' => array(
+                    'location'    => 'query',
+                    'description' => 'A query to search for custom attributes, in the format \'key1:value2 key2:value2\'',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
             ),
         ),
 
@@ -2244,6 +2250,12 @@ return array(
                     'type'        => 'string',
                     'required'    => false,
                 ),
+                'q' => array(
+                    'location'    => 'query',
+                    'description' => 'A query to search for custom attributes, in the format \'key1:value2 key2:value2\'',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
             )
         ),
 
@@ -2289,6 +2301,44 @@ return array(
                     'description' => 'Group id',
                     'type'        => 'string',
                     'required'    => true,
+                ),
+            )
+        ),
+
+        'getGroupChildren' => array(
+            'uri'         => 'admin/realms/{realm}/groups/{id}/children',
+            'description' => 'Get Group Children',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'briefRepresentation' => array(
+                    'location'    => 'query',
+                    'description' => 'Only return basic information (only guaranteed to return id, username, created, first and last name, email, enabled state, email verification state, federation link, and access. Note that it means that namely user attributes, required actions, and not before are not returned.)',
+                    'type'        => 'boolean',
+                    'required'    => false,
+                ),
+                'first' => array(
+                    'location'    => 'query',
+                    'description' => 'Pagination offset',
+                    'type'        => 'integer',
+                    'required'    => false,
+                ),
+                'max' => array(
+                    'location'    => 'query',
+                    'description' => 'Maximum results size (defaults to 100)',
+                    'type'        => 'integer',
+                    'required'    => false,
                 ),
             )
         ),
@@ -3133,6 +3183,12 @@ return array(
 
         // Realms Admin
 
+        'getRealms' => array(
+            'uri'         => 'admin/realms',
+            'description' => 'Get accessible realms Returns a list of accessible realms. The list is filtered based on what realms the caller is allowed to view.',
+            'httpMethod'  => 'GET'
+        ),
+
         'importRealm' => array(
             'uri'         => 'admin/realms/',
             'description' => 'Import a realm Imports a realm from a full representation of that realm.',
@@ -3633,7 +3689,7 @@ return array(
         ),
 
         'getGroupByPath' => array(
-            'uri'         => 'admin/realms/{realm}/group-by-path/{path}',
+            'uri'         => 'admin/realms/{realm}/group-by-path/{+path}',
             'description' => 'Get user group by path',
             'httpMethod'  => 'GET',
             'parameters'  => array(
@@ -5234,7 +5290,13 @@ return array(
                     'location'    => 'query',
                     'type'        => 'string',
                     'required'    => false,
-                )
+                ),
+                'q' => array(
+                    'location'    => 'query',
+                    'description' => 'A query to search for custom attributes, in the format \'key1:value2 key2:value2\'',
+                    'type'        => 'string',
+                    'required'    => false,
+                ),
             ),
         ),
 
@@ -5538,6 +5600,32 @@ return array(
                     'type' => 'string',
                     'required' => true
                 )
+            )
+        ),
+
+        'deleteUserCredential' => array(
+            'uri' => '/admin/realms/{realm}/users/{id}/credentials/{credentialId}',
+            'description' => 'Delete credential associated with the user',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+                'realm' => array(
+                    'location' => 'uri',
+                    'description' => 'The Realm name',
+                    'type' => 'string',
+                    'required' => true,
+                ),
+                'id' => array(
+                    'location' => 'uri',
+                    'description' => 'User id',
+                    'type' => 'string',
+                    'required' => true
+                ),
+                'credentialId' => array(
+                    'location' => 'uri',
+                    'description' => 'Credential id',
+                    'type' => 'string',
+                    'required' => true
+                ),
             )
         ),
 
