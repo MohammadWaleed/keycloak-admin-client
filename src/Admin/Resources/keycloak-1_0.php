@@ -2305,6 +2305,44 @@ return array(
             )
         ),
 
+        'getGroupChildren' => array(
+            'uri'         => 'admin/realms/{realm}/groups/{id}/children',
+            'description' => 'Get Group Children',
+            'httpMethod'  => 'GET',
+            'parameters'  => array(
+                'realm' => array(
+                    'location'    => 'uri',
+                    'description' => 'The Realm name',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'id' => array(
+                    'location'    => 'uri',
+                    'description' => 'Group id',
+                    'type'        => 'string',
+                    'required'    => true,
+                ),
+                'briefRepresentation' => array(
+                    'location'    => 'query',
+                    'description' => 'Only return basic information (only guaranteed to return id, username, created, first and last name, email, enabled state, email verification state, federation link, and access. Note that it means that namely user attributes, required actions, and not before are not returned.)',
+                    'type'        => 'boolean',
+                    'required'    => false,
+                ),
+                'first' => array(
+                    'location'    => 'query',
+                    'description' => 'Pagination offset',
+                    'type'        => 'integer',
+                    'required'    => false,
+                ),
+                'max' => array(
+                    'location'    => 'query',
+                    'description' => 'Maximum results size (defaults to 100)',
+                    'type'        => 'integer',
+                    'required'    => false,
+                ),
+            )
+        ),
+
         'updateGroup' => array(
             'uri'         => 'admin/realms/{realm}/groups/{id}',
             'description' => 'Update group, ignores subgroups.',
@@ -5556,6 +5594,32 @@ return array(
                     'type' => 'string',
                     'required' => true
                 )
+            )
+        ),
+
+        'deleteUserCredential' => array(
+            'uri' => '/admin/realms/{realm}/users/{id}/credentials/{credentialId}',
+            'description' => 'Delete credential associated with the user',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+                'realm' => array(
+                    'location' => 'uri',
+                    'description' => 'The Realm name',
+                    'type' => 'string',
+                    'required' => true,
+                ),
+                'id' => array(
+                    'location' => 'uri',
+                    'description' => 'User id',
+                    'type' => 'string',
+                    'required' => true
+                ),
+                'credentialId' => array(
+                    'location' => 'uri',
+                    'description' => 'Credential id',
+                    'type' => 'string',
+                    'required' => true
+                ),
             )
         ),
 
