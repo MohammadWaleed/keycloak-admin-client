@@ -3645,7 +3645,7 @@ return array(
         ),
 
         'getGroupByPath' => array(
-            'uri'         => 'admin/realms/{realm}/group-by-path/{path}',
+            'uri'         => 'admin/realms/{realm}/group-by-path/{+path}',
             'description' => 'Get user group by path',
             'httpMethod'  => 'GET',
             'parameters'  => array(
