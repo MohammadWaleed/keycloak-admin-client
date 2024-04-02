@@ -435,6 +435,7 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 
 | API                                                                                                                                               |          Function Name          | Supported |
 |---------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------:|:---------:|
+| Get accessible realms Returns a list of accessible realms. The list is filtered based on what realms the caller is allowed to view.               |            getRealms            |    ✔️     |
 | Import a realm Imports a realm from a full representation of that realm.                                                                          |           importRealm           |    ✔️     |
 | Get the top-level representation of the realm It will not include nested information like User and Client representations.                        |            getRealm             |    ✔️     |
 | Update the top-level information of the realm Any user, roles or client information in the representation will be ignored.                        |           updateRealm           |    ✔️     |
@@ -463,10 +464,10 @@ Note: Ids are sent as clientScopeId or clientId and mapperId everything else is 
 | Get user group by path                                                                                                                            |         getGroupByPath          |    ✔️     |
 | GET /{realm}/localization                                                                                                                         |     getLocalizationLocales      |    ✔️     |
 | POST /{realm}/localization/{locale}                                                                                                               |     updateLocalizationTexts     |    ✔️     |
-| GET /{realm}/localization/{locale}                                                                                                                |       getLocalizationTexts      |    ✔️     |
+| GET /{realm}/localization/{locale}                                                                                                                |      getLocalizationTexts       |    ✔️     |
 | DELETE /{realm}/localization/{locale}                                                                                                             |     deleteLocalizationTexts     |    ✔️     |
 | GET /{realm}/localization/{locale}/{key}                                                                                                          |       getLocalizationText       |    ✔️     |
-| PUT /{realm}/localization/{locale}/{key}                                                                                                          |       saveLocalizationText      |    ✔️     |
+| PUT /{realm}/localization/{locale}/{key}                                                                                                          |      saveLocalizationText       |    ✔️     |
 | Removes all user sessions. (Keycloak throws an exception when this one is called)                                                                 |         logoutAllUsers          |     ❌     |
 | Partial export of existing realm into a JSON file.                                                                                                |       partialExportRealm        |    ✔️     |
 | Partial import from a JSON file to an existing realm.                                                                                             |       partialImportRealm        |    ✔️     |
