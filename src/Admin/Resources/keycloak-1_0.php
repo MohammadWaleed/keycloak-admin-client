@@ -2080,6 +2080,18 @@ return array(
                     'type'        => 'string',
                     'required'    => true,
                 ),
+                'first' => array(
+                    'location'    => 'query',
+                    'description' => 'Pagination offset',
+                    'type'        => 'integer',
+                    'required'    => false,
+                ),
+                'max' => array(
+                    'location'    => 'query',
+                    'description' => 'Maximum results size (defaults to 100)',
+                    'type'        => 'integer',
+                    'required'    => false,
+                ),
             )
         ),
 
