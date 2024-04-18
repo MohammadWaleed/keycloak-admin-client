@@ -2546,7 +2546,7 @@ return array(
                     'type'        => 'string',
                     'required'    => true,
                 ),
-                'alias' => array(
+                'aliasUri' => array(
                     'location'    => 'uri',
                     'description' => 'Identity provider alias',
                     'type'        => 'string',
@@ -2556,7 +2556,7 @@ return array(
         ),
 
         'updateIdentityProvider' => array(
-            'uri'         => 'admin/realms/{realm}/identity-provider/instances/{alias}',
+            'uri'         => 'admin/realms/{realm}/identity-provider/instances/{aliasUri}',
             'description' => 'Update the identity provider',
             'httpMethod'  => 'PUT',
             'parameters'  => array(
@@ -2738,7 +2738,7 @@ return array(
                     'type'        => 'string',
                     'required'    => true,
                 ),
-                'id' => array(
+                'idUri' => array(
                     'location'    => 'uri',
                     'description' => 'Mapper Id',
                     'type'        => 'string',
@@ -2748,7 +2748,7 @@ return array(
         ),
 
         'updateIdentityProviderMapper' => array(
-            'uri'         => 'admin/realms/{realm}/identity-provider/instances/{alias}/mappers/{id}',
+            'uri'         => 'admin/realms/{realm}/identity-provider/instances/{alias}/mappers/{idUri}',
             'description' => 'Update a mapper for the identity provider',
             'httpMethod'  => 'PUT',
             'parameters'  => array(
@@ -4328,7 +4328,7 @@ return array(
                     'type'        => 'string',
                     'required'    => true,
                 ),
-                'id' => array(
+                'idUri' => array(
                     'location'    => 'uri',
                     'description' => 'id of client (not client-id)',
                     'type'        => 'string',
@@ -4364,7 +4364,7 @@ return array(
         ),
 
         'updateClientRole' => array(
-            'uri'         => 'admin/realms/{realm}/clients/{id}/roles/{role-name}',
+            'uri'         => 'admin/realms/{realm}/clients/{idUri}/roles/{role-name}',
             'description' => 'Update a role by name',
             'httpMethod'  => 'PUT',
             'parameters'  => array(
