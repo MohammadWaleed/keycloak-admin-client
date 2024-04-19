@@ -2447,7 +2447,7 @@ return array(
 
         'importIdentityProvider' => array(
             'uri'         => 'admin/realms/{realm}/identity-provider/import-config',
-            'description' => 'Import identity provider from uploaded JSON file',
+            'description' => 'Import identity provider from JSON file',
             'httpMethod'  => 'POST',
             'parameters'  => array(
                 'realm' => array(
@@ -2457,13 +2457,13 @@ return array(
                     'required'    => true,
                 ),
                 'providerId' => array(
-                    'location'    => 'multipart',
+                    'location'    => 'json',
                     'description' => 'Identity provider id',
                     'required'    => true,
                 ),
-                'file' => array(
-                    'location'    => 'multipart',
-                    'description' => 'Identity provider json file',
+                'fromUrl' => array(
+                    'location'    => 'json',
+                    'description' => 'Identity provider metadata link',
                     'required'    => true,
                 ),
             )
