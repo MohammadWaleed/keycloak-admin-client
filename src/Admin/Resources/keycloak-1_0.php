@@ -5616,7 +5616,7 @@ return array(
         ),
 
         'deleteUserCredential' => array(
-            'uri' => '/admin/realms/{realm}/users/{id}/credentials/{credentialId}',
+            'uri' => 'admin/realms/{realm}/users/{id}/credentials/{credentialId}',
             'description' => 'Delete credential associated with the user',
             'httpMethod' => 'DELETE',
             'parameters' => array(
