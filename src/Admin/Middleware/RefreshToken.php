@@ -140,6 +140,7 @@ class RefreshToken
         $httpClient = new Client([
             'base_uri' => $options['baseUri'],
             'verify' => isset($options['verify']) ? $options['verify'] : true,
+            'proxy' => isset($options['proxy']) ? $options['proxy'] : null,
         ]);
 
         return $httpClient->requestAsync('POST', $url, ['form_params' => $params])->then(function (ResponseInterface $response) {
