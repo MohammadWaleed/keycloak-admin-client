@@ -48,7 +48,7 @@ class FullBodyLocation extends JsonLocation
         CommandInterface $command,
         RequestInterface $request,
         Parameter $param
-    ) {
+    ): RequestInterface {
         $this->jsonData = $this->prepareValue(
             $command[$param->getName()],
             $param
@@ -58,10 +58,15 @@ class FullBodyLocation extends JsonLocation
             $request = $request->withHeader('Content-Type', $this->jsonContentType);
         }
 
-        return $request->withBody($this->getStream(\GuzzleHttp\json_encode($this->jsonData)));
+        $json = json_encode($this->jsonData);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            throw new \InvalidArgumentException('json_encode error: ' . json_last_error_msg());
+        }
+
+        return $request->withBody($this->getStream($json));
     }
 
-    public function after(CommandInterface $command, RequestInterface $request, Operation $operation)
+    public function after(CommandInterface $command, RequestInterface $request, Operation $operation): RequestInterface
     {
         return $request;
     }

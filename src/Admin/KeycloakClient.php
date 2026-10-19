@@ -3,12 +3,17 @@
 namespace Keycloak\Admin;
 
 use Keycloak\Admin\Middleware\RefreshToken;
+use GuzzleHttp\Command\CommandInterface;
 use GuzzleHttp\Command\Guzzle\GuzzleClient;
 use GuzzleHttp\Command\Guzzle\Description;
 use GuzzleHttp\Command\Guzzle\Serializer;
+use GuzzleHttp\Command\Result;
+use GuzzleHttp\Command\ResultInterface;
 use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Promise\PromiseInterface;
 use Keycloak\Admin\Classes\FullBodyLocation;
 use Keycloak\Admin\Classes\FullTextLocation;
 use Keycloak\Admin\TokenStorages\RuntimeTokenStorage;
@@ -355,7 +360,14 @@ class KeycloakClient extends GuzzleClient
             ]),
             function ($response) {
                 $responseBody = $response->getBody()->getContents();
-                return json_decode($responseBody, true) ?? ['content' => $responseBody];
+                $result = json_decode($responseBody, true) ?? ['content' => $responseBody];
+
+                // guzzlehttp/command >= 2.0 (Guzzle 8) requires a ResultInterface; __call() unwraps it again
+                if (defined(ClientInterface::class . '::MAJOR_VERSION') && ClientInterface::MAJOR_VERSION >= 8) {
+                    return new Result(is_array($result) ? $result : ['content' => $responseBody]);
+                }
+
+                return $result;
             },
             null,
             $config
@@ -363,7 +375,24 @@ class KeycloakClient extends GuzzleClient
     }
 
 
-    public function getCommand($name, array $params = [])
+    /**
+     * Executes the operation and returns its result as a plain array
+     *
+     * @param string $name
+     * @param array  $args
+     * @return mixed
+     */
+    public function __call($name, array $args)
+    {
+        $result = parent::__call($name, $args);
+        $unwrap = function ($result) {
+            return $result instanceof ResultInterface ? $result->toArray() : $result;
+        };
+
+        return $result instanceof PromiseInterface ? $result->then($unwrap) : $unwrap($result);
+    }
+
+    public function getCommand($name, array $params = []): CommandInterface
     {
         if (!isset($params['realm'])) {
             $params['realm'] = $this->getRealmName();
